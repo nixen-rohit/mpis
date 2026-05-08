@@ -1,37 +1,41 @@
 // components/header/nav-data.tsx
 "use client";
-import { RiFirebaseFill } from "react-icons/ri";
-import { SiWoocommerce } from "react-icons/si";
-import { Magento ,React,Angular,Vuejs,Javascript,Tailwind,Typescript,Vite,Net} from "@/components/svg/page";
 import {
-  SiVuedotjs,
-  SiJavascript,
-  SiTypescript,
-  SiTailwindcss,
-  SiVite,
-  SiPhp,
-  SiNodedotjs,
-  SiPython,
-  SiLaravel,
-  SiCodeigniter,
-  SiMongodb,
-  SiSqlite,
-  SiFirebase,
-  SiApple,
-  SiAndroid,
-  SiFlutter,
-  SiGooglecloud,
-} from "react-icons/si";
-import { PiFileSqlFill } from "react-icons/pi";
-
-import { AiOutlineDotNet } from "react-icons/ai";
-import { BiLogoPostgresql } from "react-icons/bi";
-
-import { FaAws } from "react-icons/fa6";
-import { VscAzure } from "react-icons/vsc";
-import { GiDatabase } from "react-icons/gi";
-import { RiReactjsLine } from "react-icons/ri";
-import { TbBrandMysql } from "react-icons/tb";
+  Magento,
+  React,
+  Angular,
+  Vuejs,
+  Javascript,
+  Tailwind,
+  Typescript,
+  Vite,
+  Net,
+  Laravel,
+  Codeigniter,
+  PHP,
+  Nodejs,
+  NetCore,
+  Python,
+  SQLServer,
+  MySQL,
+  PostgreSQL,
+  MongoDB,
+  DynamoDB,
+  SQLite,
+  Firebase,
+  Woocommerce,
+  Apple,
+  Android,
+  Flutter,
+  ReactNative,
+  AWS,
+  Googlecloud,
+  Azure,
+  Shopify,
+  Wordpress,
+  BlockChain,
+  AzureDevOps,
+} from "@/components/svg/page";
 
 import {
   RiSettings3Line,
@@ -213,84 +217,141 @@ export const SERVICES_NAV: MegaMenuData = {
       ],
     },
   ],
-  blogCard: {
+ 
+};
+
+
+export const EXPERTISE_NAV: MegaMenuData = {
+  columns: [
+    {
+      heading: "Focus ",
+      links: [
+        {
+          label: "SEO (Search Engine Optimization)",
+          description: "Our mission, values & vision",
+          href: "/about",
+          icon: <RiBuildingLine />,
+        },
+        {
+          label: "Social Media Marketing",
+          description: "The minds behind MPIS",
+          href: "/leadership-team",
+          icon: <RiTeamLine />,
+        },
+        {
+          label: "Paid Ads Management",
+          description: "Industry accolades we've earned",
+          href: "/awards-recognition",
+          icon: <RiAwardLine />,
+        },
+         
+      ],
+    },
+    {
+      heading: "Solutions ",
+      links: [
+        {
+          label: "Learning Management Systems",
+          description: "Our mission, values & vision",
+          href: "/about",
+          icon: <RiBuildingLine />,
+        },
+        {
+          label: "Content Management System",
+          description: "The minds behind MPIS",
+          href: "/leadership-team",
+          icon: <RiTeamLine />,
+        },
+        {
+          label: "HRMS",
+          description: "Industry accolades we've earned",
+          href: "/awards-recognition",
+          icon: <RiAwardLine />,
+        },
+         {
+          label: "Healthcare IT",
+          description: "Industry accolades we've earned",
+          href: "/awards-recognition",
+          icon: <RiAwardLine />,
+        },
+         {
+          label: "CRM",
+          description: "Industry accolades we've earned",
+          href: "/awards-recognition",
+          icon: <RiAwardLine />,
+        },
+         {
+          label: "Service Excellence",
+          description: "Industry accolades we've earned",
+          href: "/awards-recognition",
+          icon: <RiAwardLine />,
+        },
+
+         
+      ],
+    },
+
+    
+    //  {
+    //   heading: "Technologies ",
+    //   links: [
+    //     {
+    //       label: "AWS",
+    //       description: "Our mission, values & vision",
+    //       href: "/about",
+    //       icon: <RiBuildingLine />,
+    //     },
+    //     {
+    //       label: "Azure",
+    //       description: "The minds behind MPIS",
+    //       href: "/leadership-team",
+    //       icon: <RiTeamLine />,
+    //     },
+    //     {
+    //       label: "GCP",
+    //       description: "Industry accolades we've earned",
+    //       href: "/awards-recognition",
+    //       icon: <RiAwardLine />,
+    //     },
+    //      {
+    //       label: "Utho/IN",
+    //       description: "Industry accolades we've earned",
+    //       href: "/awards-recognition",
+    //       icon: <RiAwardLine />,
+    //     },
+    //      {
+    //       label: "ReactJS",
+    //       description: "Industry accolades we've earned",
+    //       href: "/awards-recognition",
+    //       icon: <RiAwardLine />,
+    //     },
+    //      {
+    //       label: "NextJs",
+    //       description: "Industry accolades we've earned",
+    //       href: "/awards-recognition",
+    //       icon: <RiAwardLine />,
+    //     },
+
+         
+    //   ],
+    // },
+
+    
+    
+     
+  ],
+   blogCard: {
     tag: "Guide",
     title: "Partner with Experts",
     excerpt:
       "Elevate your business with our tailored digital solutions and industry-leading expertise.",
     href: "/blog",
   },
+  
 };
 
-export const PLATFORM_NAV: MegaMenuData = {
-  columns: [
-    {
-      heading: "Platform",
-      links: [
-        {
-          label: "Analytics",
-          description: "Real-time dashboards and metrics",
-          href: "/analytics",
-          icon: <RiBarChartBoxLine />,
-        },
-        {
-          label: "Automation",
-          description: "Workflows that run themselves",
-          href: "/automation",
-          icon: <RiFlashlightLine />,
-        },
-        {
-          label: "Infrastructure",
-          description: "Edge compute and storage",
-          href: "/devops",
-          icon: <RiServerLine />,
-        },
-        {
-          label: "Database",
-          description: "Managed Postgres and Redis",
-          href: "/full-stack-development",
-          icon: <RiDatabase2Line />,
-        },
-      ],
-    },
-    {
-      heading: "Developer",
-      links: [
-        {
-          label: "Developer Tools",
-          description: "SDKs, APIs, and CLI",
-          href: "/full-stack-development",
-          icon: <RiCodeSSlashLine />,
-        },
-        {
-          label: "AI Engine",
-          description: "Built-in machine learning",
-          href: "/artificial-intelligence",
-          icon: <RiBrainLine />,
-        },
-        {
-          label: "Security",
-          description: "Enterprise-grade protection",
-          href: "/qa-and-testing",
-          icon: <RiShieldCheckLine />,
-        },
-        {
-          label: "AI Agents",
-          description: "Autonomous task runners",
-          href: "/artificial-intelligence",
-          icon: <RiRobot2Line />,
-        },
-      ],
-    },
-  ],
-  blogCard: {
-    tag: "New",
-    title: "Introducing MPIS Analytics 2.0",
-    excerpt:
-      "Faster queries, smarter dashboards, and real-time collaboration for your team.",
-    href: "/blog",
-  },
-};
+
+ 
 
 export const INDUSTRIES_NAV: MegaMenuData = {
   columns: [
@@ -363,55 +424,74 @@ export const TECHNOLOGIES: MegaMenuData = {
       heading: "Backend",
       links: [
         { label: ".Net", href: "/healthcare", icon: <Net /> },
-        { label: "PHP", href: "/elearning", icon: <SiPhp /> },
-        { label: "Node.js", href: "/fintech", icon: <SiNodedotjs /> },
-        { label: ".Net Core", href: "/fintech", icon: <AiOutlineDotNet /> },
-        { label: "Python", href: "/fintech", icon: <SiPython /> },
+        { label: "PHP", href: "/elearning", icon: <PHP /> },
+        { label: "Node.js", href: "/fintech", icon: <Nodejs /> },
+        { label: ".Net Core", href: "/fintech", icon: <NetCore /> },
+        { label: "Python", href: "/fintech", icon: <Python /> },
       ],
     },
 
     {
       heading: "Frameworks",
       links: [
-        { label: "Laravel", href: "/fintech", icon: <SiLaravel /> },
-        { label: "CodeIgniter", href: "/fintech", icon: <SiCodeigniter /> },
+        { label: "Laravel", href: "/fintech", icon: <Laravel /> },
+        { label: "CodeIgniter", href: "/fintech", icon: <Codeigniter /> },
       ],
     },
     {
       heading: "Database",
       links: [
-        { label: "SQL Server", href: "/healthcare", icon: <PiFileSqlFill /> },
-        { label: "MySQL", href: "/elearning", icon: <TbBrandMysql /> },
-        { label: "PostgreSQL", href: "/fintech", icon: <BiLogoPostgresql /> },
-        { label: "MongoDB", href: "/fintech", icon: <SiMongodb /> },
-        { label: "DynamoDB", href: "/fintech", icon: <GiDatabase /> },
-        { label: "SQLite", href: "/fintech", icon: <SiSqlite /> },
-        { label: "Firebase", href: "/fintech", icon: <RiFirebaseFill /> },
+        { label: "SQL Server", href: "/healthcare", icon: <SQLServer /> },
+        { label: "MySQL", href: "/elearning", icon: <MySQL /> },
+        { label: "PostgreSQL", href: "/fintech", icon: <PostgreSQL /> },
+        { label: "MongoDB", href: "/fintech", icon: <MongoDB /> },
+        { label: "DynamoDB", href: "/fintech", icon: <DynamoDB /> },
+        { label: "SQLite", href: "/fintech", icon: <SQLite /> },
+        { label: "Firebase", href: "/fintech", icon: <Firebase /> },
       ],
     },
     {
       heading: "Mobile",
       links: [
-        { label: "iOS", href: "/healthcare", icon: <SiApple /> },
-        { label: "Android", href: "/elearning", icon: <SiAndroid /> },
-        { label: "Flutter", href: "/fintech", icon: <SiFlutter /> },
-        { label: "React Native", href: "/fintech", icon: <RiReactjsLine /> },
+        { label: "iOS", href: "/healthcare", icon: <Apple /> },
+        { label: "Android", href: "/elearning", icon: <Android /> },
+        { label: "Flutter", href: "/fintech", icon: <Flutter /> },
+        { label: "React Native", href: "/fintech", icon: <ReactNative /> },
       ],
     },
     {
       heading: "Cloud",
       links: [
-        { label: "AWS", href: "/healthcare", icon: <FaAws /> },
-        { label: "Google Cloud", href: "/elearning", icon: <SiGooglecloud /> },
-        { label: "Azure", href: "/fintech", icon: <VscAzure /> },
+        { label: "AWS", href: "/healthcare", icon: <AWS /> },
+        { label: "Google Cloud", href: "/elearning", icon: <Googlecloud /> },
+        { label: "Azure", href: "/fintech", icon: <Azure /> },
       ],
     },
     {
       heading: "E Commerce",
       links: [
-        { label: "Woo Commerce", href: "/healthcare", icon: <SiWoocommerce /> },
+        { label: "Woo Commerce", href: "/healthcare", icon: <Woocommerce /> },
         { label: "Magneto", href: "/elearning", icon: <Magento /> },
-        { label: "Shopify", href: "/fintech", icon: <VscAzure /> },
+        { label: "Shopify", href: "/fintech", icon: <Shopify /> },
+      ],
+    },
+
+    {
+      heading: "CMS",
+      links: [{ label: "Wordpress", href: "/healthcare", icon: <Wordpress /> }],
+    },
+
+    {
+      heading: "Emerging ",
+      links: [
+        { label: "Block Chain", href: "/healthcare", icon: <BlockChain /> },
+      ],
+    },
+
+    {
+      heading: "DevOps",
+      links: [
+        { label: "Azure DevOps", href: "/healthcare", icon: <AzureDevOps /> },
       ],
     },
   ],
@@ -503,9 +583,10 @@ export const ABOUT_NAV: MegaMenuData = {
 
 export const NAV: NavItem[] = [
   { label: "Services", mega: SERVICES_NAV },
-  { label: "Platform", mega: PLATFORM_NAV },
-  { label: "Technologies", mega: TECHNOLOGIES },
+  {label : "Expertise" , mega:EXPERTISE_NAV},
   { label: "Industries", mega: INDUSTRIES_NAV },
+  { label: "Technologies", mega: TECHNOLOGIES },
+  { label: "Career", },
   { label: "Blog", href: "/blog", mega: BLOG_NAV },
   { label: "About", href: "/about", mega: ABOUT_NAV },
 ];

@@ -1,6 +1,10 @@
-import Header from "@/layout/Header";
+import Hero from "@/components/Hero";
 const page = () => {
-  return <Header />;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 };
 
 export default page;
