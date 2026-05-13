@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, JetBrains_Mono } from "next/font/google";
+import {  Poppins , JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/layout/Header";
 
@@ -29,11 +29,10 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-       
-        <Header />
-        {children}
-      </body>
+      <body className="h-full flex flex-col">
+        
+       <Header/>
+{children}</body>
     </html>
   );
 }
