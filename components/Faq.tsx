@@ -1,113 +1,166 @@
-import {FAQ} from '@/components/ui/faqtabs'
+"use client";
 
-const FAQDemo = () => {
-  const categories = {
-    "web-dev": "Web Development",
-    "mobile-dev": "Mobile Development", 
-    "ui-ux": "UI/UX Design",
-    "copywriting": "Copywriting"
-  };
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus, Mail } from "lucide-react";
 
-  const faqData = {
-    "web-dev": [
-      {
-        question: "What is web development?",
-        answer: "Web development is the process of building and maintaining websites. It involves a combination of client-side and server-side programming, database management, and other web-related technologies."
-      },
-      {
-        question: "What programming languages are essential for web development?",
-        answer: "Essential languages for web development include HTML, CSS, and JavaScript for front-end development. For back-end development, popular languages include Python, Ruby, PHP, Java, and Node.js."
-      },
-      {
-        question: "What's the difference between front-end and back-end development?",
-        answer: "Front-end development focuses on the user interface and user experience of a website, while back-end development deals with server-side logic, databases, and application integration."
-      },
-      {
-        question: "How long does it typically take to develop a website?",
-        answer: "The time to develop a website can vary greatly depending on its complexity. A simple static website might take a few days, while a complex web application could take several months or even years."
-      },
-      {
-        question: "What is responsive web design?",
-        answer: "Responsive web design is an approach to web design that makes web pages render well on a variety of devices and window or screen sizes. It ensures that websites are accessible and visually appealing across different platforms."
-      }
-    ],
-    "mobile-dev": [
-      {
-        question: "What is mobile development?",
-        answer: "Mobile development is the process of creating software applications that run on mobile devices such as smartphones and tablets. It involves designing, coding, and testing applications for mobile operating systems like iOS and Android."
-      },
-      {
-        question: "What's the difference between native and cross-platform mobile development?",
-        answer: "Native development involves building separate apps for each platform using platform-specific languages (Swift for iOS, Java/Kotlin for Android). Cross-platform development uses frameworks like React Native or Flutter to build a single codebase that works on multiple platforms."
-      },
-      {
-        question: "What are some popular mobile app development frameworks?",
-        answer: "Popular mobile app development frameworks include React Native, Flutter, Xamarin, Ionic, and NativeScript. Each has its own strengths and is suited for different types of projects."
-      },
-      {
-        question: "How do you ensure mobile app security?",
-        answer: "Mobile app security involves practices such as secure coding, data encryption, secure authentication methods, regular security audits, and staying up-to-date with the latest security patches and best practices."
-      },
-      {
-        question: "What is the typical mobile app development lifecycle?",
-        answer: "The typical mobile app development lifecycle includes stages such as planning, design, development, testing, deployment, and maintenance. It often follows an iterative process with continuous updates and improvements."
-      }
-    ],
-    "ui-ux": [
-      {
-        question: "What is UI/UX design?",
-        answer: "UI (User Interface) design focuses on the visual elements of a digital product, while UX (User Experience) design deals with the overall feel and functionality of the product. Together, they aim to create products that are both visually appealing and easy to use."
-      },
-      {
-        question: "What's the difference between UI and UX design?",
-        answer: "UI design focuses on the look and layout of a product's interface, including colors, typography, and visual elements. UX design is broader, encompassing the entire user journey and how users interact with the product."
-      },
-      {
-        question: "What tools do UI/UX designers commonly use?",
-        answer: "Common tools for UI/UX design include Sketch, Figma, Adobe XD, InVision, and Protopie for design and prototyping. Research and testing tools might include UserTesting, Hotjar, and Optimal Workshop."
-      },
-      {
-        question: "What is a user persona?",
-        answer: "A user persona is a fictional representation of your ideal user or customer. It's based on user research and includes details about the persona's background, goals, challenges, and behaviors. Personas help guide design decisions by keeping the focus on the end-user."
-      },
-      {
-        question: "What is the importance of user testing in UI/UX design?",
-        answer: "User testing is crucial in UI/UX design as it provides direct feedback from actual users. It helps identify usability issues, validate design decisions, and ensure that the product meets user needs and expectations."
-      }
-    ],
-    "copywriting": [
-      {
-        question: "What is copywriting?",
-        answer: "Copywriting is the act of writing text for the purpose of advertising or other forms of marketing. The product, called copy, is written content that aims to increase brand awareness and ultimately persuade a person or group to take a particular action."
-      },
-      {
-        question: "What's the difference between copywriting and content writing?",
-        answer: "While both involve writing, copywriting is specifically aimed at persuasion and driving action (like making a purchase), while content writing is more focused on informing, educating, or entertaining the reader."
-      },
-      {
-        question: "What are some key elements of effective copywriting?",
-        answer: "Key elements of effective copywriting include understanding the target audience, crafting compelling headlines, focusing on benefits rather than features, using persuasive language, and including a clear call-to-action."
-      },
-      {
-        question: "How important is SEO in copywriting?",
-        answer: "SEO (Search Engine Optimization) is very important in copywriting, especially for digital content. It helps ensure that your copy reaches your target audience by making it more visible in search engine results. This involves using relevant keywords, creating quality content, and following SEO best practices."
-      },
-      {
-        question: "What is a call-to-action (CTA) in copywriting?",
-        answer: "A call-to-action (CTA) is a prompt in your copy that tells the reader what to do next. It's usually a command verb like 'Buy Now,' 'Sign Up,' or 'Learn More.' An effective CTA is clear, compelling, and creates a sense of urgency."
-      }
-    ]
+interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQItem[] = [
+  {
+    id: 1,
+    question: "What services do you provide ?",
+    answer:
+      "We help businesses grow. We do this by building websites and custom software. We also manage cloud infrastructure. We run marketing campaigns based on data. This way, you can focus on your brand.",
+  },
+  {
+    id: 2,
+    question: "Do you support after project delivery ?",
+    answer:
+      "Yes, we do. We stay to handle updates. We fix bugs. We ensure everything is fast and secure. You do not have to worry",
+  },
+  {
+    id: 3,
+    question: "Can you manage marketing and development together?",
+    answer:
+      "Yes, we can. That is what we do best. We align your website with your marketing. Your tech is built to convert visitors. This creates a path to success.",
+  },
+  {
+    id: 4,
+    question: "Do you build custom system ?",
+    answer:
+      "Yes, we do not use templates. Every system is built from scratch. It is designed to match your workflows. This ensures it solves your business challenges.",
+  },
+  {
+    id: 5,
+    question: "Is data security ensured ?",
+    answer:
+      "Security is important to us. We use encryption. We use safety protocols. Your information is protected. Your customer's privacy is safe.",
+  },
+];
+
+export default function Faq() {
+  const [openId, setOpenId] = useState<number | null>(1);
+
+  const toggle = (id: number) => {
+    setOpenId(openId === id ? null : id);
   };
 
   return (
-    <div className="min-h-screen">
-      <FAQ 
-              title="Frequently Asked Questions"
-              subtitle="Let's answer some questions"
-              categories={categories}
-              faqData={faqData} className={undefined}      />
-    </div>
-  );
-};
+    <section className="bg-white py-16 px-4 font-sans">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
+        <div className="mb-16  flex justify-center items-center flex-col">
+          <p className="text-sm md:text-base uppercase tracking-[0.25em] text-gray-500 font-medium mb-4">
+            Have Questions ?
+          </p>
+          <h1 className="text-5xl md:text-7xl font-bold text-black  flex justify-center items-center flex-col gap-2">
+            Frequently Asked
+            <span className="  text-gray-400">Questions</span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-5xl mx-auto text-center mt-4">
+            Everything you need to know about us and our services. Can’t find an
+            answer? Feel free to contact us.
+          </p>
+        </div>
 
-export default FAQDemo;
+        {/* Accordion Items */}
+        <div className="space-y-4 max-w-7xl mx-auto">
+          {faqs.map((faq) => {
+            const isOpen = openId === faq.id;
+
+            return (
+              <motion.div
+                key={faq.id}
+                layout
+                initial={false}
+                animate={{
+                  backgroundColor: isOpen
+                    ? "rgba(30, 58, 138, 0.2)"
+                    : "rgba(15, 23, 42, 0.1)",
+                  borderColor: isOpen
+                    ? "rgba(96, 165, 250, 0.5)"
+                    : "rgba(30, 41, 59, 1)",
+                }}
+                className="rounded-[40px] overflow-hidden transition-colors duration-300"
+              >
+                <button
+                  onClick={() => toggle(faq.id)}
+                  className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
+                >
+                  <div className="flex items-center gap-6">
+                    <span
+                      className={`text-4xl font-bold transition-colors duration-300 ${isOpen ? "text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]" : "text-[#D9D1DF]"}`}
+                    >
+                      {faq.id < 10 ? `0${faq.id}` : faq.id}
+                    </span>
+                    <span className="text-[#3D2C54] font-bold text-lg md:text-xl leading-snug">
+                      {faq.question}
+                    </span>
+                  </div>
+
+                  <div
+                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-white" : "bg-[#D9D1DF]"}`}
+                  >
+                    {isOpen ? (
+                      <Minus size={18} className="text-[#D9D1DF]" />
+                    ) : (
+                      <Plus size={18} className="text-white" />
+                    )}
+                  </div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      <div className="px-8 pb-8 md:px-24">
+                        <div className="h-px bg-[#D9D1DF] mb-6 w-full" />
+                        <p className="text-[#3D2C54]/80 leading-relaxed text-base md:text-md">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Left Side: Contact Card (from image_aec43d.png) */}
+        <div className="mt-8 flex flex-col justify-center items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="bg-[#F6F1F7] p-8 md:p-10 rounded-[40px] shadow-xl"
+          >
+            <h3 className="text-3xl font-bold text-[#3D2C54] mb-4">
+              Still have a questions?
+            </h3>
+            <p className="text-[#7A6A8C] text-lg leading-relaxed mb-8">
+              Can't find the answer to your question? Send us an email and we'll
+              get back to you as soon as possible!
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white px-8 py-4 rounded-2xl  text-center justify-center font-semibold text-lg flex items-center gap-3 transition-colors shadow-lg shadow-purple-500/20"
+            >
+              <Mail size={20} />
+              Send email
+            </motion.button>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

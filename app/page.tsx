@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import CurvedLoop from "@/components/ui/CurvedLoop";
 import { Testimonials } from "@/components/Testimonials";
 import Faq from "@/components/Faq"
+import  Services  from "@/components/Services";
 const page = () => {
   return (
     <div className="h-screen w-full ">
@@ -15,6 +16,7 @@ const page = () => {
         interactive
         className="custom-text-style "
       />
+      <Services/>
 
       <Testimonials /> 
       <Faq/>

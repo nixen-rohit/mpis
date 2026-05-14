@@ -10,8 +10,9 @@ import { NAV } from "@/components/Header/navdata";
 import { DesktopNav } from "@/components/Header/desktop/DesktopNav";
 import { MobileNav } from "@/components/Header/mobile/MobileNav";
 import { SearchOverlay } from "@/components/Header/shared/SearchOverlay";
+import Button from "@/components/ui/Button";
 
-export default function Header() {
+export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -55,7 +56,7 @@ export default function Header() {
             : "bg-white border-b border-gray-200/60",
         )}
       >
-        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
           <div className="flex items-center justify-between h-[58px] gap-4 lg:gap-6">
             {/* ── Logo ── */}
             <Link
@@ -63,9 +64,6 @@ export default function Header() {
               className="flex items-center gap-2.5 shrink-0 h-18 w-18"
               aria-label="MPIS Revolution – Home"
             >
-              
-              
-              
               <Image
                 src="/img/logo.png"
                 alt="MPIS Revolution"
@@ -73,7 +71,7 @@ export default function Header() {
                 height={120}
                 className="h-auto w-auto"
                 priority
-              /> 
+              />
             </Link>
 
             {/* ── Desktop Navigation ── */}
@@ -81,9 +79,7 @@ export default function Header() {
 
             {/* ── Right Actions ── */}
             <div className="flex items-center gap-1 shrink-0">
-              
-
-               {/* Search */}
+              {/* Search */}
               <button
                 onClick={() => setSearchOpen(true)}
                 className="hidden sm:flex items-center gap-2 rounded-full border  border-zinc-400 bg-white/80 px-4 py-2 text-sm text-gray-600 shadow-sm transition-all hover:border-gray-300 hover:bg-white"
@@ -97,20 +93,15 @@ export default function Header() {
               </button>
 
               {/* Divider */}
-              <div className="hidden sm:block h-4 w-px bg-gray-200 mx-1" />
+              <div className="hidden sm:block h-8 w-px bg-gray-400 mx-1" />
 
               {/* CTA */}
-              <Link
+
+              <Button
+                aria-label="Let's Talk"
                 href="/contact"
-                className={cn(
-                  "hidden sm:inline-flex items-center gap-1.5 text-[13px] font-semibold",
-                  "px-4 py-2 rounded-lg bg-blue-600 text-white",
-                  "hover:bg-blue-700 active:bg-blue-800 transition-colors",
-                  "shadow-sm shadow-blue-200",
-                )}
-              >
-                Let's Talk <RiArrowRightLine className="text-sm" />
-              </Link>
+                title="Let's Talk"
+              />
 
               {/* Mobile menu toggle */}
               <button

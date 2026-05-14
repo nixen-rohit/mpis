@@ -5,7 +5,7 @@ import { useAspect, useTexture } from "@react-three/drei";
 import { useMemo, Suspense, useState, useEffect } from "react";
 import * as THREE from "three/webgpu";
 import { bloom } from "three/examples/jsm/tsl/display/BloomNode.js";
- 
+import { MagneticButton } from "@/components/ui/MagneticButton";
 import Link from "next/link";
 import { SquareArrowOutUpRight } from "lucide-react";
 import {
@@ -85,7 +85,8 @@ const Scene = () => {
     const flow = oneMinus(
       smoothstep(float(0), float(0.02), abs(depthDifference)),
     );
-    const mask = dot.mul(flow).mul(vec3(10, 0, 0));
+    const glowColor = vec3(0, 2, 8); // blue
+    const mask = dot.mul(flow).mul(glowColor);
 
     const final = blendScreen(tMap, mask);
 
@@ -167,7 +168,7 @@ const SubText = () => {
     <div className="pb-12 md:pb-0 gap-6 absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-50">
       <div className="w-full max-w-xs sm:max-w-md md:max-w-2xl">
         <p
-          className={`text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-bold uppercase leading-relaxed text-white transition-all duration-700 ${
+          className={`text-center text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl font-base    leading-relaxed text-gray-300 transition-all duration-700 ${
             subtitleVisible
               ? "fade-in-subtitle opacity-100 translate-y-0"
               : "opacity-0 translate-y-3"
@@ -192,27 +193,18 @@ export default function Html() {
   return (
     <div className="h-svh bg-black select-none">
       <AnimatedText />
+
       <SubText/>
+
       {/* <div className=" pb-12 md:pb-0 gap-6 absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center justify-center z-50">
-        <div
-          className="bg-red-600 glow-red text-gray-100 hover:bg-red-600/70 transition-colors"
-          
-        >
-          <Link href="/" prefetch={false}>
-            Get Started
-          </Link>
-        </div>
-        <div  >
-          <Link
-            href="/"
-            target="_blank"
-            className="flex items-center gap-2 h-5 text-black"
-          >
-            <h2>About Me</h2>
-            <SquareArrowOutUpRight size={15} />
-          </Link>
-        </div>
+        <MagneticButton>
+          <button className="bg-blue-700 hover:bg-blue-800 transition-colors px-10 text-lg text-white py-4 rounded-full">
+            Contact us
+          </button>
+        </MagneticButton>
       </div> */}
+
+
       {canvasReady && (
         <Suspense fallback={<LoadingFallback />}>
           <Canvas
@@ -220,15 +212,13 @@ export default function Html() {
             dpr={[1, 2]}
             gl={async (props) => {
               const renderer = new THREE.WebGPURenderer({
-                ...props as any,
+                ...(props as any),
                 antialias: false,
                 powerPreference: "high-performance",
               });
               await renderer.init();
               return renderer;
             }}
-
-           
             onCreated={({ gl }) => {
               gl.setClearColor("#000000");
               gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
