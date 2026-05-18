@@ -40,6 +40,7 @@ const LOGOS = [
   { id: 3, name: "brand3", img: "/img/brand3.webp" },
   { id: 4, name: "brand4", img: "/img/brand4.webp" },
   { id: 5, name: "brand5", img: "/img/brand5.webp" },
+   { id: 6, name: "brand6", img: "/img/brand6.webp" },
 ];
 
 export default function Hero() {

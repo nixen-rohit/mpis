@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/layout/Navbar";
 import { useState } from "react";
 import Preloader from "@/components/Preloader";
-
+import Footer from "@/layout/Footer"
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -45,6 +45,7 @@ export default function RootLayout({
   >
     <Navbar />
     {children}
+     <Footer />
   </main>
 
 
@@ -52,7 +53,10 @@ export default function RootLayout({
 </body> */}
 
       <body>
-         <Navbar />{children}</body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

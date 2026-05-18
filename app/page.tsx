@@ -7,14 +7,17 @@ import Faq from "@/components/Faq";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
 import VideoShowcase from "@/components/VideoShowcase";
+import PricingSection from "@/components/PricingSection";
 
 export default function Main() {
   return (
     <div className="min-h-screen w-full bg-white ">
+      
       <Hero />
       <CtaBanner />
       <FeaturesGrid/>
       <VideoShowcase/>
+      <PricingSection/>
 
       {/* <CurvedLoop
         marqueeText="Be ✦ Creative ✦ With ✦ MPIS ✦"
