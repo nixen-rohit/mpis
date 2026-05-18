@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body
+      {/* <body
   className={`h-full flex flex-col ${
     preloaderDone ? "overflow-auto" : "overflow-hidden"
   }`}
@@ -46,7 +46,13 @@ export default function RootLayout({
     <Navbar />
     {children}
   </main>
-</body>
+
+
+  
+</body> */}
+
+      <body>
+         <Navbar />{children}</body>
     </html>
   );
 }

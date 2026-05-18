@@ -78,21 +78,32 @@ export default function Services() {
     <section className="bg-[#F9F9F9] min-h-screen py-20 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto">
         {/* Heading Section */}
-        <div className="mb-16  flex justify-center items-center flex-col">
-          <p className="text-sm md:text-base uppercase tracking-[0.25em] text-gray-500 font-medium mb-4">
-            Your Business Our Expertise
-          </p>
-          <h1 className="text-5xl md:text-7xl font-bold text-black  flex justify-center items-center flex-col">
-            Service For Your
-            <span className="  text-gray-400" >Development</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-5xl mx-auto text-center mt-4">
+
+         <div className="flex flex-col justify-center items-center col-span-full mb-12 md:mb-16 max-w-7xl">
+          {/* Section label */}
+          <span className="inline-block  mb-4 text-sm sm:text-base font-medium tracking-[0.2em] uppercase text-gray-400 ">
+           Your Business Our Expertise
+          </span>
+
+          {/* Main heading */}
+          <h2 className="text-4xl sm:text-6xl text-center md:text-7xl lg:text-8xl font-normal tracking-tight text-[#111111] leading-[1.02] max-w-6xl">
+           Service For Your{" "}
+            <span className="font-serif italic font-light text-[#1c1c1c]">
+              Development
+            </span>{" "}
+            Solutions
+          </h2>
+
+          {/* Supporting description */}
+          <p className="mt-6 max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 font-light">
             We believe that every business is unique. Our approach to your
             growth is never one-size-fits-all, providing tailored development
             solutions to meet your exact needs.
           </p>
         </div>
 
+
+        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side: Accordion */}
           <div className="space-y-4">

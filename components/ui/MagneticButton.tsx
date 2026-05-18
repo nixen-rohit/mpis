@@ -10,7 +10,7 @@ type MagneticButtonType = {
   distance?: number;
 };
 
-function MagneticButton({ children, distance = 0.6 }: MagneticButtonType) {
+function MagneticButton({ children, distance = 2 }: MagneticButtonType) {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 

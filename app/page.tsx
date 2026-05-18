@@ -1,15 +1,20 @@
 "use client";
-
+import CtaBanner from "@/components/CtaBanner";
+import FeaturesGrid from "@/components/FeaturesGrid";
 import CurvedLoop from "@/components/ui/CurvedLoop";
 import { Testimonials } from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
+import VideoShowcase from "@/components/VideoShowcase";
 
 export default function Main() {
   return (
-    <div className="min-h-screen w-full ">
+    <div className="min-h-screen w-full bg-white ">
       <Hero />
+      <CtaBanner />
+      <FeaturesGrid/>
+      <VideoShowcase/>
 
       {/* <CurvedLoop
         marqueeText="Be ✦ Creative ✦ With ✦ MPIS ✦"
