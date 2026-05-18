@@ -95,7 +95,7 @@ export default function FeaturesGrid() {
           </h2>
 
           {/* Supporting description */}
-          <p className="mt-6 max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 font-light">
+          <p className="mt-6 max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed  text-gray-800 font-base">
             We deliver integrated IT and marketing services that streamline
             operations, strengthen brand presence, and drive measurable growth
             for modern businesses.

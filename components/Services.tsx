@@ -6,7 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, ArrowUpRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 interface ServiceItem {
-   
   id: string;
   title: string;
   subTitle: string;
@@ -26,7 +25,6 @@ const services: ServiceItem[] = [
     image: "/img/customsoftware.jpg",
   },
   {
-    
     id: "02.",
     title: "Web Application Development",
     subTitle: "Dynamic & Scalable Web Apps",
@@ -36,7 +34,7 @@ const services: ServiceItem[] = [
     image: "/img/webdevelopment.jpg",
   },
   {
-     id: "03.",
+    id: "03.",
     title: "App Development",
     subTitle: "Next-Gen Mobile Experiences",
     description:
@@ -45,7 +43,7 @@ const services: ServiceItem[] = [
     image: "/img/appdevelopment.jpg",
   },
   {
-     id: "04.",
+    id: "04.",
     title: "Healthcare Software Development",
     subTitle: "Innovating Patient Care",
     description:
@@ -54,7 +52,7 @@ const services: ServiceItem[] = [
     image: "/img/healthcare.jpg",
   },
   {
-     id: "05.",
+    id: "05.",
     title: "E-Learning Development",
     subTitle: "Revolutionizing Education",
     description:
@@ -62,11 +60,13 @@ const services: ServiceItem[] = [
     tags: ["Click here"],
     image: "/img/elearning.jpg",
   },
-   {
+  {
     id: "06.",
     title: ".NET Application Development",
     subTitle: "Enterprise-Grade .NET Solutions",
-    description:"Leverage the full power of Microsoft's ecosystem to build high-performance, resilient, and enterprise-ready applications using the latest .NET Core technologies.",    tags: ["Click here"],
+    description:
+      "Leverage the full power of Microsoft's ecosystem to build high-performance, resilient, and enterprise-ready applications using the latest .NET Core technologies.",
+    tags: ["Click here"],
     image: "/img/dotnet.jpg",
   },
 ];
@@ -79,15 +79,15 @@ export default function Services() {
       <div className="max-w-7xl mx-auto">
         {/* Heading Section */}
 
-         <div className="flex flex-col justify-center items-center col-span-full mb-12 md:mb-16 max-w-7xl">
+        <div className="flex flex-col justify-center items-center col-span-full mb-12 md:mb-16 max-w-7xl">
           {/* Section label */}
           <span className="inline-block  mb-4 text-sm sm:text-base font-medium tracking-[0.2em] uppercase text-gray-400 ">
-           Your Business Our Expertise
+            Your Business Our Expertise
           </span>
 
           {/* Main heading */}
           <h2 className="text-4xl sm:text-6xl text-center md:text-7xl lg:text-8xl font-normal tracking-tight text-[#111111] leading-[1.02] max-w-6xl">
-           Service For Your{" "}
+            Service For Your{" "}
             <span className="font-serif italic font-light text-[#1c1c1c]">
               Development
             </span>{" "}
@@ -95,15 +95,13 @@ export default function Services() {
           </h2>
 
           {/* Supporting description */}
-          <p className="mt-6 max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 font-light">
+          <p className="mt-6 max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base">
             We believe that every business is unique. Our approach to your
             growth is never one-size-fits-all, providing tailored development
             solutions to meet your exact needs.
           </p>
         </div>
 
-
-        
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side: Accordion */}
           <div className="space-y-4">

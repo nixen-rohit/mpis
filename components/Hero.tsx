@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
-import { gsap } from "gsap";
 import { ArrowUpRight, Star } from "lucide-react";
+import InfiniteLogo from "@/components/InfiniteLogo";
 
 // Mock data for client logos (using placeholders as seen in the image)
 
@@ -27,24 +27,14 @@ const SLIDE_DATA = [
   {
     id: 3,
     tagText: "Modern IT Systems for Smarter Operations",
-    headingNormal: "Advanced IT and Cloud Technology",
-    headingItalic: "Solutions for Business Growth",
+    headingNormal: "Advanced IT & Cloud Tech",
+    headingItalic: "Solutions for Business  ",
     description:
       "Our IT Service Provider team blends Web Development Company skills with Cloud Application Development to modernize business operations.",
   },
 ];
 
-const LOGOS = [
-  { id: 1, name: "brand1", img: "/img/brand1.webp" },
-  { id: 2, name: "brand2", img: "/img/brand2.webp" },
-  { id: 3, name: "brand3", img: "/img/brand3.webp" },
-  { id: 4, name: "brand4", img: "/img/brand4.webp" },
-  { id: 5, name: "brand5", img: "/img/brand5.webp" },
-   { id: 6, name: "brand6", img: "/img/brand6.webp" },
-];
-
 export default function Hero() {
-  const tickerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 2 & 3. Interval mechanism to change index every 10 seconds
@@ -54,30 +44,6 @@ export default function Hero() {
     }, 9000); // 1000ms = 1 seconds
 
     return () => clearInterval(interval);
-  }, []);
-
-  // GSAP Infinite Loop Animation for the Logo Ticker
-
-  useEffect(() => {
-    const ticker = tickerRef.current;
-    if (!ticker) return;
-
-    // Clone the ticker content for seamless looping
-    const tickerContent = ticker.innerHTML;
-    ticker.innerHTML += tickerContent;
-
-    const totalWidth = ticker.scrollWidth / 2;
-
-    const ctx = gsap.context(() => {
-      gsap.to(ticker, {
-        x: -totalWidth,
-        duration: 25,
-        ease: "none",
-        repeat: -1,
-      });
-    });
-
-    return () => ctx.revert(); // Cleanup on unmount
   }, []);
 
   // Framer Motion Variants for Staggered Hero Text
@@ -114,7 +80,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen w-full overflow-hidden bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] flex flex-col justify-between pt-20 pb-12 px-4 sm:px-6 lg:px-8 select-none">
+    <section className="relative h-screen w-full overflow-hidden bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] flex flex-col justify-between pt-10 md:pt-12 not-last: px-4 sm:px-6 lg:px-8 select-none">
       {/* Main Hero Content */}
       <motion.div
         initial="hidden"
@@ -122,7 +88,7 @@ export default function Hero() {
         variants={{
           visible: { transition: { staggerChildren: 0.15 } },
         }}
-        className="max-w-5xl mx-auto text-center flex flex-col items-center justify-center grow"
+        className="max-w-6xl mx-auto text-center flex flex-col items-center justify-center grow"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -156,11 +122,11 @@ export default function Hero() {
             {/* ── Main Heading ─────────────────────────────────────── */}
             <motion.h1
               variants={itemVariants}
-              className=" text-[clamp(2rem,8vw,5.5rem)]  font-normal tracking-tight text-[#111111] leading-[1.06] w-full wrap-break-word hyphens-auto   "
+              className=" text-[clamp(2rem,8vw,5.5rem)]  font-normal tracking-tight text-[#111111] leading-[1.3] w-full wrap-break-word hyphens-auto   "
             >
               {activeSlide.headingNormal}
               <br />
-              <span className="font-serif italic font-light text-[#1c1c1c]">
+              <span className="font-serif italic font-light text-[#1c1c1c] ">
                 {activeSlide.headingItalic}
               </span>
             </motion.h1>
@@ -168,7 +134,7 @@ export default function Hero() {
             {/* ── Subheading ───────────────────────────────────────── */}
             <motion.p
               variants={itemVariants}
-              className="mt-4 sm:mt-6 md:mt-8 max-w-[28ch] sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-[clamp(0.75rem,2vw,1.0625rem)]  text-gray-500 font-light leading-relaxed tracking-wide px-1 sm:px-0 "
+              className="mt-5 sm:mt-6 max-w-3xl text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base"
             >
               {activeSlide.description}
             </motion.p>
@@ -178,7 +144,7 @@ export default function Hero() {
         {/* CTA Button & Social Proof Group */}
         <motion.div
           variants={fadeInUp}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-8"
+          className="mt-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10"
         >
           {/* Pill Button */}
           <button className="group relative flex items-center gap-3 bg-[#4d3eff] hover:bg-[#3b2ecc] text-white pl-6 pr-2 py-2 rounded-full transition-all duration-300 shadow-md hover:shadow-lg">
@@ -191,7 +157,7 @@ export default function Hero() {
           </button>
 
           {/* Social Proof (Avatars & Stars) */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center flex-col md:flex-row  gap-5 pt-3 md:pt-0">
             {/* Avatar Stack */}
             <div className="flex -space-x-2">
               {[
@@ -210,13 +176,13 @@ export default function Hero() {
             </div>
 
             {/* Stars Text */}
-            <div className="flex flex-col items-start">
-              <div className="flex gap-0.5 text-amber-400">
+            <div className="flex flex-col items-center md:items-start">
+              <div className="flex gap-1 text-amber-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-current" />
                 ))}
               </div>
-              <span className="text-xs text-gray-500 font-medium mt-0.5">
+              <span className="text-xs text-gray-500 font-medium pt-1">
                 Trusted by 1000+ clients
               </span>
             </div>
@@ -224,38 +190,8 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Infinite Logo Ticker Section */}
-      <div className="w-full max-w-7xl mx-auto mt-20">
-        <div className="relative flex items-center justify-center mb-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-200/60"></div>
-          </div>
-          <span className="relative bg-transparent px-4 text-xs font-light tracking-wider text-gray-400 uppercase bg-linear-to-r from-[#fffdf9] via-[#fffdf9] to-[#fffdf9]">
-            Loved by 1000+ big and small brands around the world
-          </span>
-        </div>
-
-        {/* Endless Scroller Container */}
-        <div className="relative w-full overflow-hidden mask-[linear-gradient(to_right,transparent,white_15%,white_85%,transparent)]">
-          <div
-            ref={tickerRef}
-            className="flex whitespace-nowrap gap-16 items-center w-max py-2"
-          >
-            {LOGOS.map((logo) => (
-              <div
-                key={logo.id}
-                className="group flex items-center justify-center cursor-pointer"
-              >
-                <img
-                  src={logo.img}
-                  alt={logo.name || "brand logo"}
-                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      {/* Endless Scroller Container */}
+      <InfiniteLogo />
     </section>
   );
 }

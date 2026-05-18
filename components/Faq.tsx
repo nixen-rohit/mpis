@@ -52,24 +52,30 @@ export default function Faq() {
 
   return (
     <section className="bg-white py-16 px-4 font-sans">
-      <div className="max-w-6xl mx-auto">
-        {/* Header Section */}
-        <div className="mb-16  flex justify-center items-center flex-col">
-          <p className="text-sm md:text-base uppercase tracking-[0.25em] text-gray-500 font-medium mb-4">
-            Have Questions ?
-          </p>
-          <h1 className="text-5xl md:text-7xl font-bold text-black  flex justify-center items-center flex-col gap-2">
-            Frequently Asked
-            <span className="  text-gray-400">Questions</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-5xl mx-auto text-center mt-4">
-            Everything you need to know about us and our services. Can’t find an
-            answer? Feel free to contact us.
-          </p>
-        </div>
+     
+      <div className="flex flex-col justify-center items-center text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24 max-w-5xl mx-auto px-4 sm:px-6">
+  {/* Section label */}
+  <span className="inline-block mb-3 sm:mb-4 text-xs sm:text-sm md:text-base font-medium tracking-[0.18em] sm:tracking-[0.2em] uppercase text-gray-400">
+    Have Questions?
+  </span>
 
+  {/* Main heading */}
+  <h2 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[#111111] leading-[1.08] sm:leading-[1.04] md:leading-[1.02] max-w-6xl">
+    Frequently Asked{" "}
+    <span className="font-serif italic font-light text-[#1c1c1c] block sm:inline">
+      Questions
+    </span>
+  </h2>
+
+  {/* Supporting description */}
+          <p className="mt-6 max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base">
+    Everything you need to know about us and our services. Can’t find an
+    answer? Feel free to contact us.
+  </p>
+</div>
+ 
         {/* Accordion Items */}
-        <div className="space-y-4 max-w-7xl mx-auto">
+        <div className="space-y-4 max-w-5xl mx-auto">
           {faqs.map((faq) => {
             const isOpen = openId === faq.id;
 
@@ -136,7 +142,7 @@ export default function Faq() {
           })}
         </div>
 
-        <div className="mt-8 flex flex-col justify-center items-center text-center">
+        <div className="mt-8 flex flex-col justify-center items-center text-center ">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -153,22 +159,21 @@ export default function Faq() {
 
             {/* Center Button */}
 
-             <MagneticButton>
-            <div className="flex justify-center">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="bg-[#8B5CF6] w-60 hover:bg-[#7C3AED] text-white px-4 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-purple-500/20"
-              >
-                <Mail size={20} />
-                Send email
-              </motion.button>
-            </div>
+            <MagneticButton>
+              <div className="flex justify-center  ">
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="bg-[#8B5CF6] w-60 hover:bg-[#7C3AED] text-white px-4 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-purple-500/20"
+                >
+                  <Mail size={20} />
+                  Send email
+                </motion.button>
+              </div>
             </MagneticButton>
-
           </motion.div>
         </div>
-      </div>
+   
     </section>
   );
 }

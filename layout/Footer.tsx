@@ -126,7 +126,7 @@ export default function Footer() {
                 /> */}
 
               {/* Description */}
-              <p className="mt-2 sm:mt-4 max-w-full sm:max-w-lg text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed sm:leading-loose">
+              <p className="mt-2 sm:mt-4 max-w-full sm:max-w-lg text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed   ">
                 MPIS Revolution specializes in helping startups and enterprises
                 craft strategic solutions, leveraging cutting-edge technology to
                 drive impactful growth and innovation worldwide.
@@ -248,7 +248,7 @@ export default function Footer() {
 
       {/* Huge Bottom MPIS */}
       <div className="relative  w-full overflow-hidden select-none">
-        <div className="flex whitespace-nowrap animate-[marquee_18s_linear_infinite] will-change-transform">
+        <div className="flex whitespace-nowrap animate-[marquee_15s_linear_infinite] will-change-transform">
           {[...Array(4)].map((_, index) => (
             <h1
               key={index}
