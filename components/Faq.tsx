@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, Mail } from "lucide-react";
-
+import { MagneticButton } from "@/components/ui/MagneticButton";
 interface FAQItem {
   id: number;
   question: string;
@@ -123,7 +123,7 @@ export default function Faq() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       <div className="px-8 pb-8 md:px-24">
-                        <div className="h-px bg-[#D9D1DF] mb-6 w-full" />
+                        <div className="h-px bg-gray-500 mb-6 w-full" />
                         <p className="text-[#3D2C54]/80 leading-relaxed text-base md:text-md">
                           {faq.answer}
                         </p>
@@ -136,7 +136,6 @@ export default function Faq() {
           })}
         </div>
 
-        {/* Left Side: Contact Card (from image_aec43d.png) */}
         <div className="mt-8 flex flex-col justify-center items-center text-center">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -144,20 +143,29 @@ export default function Faq() {
             className="bg-[#F6F1F7] p-8 md:p-10 rounded-[40px] shadow-xl"
           >
             <h3 className="text-3xl font-bold text-[#3D2C54] mb-4">
-              Still have a questions?
+              Still have questions?
             </h3>
+
             <p className="text-[#7A6A8C] text-lg leading-relaxed mb-8">
               Can't find the answer to your question? Send us an email and we'll
               get back to you as soon as possible!
             </p>
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="bg-[#8B5CF6] hover:bg-[#7C3AED] text-white px-8 py-4 rounded-2xl  text-center justify-center font-semibold text-lg flex items-center gap-3 transition-colors shadow-lg shadow-purple-500/20"
-            >
-              <Mail size={20} />
-              Send email
-            </motion.button>
+
+            {/* Center Button */}
+
+             <MagneticButton>
+            <div className="flex justify-center">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="bg-[#8B5CF6] w-60 hover:bg-[#7C3AED] text-white px-4 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-purple-500/20"
+              >
+                <Mail size={20} />
+                Send email
+              </motion.button>
+            </div>
+            </MagneticButton>
+
           </motion.div>
         </div>
       </div>
