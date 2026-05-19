@@ -114,16 +114,7 @@ export default function Achievement() {
                   },
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                className="
-            relative flex 
-            h-28 w-28 
-            sm:h-36 sm:w-36 
-            md:h-40 md:w-40
-            items-center justify-center 
-            rounded-full 
-           bg-linear-to-br from-blue-600 to-blue-700 text-white   shadow-[0_20px_60px_rgba(37,99,235,0.35)] border border-white/10 backdrop-blur-xl  
-             
-          "
+                className="relative flex h-28 w-28 sm:h-36 sm:w-36 md:h-40 md:w-40 items-center justify-center rounded-full bg-linear-to-br from-blue-600 to-blue-700 text-white   shadow-[0_20px_60px_rgba(37,99,235,0.35)] border border-white/10 backdrop-blur-xl  "
               >
                 {/* Arrow */}
                 <motion.div
@@ -161,13 +152,7 @@ export default function Achievement() {
               {wideTopCard && (
                 <motion.div
                   variants={itemVariants}
-                  className="
-              bg-white text-black 
-              rounded-[24px] 
-              p-6 sm:p-8 
-              flex flex-col items-center justify-center text-center 
-              h-[160px] sm:h-[190px]
-            "
+                  className="bg-white text-black rounded-[24px] p-6 sm:p-8 flex flex-col items-center justify-center text-center h-[160px] sm:h-[190px]"
                 >
                   <span className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-2">
                     {wideTopCard.value}
@@ -186,13 +171,7 @@ export default function Achievement() {
                     key={stat.id}
                     variants={itemVariants}
                     whileHover={{ y: -4 }}
-                    className="
-                bg-white text-black 
-                rounded-[20px] 
-                p-4 sm:p-5 
-                flex flex-col items-center justify-center text-center 
-                h-[130px] sm:h-[150px]
-              "
+                    className="bg-white text-black rounded-[20px] p-4 sm:p-5 flex flex-col items-center justify-center text-center h-[130px] sm:h-[150px]"
                   >
                     <span className="text-3xl sm:text-4xl font-black tracking-tight mb-1">
                       {stat.value}
@@ -212,13 +191,7 @@ export default function Achievement() {
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="bg-linear-to-br from-blue-600 to-blue-700 text-white   shadow-[0_20px_60px_rgba(37,99,235,0.35)] border border-white/10 backdrop-blur-xl    
-            rounded-[24px] 
-            p-6 sm:p-8 
-            flex flex-col items-center justify-center text-center 
-            min-h-[220px] sm:min-h-[320px]
-            relative overflow-hidden group
-          "
+                className="bg-linear-to-br from-blue-600 to-blue-700 text-white   shadow-[0_20px_60px_rgba(37,99,235,0.35)] border border-white/10 backdrop-blur-xl rounded-[24px] p-6 sm:p-8 flex flex-col items-center justify-center text-center min-h-[220px] sm:min-h-[320px] relative overflow-hidden group"
               >
                 <span className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter mb-2">
                   {highlightedCard.value}

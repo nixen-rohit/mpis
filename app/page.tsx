@@ -11,29 +11,33 @@ import PricingSection from "@/components/PricingSection";
 import WhyChoose from "@/components/WhyChoose";
 import Achievement from "@/components/Achievemen";
 import Strategic from "@/components/Strategic";
-
-
+import Insight from "@/components/Insight";
+import Industry from "@/components/Industry";
 
 export default function Main() {
   return (
     <div className="min-h-screen w-full bg-white ">
-
-     
-
-      <Strategic/>
-
-
-      <Achievement />
-
       <Hero />
+
+      {/* bio section */}
+
       <FeaturesGrid />
+      <Industry />
       <WhyChoose />
       <CtaBanner />
-
+      <Achievement />
       <PricingSection />
+      <Insight />
 
+      {/* contact page  */}
+
+      <Strategic />
       <Services />
       <VideoShowcase />
+
+      {/* technology section */}
+      {/* lets connect */}
+
       <Testimonials />
       <Faq />
 
