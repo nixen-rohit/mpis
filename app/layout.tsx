@@ -1,20 +1,21 @@
 "use client";
 
-import { Poppins, JetBrains_Mono } from "next/font/google";
+import { DM_Sans, DM_Serif_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/layout/Navbar";
 import { useState } from "react";
 import Preloader from "@/components/Preloader";
 import Footer from "@/layout/Footer"
-const poppins = Poppins({
-  variable: "--font-poppins",
+
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const dmSerif = DM_Serif_Display({
   subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-serif",
 });
 
 export default function RootLayout({
@@ -27,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${dmSerif.variable} h-full antialiased`}
     >
       {/* <body
   className={`h-full flex flex-col ${

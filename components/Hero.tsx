@@ -126,7 +126,7 @@ export default function Hero() {
             >
               {activeSlide.headingNormal}
               <br />
-              <span className="font-serif italic font-light text-[#1c1c1c] ">
+              <span className=" font-serif italic font-light text-[#1c1c1c] ">
                 {activeSlide.headingItalic}
               </span>
             </motion.h1>

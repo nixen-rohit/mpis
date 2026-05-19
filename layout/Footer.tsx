@@ -110,8 +110,10 @@ export default function Footer() {
           >
             <div className="w-full flex flex-col items-center lg:items-start">
               {/* Brand Label */}
-              <h4 className="text-sm font-extrabold uppercase   text-black  ">
-                MPIS Revolution
+              
+
+              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-black">
+               MPIS Revolution
               </h4>
 
               {/* Logo */}
@@ -229,7 +231,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-left">
           <p className="text-xs sm:text-sm text-gray-500">
-            © 2026 MPIS Revolution. All rights reserved.
+            © {new Date().getFullYear()} MPIS Revolution. All rights reserved.
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-end items-center gap-4 sm:gap-5">

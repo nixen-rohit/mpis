@@ -8,13 +8,20 @@ import Services from "@/components/Services";
 import Hero from "@/components/Hero";
 import VideoShowcase from "@/components/VideoShowcase";
 import PricingSection from "@/components/PricingSection";
+import WhyChoose from "@/components/WhyChoose";
 
 export default function Main() {
   return (
     <div className="min-h-screen w-full bg-white ">
-      
+
       <Hero />
-      <CtaBanner />
+      
+      <WhyChoose/>
+       <CtaBanner />
+
+       
+      
+     
       <FeaturesGrid/>
       <VideoShowcase/>
       <PricingSection/>
@@ -27,10 +34,10 @@ export default function Main() {
         interactive
         className="custom-text-style "
       /> */}
-      <Services />
+      {/* <Services />
 
       <Testimonials />
-      <Faq />
+      <Faq /> */}
     </div>
   );
 }
