@@ -81,7 +81,7 @@ export default function WhyChoose() {
         {/* Header Section */}
         <div className="flex flex-col justify-center items-center mb-12 md:mb-16 w-full text-center">
           <span className="inline-block mb-3 text-xs sm:text-sm font-semibold tracking-[0.2em] uppercase text-gray-400">
-            Why choose MPIS Revolution
+            Why Choose Us
           </span>
 
           <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-[#111111] leading-[1.1] max-w-4xl">

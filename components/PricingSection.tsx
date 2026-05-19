@@ -80,7 +80,7 @@ export default function PricingSection() {
                 <div className="relative z-10">
                   {/* Header */}
                   <div className="flex items-center justify-between">
-                    <h3 className="bg-[linear-gradient(90deg,#4d3eff_0%,#ADFF00_25%,#ffffff_50%,#ADFF00_75%,#4d3eff_100%)] bg-size-[200%_auto] bg-clip-text text-2xl font-bold tracking-tight text-white">
+                    <h3 className="bg-[linear-gradient(90deg,#4d3eff_0%,#ADFF00_25%,#ffffff_50%,#ADFF00_75%,#4d3eff_100%)] bg-size-[200%_auto] bg-clip-text text-2xl font-bold tracking-tight text-[#ADFF00]">
                       {plan.title}
                     </h3>
 
@@ -147,7 +147,7 @@ export default function PricingSection() {
                 <div>
                   {/* Header */}
                   <div className="flex items-center justify-between">
-                    <h3 className="text-2xl font-bold tracking-tight text-[#4d3eff]">
+                    <h3 className="text-2xl font-bold tracking-tight text-blue-500">
                       {plan.title}
                     </h3>
 

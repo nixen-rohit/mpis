@@ -9,22 +9,33 @@ import Hero from "@/components/Hero";
 import VideoShowcase from "@/components/VideoShowcase";
 import PricingSection from "@/components/PricingSection";
 import WhyChoose from "@/components/WhyChoose";
+import Achievement from "@/components/Achievemen";
+import Strategic from "@/components/Strategic";
+
+
 
 export default function Main() {
   return (
     <div className="min-h-screen w-full bg-white ">
 
-      <Hero />
-      
-      <WhyChoose/>
-       <CtaBanner />
-
-       
-      
      
-      <FeaturesGrid/>
-      <VideoShowcase/>
-      <PricingSection/>
+
+      <Strategic/>
+
+
+      <Achievement />
+
+      <Hero />
+      <FeaturesGrid />
+      <WhyChoose />
+      <CtaBanner />
+
+      <PricingSection />
+
+      <Services />
+      <VideoShowcase />
+      <Testimonials />
+      <Faq />
 
       {/* <CurvedLoop
         marqueeText="Be ✦ Creative ✦ With ✦ MPIS ✦"
@@ -34,10 +45,6 @@ export default function Main() {
         interactive
         className="custom-text-style "
       /> */}
-      {/* <Services />
-
-      <Testimonials />
-      <Faq /> */}
     </div>
   );
 }

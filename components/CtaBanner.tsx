@@ -16,7 +16,7 @@ export default function CtaBanner() {
         className="relative overflow-hidden rounded-[32px] bg-[#18181b] border border-white/10 px-6 py-10 sm:px-8 md:px-12 md:py-12 shadow-[0_20px_60px_rgba(0,0,0,0.18)]"
       >
         {/* Background Glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 via-transparent to-transparent pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center text-center">
           {/* Top Content */}
@@ -36,11 +36,11 @@ export default function CtaBanner() {
             {/* Text Content */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               {/* Heading */}
-              <span className="text-3xl sm:text-4xl md:text-5xl font-semibold tracking-tight text-white leading-[1.15] max-w-3xl">
-                We ensure
-                <span className="text-blue-400 italic">fastest delivery</span> with
+              <h1 className="text-3xl sm:text-4xl font-normal md:text-5xl  tracking-tight text-white leading-[1.15] max-w-3xl">
+                We ensure {" "}
+                <span className="text-blue-400  font-serif italic">fastest delivery</span> with
                 our expert team
-              </span>
+              </h1>
             </div>
           </div>
 
@@ -53,10 +53,10 @@ export default function CtaBanner() {
               className="group flex items-center justify-between gap-4 bg-white hover:bg-zinc-100 text-black px-6 py-3 rounded-full transition-all duration-300 shadow-sm min-w-[220px]"
             >
               <span className="text-sm font-semibold tracking-wide">
-                Let's Collaborate
+                Get Started
               </span>
 
-              <div className="flex items-center justify-center w-9 h-9 rounded-full bg-[#18181b] text-white transition-transform duration-300 group-hover:rotate-45">
+              <div className="flex   items-center justify-center w-9 h-9 rounded-full bg-[#18181b] text-white transition-transform duration-300 group-hover:rotate-45">
                 <ArrowUpRight className="w-4 h-4" />
               </div>
             </motion.button>

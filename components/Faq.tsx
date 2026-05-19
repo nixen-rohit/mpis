@@ -44,7 +44,7 @@ const faqs: FAQItem[] = [
 ];
 
 export default function Faq() {
-  const [openId, setOpenId] = useState<number | null>(1);
+  const [openId, setOpenId] = useState<number | null>(null);
 
   const toggle = (id: number) => {
     setOpenId(openId === id ? null : id);
