@@ -78,8 +78,7 @@ function CapsuleCard({
         e.stopPropagation();
         onToggle();
       }}
-      className="group inline-flex items-center gap-3 bg-[#23313E] hover:bg-[#2C3E50] border border-white/10 hover:border-blue-500/40 rounded-full pl-2 pr-4 py-2 cursor-pointer select-none shrink-0 min-w-[200px] transition-all duration-200"
-    >
+className="group inline-flex items-center gap-3 bg-[#23313E] hover:bg-[#2C3E50] border border-white/10 hover:border-blue-500/40 rounded-full pl-2 pr-4 py-2 cursor-pointer select-none shrink-0 min-w-[160px] sm:min-w-[200px] transition-all duration-200"    >
       {/* Avatar */}
       <div className="relative w-10 h-10 rounded-full overflow-hidden shrink-0 border-2 border-transparent group-hover:border-blue-500 transition-colors duration-200">
         <Image
@@ -154,25 +153,26 @@ function MarqueeRow({
           >
             <CapsuleCard
               item={item}
-              onToggle={() => {}}
+              onToggle={() => { }}
             />
           </motion.div>
         ))}
       </motion.div>
+{/* Left Fade */}
+<div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-12 bg-linear-to-r from-white via-white/10 to-transparent" />
 
-      {/* Left Fade */}
-      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-linear-to-r from-white via-white/70 to-transparent" />
-
-      {/* Right Fade */}
-      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-linear-to-l from-white via-white/70 to-transparent" />
+{/* Right Fade */}
+<div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-12 bg-linear-to-l from-white via-white/10 to-transparent" />
     </div>
   );
 }
 
 // ── Main Component ─────────────────────────────────────────────
 export default function IndustryMarquee() {
-  const row1 = allIndustries.slice(0, 5);
-  const row2 = allIndustries.slice(5, 10);
+  // Mobile: first 4 + next 4
+  // Tablet/Desktop: same UI continues naturally
+  const row1 = allIndustries.slice(0, 4);
+  const row2 = allIndustries.slice(4, 8);
 
   return (
     <div className="w-full bg-white py-14 overflow-hidden">
@@ -184,7 +184,9 @@ export default function IndustryMarquee() {
 
         <h2 className="max-w-6xl text-center text-4xl font-bold leading-[1.1] tracking-tight text-black sm:text-6xl md:text-7xl">
           Global Sectors We{" "}
-          <span className="block font-light italic font-serif text-blue-600">Empower for every </span>{" "}
+          <span className="block font-light italic font-serif text-blue-600">
+            Empower for every
+          </span>{" "}
           industry
         </h2>
 

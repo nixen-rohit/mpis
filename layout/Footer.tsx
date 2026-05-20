@@ -40,8 +40,8 @@ const CONTACT_INFO = [
     content: (
       <>
         3rd Floor, Sector 63,
-        <br />
-        Noida, Uttar Pradesh
+         
+        Noida, U.P 
       </>
     ),
     align: "start",
@@ -89,178 +89,246 @@ export default function Footer() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  return (
-    <footer className="relative w-full overflow-hidden bg-white text-black border-t border-black/10 pt-20 sm:pt-24 lg:pt-32  font-sans">
-      {/* Background texture */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,0,0,0.04),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(0,0,0,0.03),transparent_40%)] pointer-events-none" />
+ return (
+  <footer className="relative w-full overflow-hidden border-t border-white/10 bg-[#0B0F19] pt-20 font-sans text-white sm:pt-24 lg:pt-32">
+    {/* Background texture */}
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.10),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.04),transparent_40%)]" />
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="relative max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
-      >
-        {/* Top Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-14 pb-12 sm:pb-16 lg:pb-20 border-b border-black/10">
-          {/* Brand Section */}
-          <motion.div
-            variants={itemVariants}
-            className="lg:col-span-5 flex flex-col gap-6 sm:gap-8 w-full text-center lg:text-left"
-          >
-            <div className="w-full flex flex-col items-center lg:items-start">
-              {/* Brand Label */}
-              
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
+    >
+      {/* Top Section */}
+      <div className="grid grid-cols-1 gap-10 border-b border-white/10 pb-12 sm:gap-12 sm:pb-16 lg:grid-cols-12 lg:gap-14 lg:pb-20">
+        {/* Brand Section */}
+        <motion.div
+          variants={itemVariants}
+          className="flex w-full flex-col gap-6 text-center lg:col-span-5 lg:text-left"
+        >
+          <div className="flex w-full flex-col items-center lg:items-start">
+            {/* Brand Label */}
+            <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-white">
+              MPIS Revolution
+            </h4>
 
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-black">
-               MPIS Revolution
-              </h4>
-
-              {/* Logo */}
-
-              {/* <Image
-                  src="/img/logo.png"
-                  alt="MPIS Logo"
-                  width={160}
-                  height={60}
-                  priority
-                  className="w-24 sm:w-28 md:w-36 lg:w-40 h-auto object-contain"
-                /> */}
-
-              {/* Description */}
-              <p className="mt-2 sm:mt-4 max-w-full sm:max-w-lg text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed   ">
-                MPIS Revolution specializes in helping startups and enterprises
-                craft strategic solutions, leveraging cutting-edge technology to
-                drive impactful growth and innovation worldwide.
-              </p>
-            </div>
-
-            {/* Social Icons */}
-            <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2 sm:gap-3 md:gap-4">
-              {[FaFacebook, BsTwitterX, FaLinkedin, FaInstagram, FaYoutube].map(
-                (Icon, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full border border-black/10 flex items-center justify-center text-black/70 hover:bg-black hover:text-white hover:border-black transition-all duration-300 hover:scale-105"
-                  >
-                    <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  </a>
-                ),
-              )}
-            </div>
-          </motion.div>
-
-          {/* Links Grid */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 text-center sm:text-left">
-            {/* Quick Links */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-black mb-4 sm:mb-5">
-                Quick Links
-              </h4>
-              <ul className="space-y-3">
-                {QUICK_LINKS.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="group inline-flex items-center justify-center sm:justify-start text-sm sm:text-base text-gray-600 hover:text-black transition-colors"
-                    >
-                      <ArrowRight className="w-3.5 h-3.5 mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Services */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-black mb-4 sm:mb-5">
-                Services
-              </h4>
-              <ul className="space-y-3">
-                {SERVICES_LINKS.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="group inline-flex items-center justify-center sm:justify-start text-sm sm:text-base text-gray-600 hover:text-black transition-colors"
-                    >
-                      <ArrowRight className="w-3.5 h-3.5 mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Contact */}
-            <motion.div
-              variants={itemVariants}
-              className="sm:col-span-2 lg:col-span-1"
-            >
-              <h4 className="text-sm font-bold uppercase tracking-[0.2em] text-black mb-4 sm:mb-5">
-                Contact
-              </h4>
-
-              <div className="space-y-4 sm:space-y-5 text-sm sm:text-base text-gray-600">
-                {CONTACT_INFO.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <div
-                      key={item.id}
-                      className={`flex gap-3 justify-center sm:justify-start ${
-                        item.align === "start" ? "items-start" : "items-center"
-                      }`}
-                    >
-                      <Icon
-                        className={`w-4 h-4 text-black shrink-0 ${
-                          item.align === "start" ? "mt-1" : ""
-                        }`}
-                      />
-
-                      <span className="leading-relaxed">{item.content}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
+            {/* Description */}
+            <p className="mt-2 max-w-full text-sm leading-relaxed text-neutral-400 sm:mt-4 sm:max-w-lg sm:text-base md:text-lg">
+              MPIS Revolution specializes in helping startups and
+              enterprises craft strategic solutions, leveraging
+              cutting-edge technology to drive impactful growth and
+              innovation worldwide.
+            </p>
           </div>
-        </div>
 
-        {/* Bottom */}
-        <div className="pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-left">
-          <p className="text-xs sm:text-sm text-gray-500">
-            © {new Date().getFullYear()} MPIS Revolution. All rights reserved.
-          </p>
-
-          <div className="flex flex-wrap justify-center md:justify-end items-center gap-4 sm:gap-5">
-            {LEGAL_LINKS.map((legal) => (
+          {/* Social Icons */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:justify-start">
+            {[
+              FaFacebook,
+              BsTwitterX,
+              FaLinkedin,
+              FaInstagram,
+              FaYoutube,
+            ].map((Icon, index) => (
               <a
-                key={legal.name}
-                href={legal.href}
-                className="text-xs sm:text-sm text-gray-500 hover:text-black transition-colors"
+                key={index}
+                href="#"
+                className="
+                  flex h-10 w-10 items-center justify-center
+                  rounded-full border border-white/10
+                  bg-white/[0.03]
+                  text-white/70
+                  transition-all duration-300
+                  hover:scale-105
+                  hover:border-blue-500/30
+                  hover:bg-blue-600
+                  hover:text-white
+                "
               >
-                {legal.name}
+                <Icon className="h-4 w-4" />
               </a>
             ))}
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Huge Bottom MPIS */}
-      <div className="relative  w-full overflow-hidden select-none">
-        <div className="flex whitespace-nowrap animate-[marquee_15s_linear_infinite] will-change-transform">
-          {[...Array(4)].map((_, index) => (
-            <h1
-              key={index}
-              className="mx-6 sm:mx-8 md:mx-10 text-[18vw] xs:text-[17vw] sm:text-[16vw] md:text-[15vw] lg:text-[12rem] xl:text-[18rem] 2xl:text-[22rem] font-black tracking-[-0.06em] sm:tracking-[-0.07em] lg:tracking-[-0.08em] whitespace-nowrap bg-linear-to-b from-black via-gray-500 to-transparent bg-clip-text text-transparent opacity-90"
+        {/* Links Grid */}
+        <div className="grid grid-cols-1 gap-8 text-center sm:grid-cols-2 sm:gap-10 sm:text-left md:grid-cols-2 lg:col-span-7 lg:grid-cols-3">
+          {/* Quick Links */}
+          <motion.div variants={itemVariants}>
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white sm:mb-5">
+              Quick Links
+            </h4>
+
+            <ul className="space-y-3">
+              {QUICK_LINKS.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="
+                      group inline-flex items-center
+                      justify-center sm:justify-start
+                      text-sm sm:text-base
+                      text-neutral-400
+                      transition-colors
+                      hover:text-blue-400
+                    "
+                  >
+                    <ArrowRight
+                      className="
+                        mr-2 h-3.5 w-3.5
+                        -translate-x-2 opacity-0
+                        transition-all duration-300
+                        group-hover:translate-x-0
+                        group-hover:opacity-100
+                      "
+                    />
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Services */}
+          <motion.div variants={itemVariants}>
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white sm:mb-5">
+              Services
+            </h4>
+
+            <ul className="space-y-3">
+              {SERVICES_LINKS.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="
+                      group inline-flex items-center
+                      justify-center sm:justify-start
+                      text-sm sm:text-base
+                      text-neutral-400
+                      transition-colors
+                      hover:text-blue-400
+                    "
+                  >
+                    <ArrowRight
+                      className="
+                        mr-2 h-3.5 w-3.5
+                        -translate-x-2 opacity-0
+                        transition-all duration-300
+                        group-hover:translate-x-0
+                        group-hover:opacity-100
+                      "
+                    />
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div
+            variants={itemVariants}
+            className="sm:col-span-2 lg:col-span-1"
+          >
+            <h4 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-white sm:mb-5">
+              Contact
+            </h4>
+
+            <div className="space-y-4 text-sm text-neutral-400 sm:space-y-5 sm:text-base">
+              {CONTACT_INFO.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.id}
+                    className={`flex gap-3 justify-center sm:justify-start ${
+                      item.align === "start"
+                        ? "items-start"
+                        : "items-center"
+                    }`}
+                  >
+                    <div
+                      className="
+                        flex h-10 w-10 shrink-0
+                        items-center justify-center
+                        rounded-full bg-blue-600
+                        text-white
+                        
+                        transition-all duration-300
+                        hover:bg-blue-700
+                      "
+                    >
+                      <Icon className="h-4 w-4" />
+                    </div>
+
+                    <span className="leading-relaxed">
+                      {item.content}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Bottom */}
+      <div className="flex flex-col items-center justify-between gap-4 pt-6 text-center sm:gap-6 sm:pt-8 md:flex-row md:text-left">
+        <p className="text-xs text-neutral-500 sm:text-sm">
+          © {new Date().getFullYear()} MPIS Revolution. All rights
+          reserved.
+        </p>
+
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:justify-end">
+          {LEGAL_LINKS.map((legal) => (
+            <a
+              key={legal.name}
+              href={legal.href}
+              className="
+                text-xs text-neutral-500
+                transition-colors
+                hover:text-blue-400
+                sm:text-sm
+              "
             >
-              MPIS REVOLUTION
-            </h1>
+              {legal.name}
+            </a>
           ))}
         </div>
       </div>
-    </footer>
-  );
+    </motion.div>
+
+    {/* Huge Bottom MPIS */}
+    <div className="relative w-full overflow-hidden select-none">
+      <div className="flex whitespace-nowrap will-change-transform animate-[marquee_15s_linear_infinite]">
+        {[...Array(4)].map((_, index) => (
+          <h1
+            key={index}
+            className="
+              mx-6 whitespace-nowrap
+              text-[18vw] font-black
+              tracking-[-0.06em]
+              opacity-90
+              text-transparent
+              bg-gradient-to-b
+              from-white/20
+              via-blue-400/10
+              to-transparent
+              bg-clip-text
+              sm:mx-8 sm:text-[16vw]
+              md:mx-10 md:text-[15vw]
+              lg:text-[12rem]
+              xl:text-[18rem]
+              2xl:text-[22rem]
+            "
+          >
+            MPIS REVOLUTION
+          </h1>
+        ))}
+      </div>
+    </div>
+  </footer>
+);
 }

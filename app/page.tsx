@@ -13,6 +13,7 @@ import Achievement from "@/components/Achievemen";
 import Strategic from "@/components/Strategic";
 import Insight from "@/components/Insight";
 import Industry from "@/components/Industry";
+import Contact from "@/components/Contact";
 
 export default function Main() {
   return (
@@ -23,20 +24,19 @@ export default function Main() {
 
       <FeaturesGrid />
       <Industry />
+      <Achievement />
       <WhyChoose />
       <CtaBanner />
-      <Achievement />
+
       <PricingSection />
       <Insight />
-
-      {/* contact page  */}
-
+      <Contact />
       <Strategic />
       <Services />
       <VideoShowcase />
 
       {/* technology section */}
-      {/* lets connect */}
+
 
       <Testimonials />
       <Faq />

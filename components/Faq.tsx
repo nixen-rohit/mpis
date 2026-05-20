@@ -100,7 +100,7 @@ export default function Faq() {
                 >
                   <div className="flex items-center gap-6">
                     <span
-                      className={`text-4xl font-bold transition-colors duration-300 ${isOpen ? "text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]" : "text-[#D9D1DF]"}`}
+                      className={`text-4xl font-bold transition-colors duration-300 ${isOpen ? "text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.1)]" : "text-blue-200"}`}
                     >
                       {faq.id < 10 ? `0${faq.id}` : faq.id}
                     </span>
@@ -110,10 +110,10 @@ export default function Faq() {
                   </div>
 
                   <div
-                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-white" : "bg-[#D9D1DF]"}`}
+                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? "bg-white" : "bg-blue-400"}`}
                   >
                     {isOpen ? (
-                      <Minus size={18} className="text-[#D9D1DF]" />
+                      <Minus size={18} className="text-blue-300" />
                     ) : (
                       <Plus size={18} className="text-white" />
                     )}
@@ -162,13 +162,22 @@ export default function Faq() {
             <MagneticButton>
               <div className="flex justify-center  ">
                 <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-[#8B5CF6] w-60 hover:bg-[#7C3AED] text-white px-4 py-4 rounded-2xl font-semibold text-lg flex items-center justify-center gap-3 transition-colors shadow-lg shadow-purple-500/20"
-                >
-                  <Mail size={20} />
-                  Send email
-                </motion.button>
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  className="
+    flex w-60 items-center justify-center gap-3
+    rounded-2xl bg-blue-600
+    px-4 py-4
+    text-lg font-semibold text-white
+    shadow-sm shadow-blue-200
+    transition-all duration-300
+    hover:bg-blue-700
+    active:bg-blue-800
+  "
+>
+  <Mail size={20} />
+  Send email
+</motion.button>
               </div>
             </MagneticButton>
           </motion.div>
