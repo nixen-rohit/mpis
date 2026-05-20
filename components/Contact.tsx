@@ -92,7 +92,7 @@ export default function Contact() {
     },
     {
       icon: <Clock size={18} />,
-      label: "Timing",
+      label: "Working Hours",
       value: "Mon–Sat, 9:00 AM – 7:00 PM IST",
     },
   ];

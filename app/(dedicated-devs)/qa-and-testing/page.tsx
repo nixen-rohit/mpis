@@ -1,9 +1,20 @@
 import React from 'react'
+import Faq from "@/components/Faq";
+import Consultation from '@/components/Consultation';
+import { Testimonials } from "@/components/Testimonials";
+import CtaBanner from "@/components/CtaBanner";
 
-const page = () => {
+import ServicePrice from '@/components/ServicePrice';
+
+export default function page() {
   return (
-    <div>page</div>
+    <div className='bg-white '>
+      <ServicePrice />
+      <Testimonials />
+
+      <Consultation />
+      <CtaBanner />
+      <Faq />
+    </div>
   )
 }
-
-export default page

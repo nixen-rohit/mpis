@@ -4,10 +4,11 @@ import FeaturesGrid from "@/components/FeaturesGrid";
 import CurvedLoop from "@/components/ui/CurvedLoop";
 import { Testimonials } from "@/components/Testimonials";
 import Faq from "@/components/Faq";
+import Consultation from '@/components/Consultation';
+import HomePricing from "@/components/HomePricing";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
 import VideoShowcase from "@/components/VideoShowcase";
-import PricingSection from "@/components/PricingSection";
 import WhyChoose from "@/components/WhyChoose";
 import Achievement from "@/components/Achievemen";
 import Strategic from "@/components/Strategic";
@@ -27,8 +28,7 @@ export default function Main() {
       <Achievement />
       <WhyChoose />
       <CtaBanner />
-
-      <PricingSection />
+      <HomePricing />
       <Insight />
       <Contact />
       <Strategic />
@@ -39,6 +39,7 @@ export default function Main() {
 
 
       <Testimonials />
+      <Consultation />
       <Faq />
 
       {/* <CurvedLoop

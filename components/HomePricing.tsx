@@ -39,7 +39,7 @@ const CARD_PLANS: Plan[] = [
   },
 ];
 
-export default function PricingSection() {
+export default function HomePricing() {
   return (
     <section className="w-full bg-black px-4 py-20 select-none sm:px-6 lg:px-8">
       {/* Heading */}

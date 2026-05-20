@@ -63,7 +63,6 @@ import {
   RiNewspaperLine,
   RiAwardLine,
   RiBriefcaseLine,
-  RiExternalLinkLine,
 } from "react-icons/ri";
 
 // ─── Types ──────────────────────────────────────────────────────────────────
@@ -135,7 +134,7 @@ export const SERVICES_NAV: MegaMenuData = {
         {
           label: "eLearning Platforms",
           description: "LMS & interactive learning",
-          href: "/elearning-development",
+          href: "/e-learning-development",
           icon: <RiBookOpenLine />,
         },
         {
@@ -147,34 +146,46 @@ export const SERVICES_NAV: MegaMenuData = {
       ],
     },
     {
-      heading: "Application Services",
+      heading: "Application Development",
       links: [
         {
-          label: "Custom Applications",
+          label: "Web Application",
           description: "Built from the ground up",
-          href: "/custom-application",
+          href: "/web-application",
           icon: <RiDatabase2Line />,
         },
         {
-          label: "App Management",
+         label: "Custom Application",
           description: "Ongoing support & monitoring",
-          href: "/application-management",
+          href: "/custom-application",
           icon: <RiSettings3Line />,
         },
         {
-          label: "App Integration",
+          label: "Application Management",
+          description: "Flutter, React Native & more",
+          href: "/application-management",
+          icon: <RiSmartphoneLine />,
+        },
+        {
+          label: "Application Maintenance",
           description: "Connect your tech ecosystem",
-          href: "/application-integration",
+          href: "/application-maintenance",
           icon: <RiFlashlightLine />,
         },
         {
-          label: "Ecommerce Apps",
+          label: "Application Integration",
           description: "Conversion-optimised storefronts",
-          href: "/ecommerce-application",
+          href: "/application-integration",
           icon: <RiStore2Line />,
         },
         {
-          label: "Mobile Development",
+          label: "Ecommerce Application",
+          description: "Flutter, React Native & more",
+          href: "/e-commerce-application",
+          icon: <RiSmartphoneLine />,
+        },
+         {
+          label: "Mobile App Development",
           description: "Flutter, React Native & more",
           href: "/mobile-app-development",
           icon: <RiSmartphoneLine />,
@@ -191,7 +202,13 @@ export const SERVICES_NAV: MegaMenuData = {
           icon: <RiTeamLine />,
         },
         {
-          label: "AI & ML Engineers",
+          label: "SaaS Product Development",
+          description: "Intelligent system builders",
+          href: "/saas-product-development",
+          icon: <RiBrainLine />,
+        },
+        {
+          label: "Artificial Intelligence",
           description: "Intelligent system builders",
           href: "/artificial-intelligence",
           icon: <RiBrainLine />,
@@ -199,11 +216,11 @@ export const SERVICES_NAV: MegaMenuData = {
         {
           label: "UX/UI Designers",
           description: "Human-centred design craft",
-          href: "/uxui-design",
+          href: "/ux-ui-design",
           icon: <RiPaletteLine />,
         },
         {
-          label: "DevOps Engineers",
+          label: "DevOps",
           description: "CI/CD & cloud infrastructure",
           href: "/devops",
           icon: <RiCloudLine />,
