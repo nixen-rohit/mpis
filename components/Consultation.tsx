@@ -22,6 +22,9 @@ const statsCards = [
     subtitle: "Successful growth rate",
     type: "graph",
     graphBars: [
+      "h-2 bg-white/20",
+      "h-4 bg-white/20",
+      "h-6 bg-white/20",
       "h-8 bg-white/20",
       "h-12 bg-white/40",
       "h-16 bg-white/60",
@@ -114,8 +117,8 @@ export default function Consultation() {
         {/* LEFT CONTENT */}
         <div className="lg:col-span-5 flex flex-col justify-center sticky top-8">
           <div className="space-y-6 sm:space-y-8">
-            <div className="flex flex-col items-start text-left">
-              <span className="mb-2 sm:mb-3 inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] text-gray-500">
+            <div className="flex flex-col items-center text-center md:items-start md:text-left">
+              <span className="mb-2 sm:mb-3   inline-block text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] sm:tracking-[0.2em] text-gray-500">
                 Let's Connect!
               </span>
 
@@ -142,7 +145,7 @@ export default function Consultation() {
 
                 <span>Free consultation</span>
                 <span
-                  className="flex h-10 w-10 sm:h-11 sm:w-11items-center justify-center rounded-xl bg-white/15 backdrop-blur-md border border-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 "
+                  className=" flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md border border-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 "
                 >
                   <ArrowUpRight className="h-5 w-5" />
                 </span>
@@ -178,39 +181,46 @@ export default function Consultation() {
               >
                 <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
 
-                <div className="relative z-10 flex h-full flex-col justify-between items-start w-full">
-                  {card.type === "avatars" && (
-                    <div className="flex -space-x-3 mb-4">
-                      {card.avatars?.map((src, index) => (
-                        <img
-                          key={index}
-                          src={src}
-                          alt="Client avatar"
-                          className="h-10 w-10 sm:h-11 sm:w-11 rounded-full border-2 border-white object-cover shadow-sm transition-transform duration-300 hover:-translate-y-1"
-                        />
-                      ))}
-                    </div>
-                  )}
+              <div
+  className={`relative z-10 flex h-full w-full justify-between ${
+    card.type === "graph" || card.type === "avatars"
+      ? "flex-row items-center md:flex-col md:items-start"
+      : "flex-col items-start"
+  }`}
+>
+                 {card.type === "avatars" && (
+  <div className="flex -space-x-2 md:mb-4 order-2 md:order-1 pr-10 md:pr-0">
+    {card.avatars?.map((src, index) => (
+      <img
+        key={index}
+        src={src}
+        alt="Client avatar"
+        className="h-10 w-10 sm:h-11 sm:w-11 rounded-full border-2 border-white object-cover shadow-sm transition-transform duration-300 hover:-translate-y-1"
+      />
+    ))}
+  </div>
+)}
 
-                  <div className="space-y-1 w-full">
-                    <h3 className="text-4xl sm:text-5xl font-black tracking-tight">
-                      {card.title}
-                    </h3>
-                    <p className="text-sm font-medium text-blue-100">
-                      {card.subtitle}
-                    </p>
-                  </div>
+                  <div className="space-y-1 w-full order-1 md:order-2">
+  <h3 className="text-4xl sm:text-5xl font-black tracking-tight">
+    {card.title}
+  </h3>
+
+  <p className="text-sm font-medium text-blue-100">
+    {card.subtitle}
+  </p>
+</div>
 
                   {card.type === "graph" && (
-                    <div className="mt-4 flex items-end gap-2 h-16 w-full justify-start">
-                      {card.graphBars?.map((bar, index) => (
-                        <div
-                          key={index}
-                          className={`w-3 rounded-t-md ${bar}`}
-                        />
-                      ))}
-                    </div>
-                  )}
+  <div className="flex items-end gap-2 h-16 justify-end md:justify-start order-2 md:order-3">
+    {card.graphBars?.map((bar, index) => (
+      <div
+        key={index}
+        className={`w-3 rounded-t-md ${bar}`}
+      />
+    ))}
+  </div>
+)}
                 </div>
               </div>
             ))}
