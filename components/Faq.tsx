@@ -164,16 +164,7 @@ export default function Faq() {
                 <motion.button
   whileHover={{ scale: 1.02 }}
   whileTap={{ scale: 0.98 }}
-  className="
-    flex w-60 items-center justify-center gap-3
-    rounded-2xl bg-blue-600
-    px-4 py-4
-    text-lg font-semibold text-white
-    shadow-sm shadow-blue-200
-    transition-all duration-300
-    hover:bg-blue-700
-    active:bg-blue-800
-  "
+  className=" flex w-60 items-center justify-center gap-3 rounded-2xl bg-blue-600 px-4 py-4 text-lg font-semibold text-white shadow-sm shadow-blue-200 transition-all duration-300 hover:bg-blue-700 active:bg-blue-800"
 >
   <Mail size={20} />
   Send email

@@ -135,17 +135,7 @@ export default function Footer() {
               <a
                 key={index}
                 href="#"
-                className="
-                  flex h-10 w-10 items-center justify-center
-                  rounded-full border border-white/10
-                  bg-white/[0.03]
-                  text-white/70
-                  transition-all duration-300
-                  hover:scale-105
-                  hover:border-blue-500/30
-                  hover:bg-blue-600
-                  hover:text-white
-                "
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/70 transition-all duration-300hover:scale-105 hover:border-blue-500/30 hover:bg-blue-600 hover:text-white "
               >
                 <Icon className="h-4 w-4" />
               </a>
@@ -166,23 +156,10 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="
-                      group inline-flex items-center
-                      justify-center sm:justify-start
-                      text-sm sm:text-base
-                      text-neutral-400
-                      transition-colors
-                      hover:text-blue-400
-                    "
+                    className="group inline-flex items-center justify-center sm:justify-start text-sm sm:text-base text-neutral-400 transition-colors hover:text-blue-400"
                   >
                     <ArrowRight
-                      className="
-                        mr-2 h-3.5 w-3.5
-                        -translate-x-2 opacity-0
-                        transition-all duration-300
-                        group-hover:translate-x-0
-                        group-hover:opacity-100
-                      "
+                      className="mr-2 h-3.5 w-3.5 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
                     />
                     {link.name}
                   </a>
@@ -202,23 +179,10 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="
-                      group inline-flex items-center
-                      justify-center sm:justify-start
-                      text-sm sm:text-base
-                      text-neutral-400
-                      transition-colors
-                      hover:text-blue-400
-                    "
+                    className="group inline-flex items-center justify-center sm:justify-start text-sm sm:text-base text-neutral-400 transition-colors   hover:text-blue-400"
                   >
                     <ArrowRight
-                      className="
-                        mr-2 h-3.5 w-3.5
-                        -translate-x-2 opacity-0
-                        transition-all duration-300
-                        group-hover:translate-x-0
-                        group-hover:opacity-100
-                      "
+                      className="mr-2 h-3.5 w-3.5 -translate-x-2 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
                     />
                     {link.name}
                   </a>
@@ -250,15 +214,7 @@ export default function Footer() {
                     }`}
                   >
                     <div
-                      className="
-                        flex h-10 w-10 shrink-0
-                        items-center justify-center
-                        rounded-full bg-blue-600
-                        text-white
-                        
-                        transition-all duration-300
-                        hover:bg-blue-700
-                      "
+                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white transition-all duration-300 hover:bg-blue-700"
                     >
                       <Icon className="h-4 w-4" />
                     </div>
@@ -286,12 +242,7 @@ export default function Footer() {
             <a
               key={legal.name}
               href={legal.href}
-              className="
-                text-xs text-neutral-500
-                transition-colors
-                hover:text-blue-400
-                sm:text-sm
-              "
+              className="text-xs text-neutral-500 transition-colors hover:text-blue-400 sm:text-sm "
             >
               {legal.name}
             </a>
@@ -306,23 +257,7 @@ export default function Footer() {
         {[...Array(4)].map((_, index) => (
           <h1
             key={index}
-            className="
-              mx-6 whitespace-nowrap
-              text-[18vw] font-black
-              tracking-[-0.06em]
-              opacity-90
-              text-transparent
-              bg-gradient-to-b
-              from-white/20
-              via-blue-400/10
-              to-transparent
-              bg-clip-text
-              sm:mx-8 sm:text-[16vw]
-              md:mx-10 md:text-[15vw]
-              lg:text-[12rem]
-              xl:text-[18rem]
-              2xl:text-[22rem]
-            "
+            className="mx-6 whitespace-nowrap text-[18vw] font-black tracking-[-0.06em] opacity-90 text-transparent bg-gradient-to-b from-white/20 via-blue-400/10 to-transparent bg-clip-text sm:mx-8 sm:text-[16vw] md:mx-10 md:text-[15vw] lg:text-[12rem] xl:text-[18rem] 2xl:text-[22rem]"
           >
             MPIS REVOLUTION
           </h1>

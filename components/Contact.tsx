@@ -172,8 +172,7 @@ export default function Contact() {
                     stiffness: 400,
                     damping: 12,
                   }}
-                  className=" flex shrink-0 items-center justify-center rounded-full bg-blue-600 p-3 text-white  
-    transition-all duration-300  hover:bg-blue-700 active:bg-blue-800"
+                  className=" flex shrink-0 items-center justify-center rounded-full bg-blue-600 p-3 text-white transition-all duration-300  hover:bg-blue-700 active:bg-blue-800"
                 >
                   {item.icon}
                 </motion.div>
@@ -367,28 +366,11 @@ export default function Contact() {
                 stiffness: 300,
                 damping: 18,
               }}
-              className="
-    group mx-auto flex w-full sm:w-fit
-    items-center justify-center gap-3
-     bg-blue-600  rounded-full
-    px-6 sm:px-8 py-3
-    text-[13px] sm:text-sm font-semibold text-white
-    shadow-sm  
-    transition-all duration-300
-    hover:bg-blue-700 active:bg-blue-800
-  "
+              className="group mx-auto flex w-full sm:w-fit items-center justify-center gap-3  bg-blue-600  rounded-full  px-6 sm:px-8 py-3 text-[13px] sm:text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-blue-700 active:bg-blue-800 "
             >
               {/* ICON */}
               <div
-                className="
-      flex items-center justify-center
-      rounded-full bg-white
-      p-2 text-blue-600
-      rotate-[45deg]
-      transition-all duration-300 ease-out
-      group-hover:rotate-0
-      group-hover:scale-110
-    "
+                className="flex items-center justify-center rounded-full bg-white p-2 text-blue-600 rotate-[45deg] transition-all duration-300 ease-out group-hover:rotate-0 group-hover:scale-110"
               >
                 <Send size={14} />
               </div>
