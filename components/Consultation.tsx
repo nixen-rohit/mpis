@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { Play, Pause, ArrowUpRight, Mail, Clock3, ShieldCheck, Phone, } from "lucide-react";
+import {
+  Play,
+  Pause,
+  ArrowUpRight,
+  Mail,
+  Clock3,
+  ShieldCheck,
+  Phone,
+} from "lucide-react";
 
 const statsCards = [
   {
@@ -21,6 +29,7 @@ const statsCards = [
     title: "98%",
     subtitle: "Successful growth rate",
     type: "graph",
+
     graphBars: [
       "h-2 bg-white/20",
       "h-4 bg-white/20",
@@ -45,11 +54,11 @@ interface InfoItem {
 
 const infoItems: InfoItem[] = [
   {
-    id: 'email',
-    label: 'Email Us',
+    id: "email",
+    label: "Email Us",
     icon: Mail,
-    iconBgColor: 'bg-blue-500/10',
-    iconTextColor: 'text-blue-600',
+    iconBgColor: "bg-blue-500/10",
+    iconTextColor: "text-blue-600",
     renderContent: () => (
       <a
         href="mailto:hello@mpis.com"
@@ -61,11 +70,11 @@ const infoItems: InfoItem[] = [
     ),
   },
   {
-    id: 'hours',
-    label: 'Working Hours',
+    id: "hours",
+    label: "Working Hours",
     icon: Clock3,
-    iconBgColor: 'bg-cyan-500/10',
-    iconTextColor: 'text-cyan-600',
+    iconBgColor: "bg-cyan-500/10",
+    iconTextColor: "text-cyan-600",
     renderContent: () => (
       <>
         <p className="mt-2 text-sm sm:text-base font-semibold text-gray-900">
@@ -78,11 +87,11 @@ const infoItems: InfoItem[] = [
     ),
   },
   {
-    id: 'security',
-    label: 'Privacy First',
+    id: "security",
+    label: "Privacy First",
     icon: ShieldCheck,
-    iconBgColor: 'bg-emerald-500/10',
-    iconTextColor: 'text-emerald-600',
+    iconBgColor: "bg-emerald-500/10",
+    iconTextColor: "text-emerald-600",
     renderContent: () => (
       <>
         <p className="mt-2 text-sm sm:text-base font-semibold text-gray-900">
@@ -113,7 +122,6 @@ export default function Consultation() {
   return (
     <section className="w-full min-h-screen bg-[#FFF9F6] py-12 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 flex flex-col justify-center items-center overflow-x-hidden">
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-
         {/* LEFT CONTENT */}
         <div className="lg:col-span-5 flex flex-col justify-center sticky top-8">
           <div className="space-y-6 sm:space-y-8">
@@ -131,35 +139,23 @@ export default function Consultation() {
               </h2>
 
               <p className="mt-4 sm:mt-5 max-w-2xl text-sm sm:text-base md:text-lg leading-relaxed text-gray-600">
-                Everything you need to know about us and our services.
-                Can’t find an answer? Feel free to contact us.
+                Everything you need to know about us and our services. Can’t
+                find an answer? Feel free to contact us.
               </p>
             </div>
             {/* BUTTONS CONTAINER */}
             <div className="flex flex-col sm:flex-row w-full gap-3 items-center justify-center sm:justify-start">
-
               {/* primary button */}
-              <button
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-linear-to-r from-blue-600 to-blue-500 text-white p-3 text-sm sm:text-base font-semibold shadow-lg shadow-blue-200/60 transition-all duration-300 hover:from-blue-700 hover:to-blue-600 hover:shadow-xl hover:shadow-blue-300/40 active:scale-[0.98] "
-              >
-
+              <button className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-linear-to-r from-blue-600 to-blue-500 text-white p-3 text-sm sm:text-base font-semibold shadow-lg shadow-blue-200/60 transition-all duration-300 hover:from-blue-700 hover:to-blue-600 hover:shadow-xl hover:shadow-blue-300/40 active:scale-[0.98] ">
                 <span>Free consultation</span>
-                <span
-                  className=" flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md border border-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 "
-                >
+                <span className=" flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md border border-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ">
                   <ArrowUpRight className="h-5 w-5" />
                 </span>
-
-
               </button>
 
               {/* secondary button */}
-              <button
-                className=" mb-3 md:mb-0 group w-full sm:w-auto inline-flex items-center justify-center gap-3  bg-[#1D1B24] rounded-2xl border border-gray-200 px-5 sm:px-6 py-3 text-sm sm:text-base font-medium text-white shadow-sm transition-all duration-300 hover:border-blue-200 hover:bg-zinc-800 hover:shadow-md active:scale-[0.98] "
-              >
-                <span
-                  className=" flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md border border-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 "
-                >
+              <button className=" mb-3 md:mb-0 group w-full sm:w-auto inline-flex items-center justify-center gap-3  bg-[#1D1B24] rounded-2xl border border-gray-200 px-5 sm:px-6 py-3 text-sm sm:text-base font-medium text-white shadow-sm transition-all duration-300 hover:border-blue-200 hover:bg-zinc-800 hover:shadow-md active:scale-[0.98] ">
+                <span className=" flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/15 backdrop-blur-md border border-white/10 text-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 ">
                   <Phone className="h-5 w-5" />
                 </span>
 
@@ -171,7 +167,6 @@ export default function Consultation() {
 
         {/* RIGHT SECTION */}
         <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-6 w-full">
-
           {/* STATS CARDS */}
           <div className="md:col-span-5 flex flex-col gap-6">
             {statsCards.map((card) => (
@@ -181,46 +176,46 @@ export default function Consultation() {
               >
                 <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
 
-              <div
-  className={`relative z-10 flex h-full w-full justify-between ${
-    card.type === "graph" || card.type === "avatars"
-      ? "flex-row items-center md:flex-col md:items-start"
-      : "flex-col items-start"
-  }`}
->
-                 {card.type === "avatars" && (
-  <div className="flex -space-x-2 md:mb-4 order-2 md:order-1 pr-10 md:pr-0">
-    {card.avatars?.map((src, index) => (
-      <img
-        key={index}
-        src={src}
-        alt="Client avatar"
-        className="h-10 w-10 sm:h-11 sm:w-11 rounded-full border-2 border-white object-cover shadow-sm transition-transform duration-300 hover:-translate-y-1"
-      />
-    ))}
-  </div>
-)}
+                <div
+                  className={`relative z-10 flex h-full w-full justify-between ${
+                    card.type === "graph" || card.type === "avatars"
+                      ? "flex-row items-center md:flex-col md:items-start"
+                      : "flex-col items-start"
+                  }`}
+                >
+                  {card.type === "avatars" && (
+                    <div className="flex -space-x-2 md:mb-4 order-2 md:order-1 pr-10 md:pr-0">
+                      {card.avatars?.map((src, index) => (
+                        <img
+                          key={index}
+                          src={src}
+                          alt="Client avatar"
+                          className="h-10 w-10 sm:h-11 sm:w-11 rounded-full border-2 border-white object-cover shadow-sm transition-transform duration-300 hover:-translate-y-1"
+                        />
+                      ))}
+                    </div>
+                  )}
 
                   <div className="space-y-1 w-full order-1 md:order-2">
-  <h3 className="text-4xl sm:text-5xl font-black tracking-tight">
-    {card.title}
-  </h3>
+                    <h3 className="text-4xl sm:text-5xl font-black tracking-tight">
+                      {card.title}
+                    </h3>
 
-  <p className="text-sm font-medium text-blue-100">
-    {card.subtitle}
-  </p>
-</div>
+                    <p className="text-sm font-medium text-blue-100">
+                      {card.subtitle}
+                    </p>
+                  </div>
 
                   {card.type === "graph" && (
-  <div className="flex items-end gap-2 h-16 justify-end md:justify-start order-2 md:order-3">
-    {card.graphBars?.map((bar, index) => (
-      <div
-        key={index}
-        className={`w-3 rounded-t-md ${bar}`}
-      />
-    ))}
-  </div>
-)}
+                    <div className="flex items-end gap-2 h-16 justify-end md:justify-start order-2 md:order-3">
+                      {card.graphBars?.map((bar, index) => (
+                        <div
+                          key={index}
+                          className={`w-3 rounded-t-md ${bar}`}
+                        />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -253,9 +248,7 @@ export default function Consultation() {
           </div>
 
           {/* INFO ITEMS (Now wrapped to span the full grid width, and styled safely for light background) */}
-          <div
-            className=" md:col-span-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 w-full mt-3"
-          >
+          <div className=" md:col-span-12 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 w-full mt-3">
             {infoItems.map((item) => {
               const IconComponent = item.icon;
 
@@ -270,9 +263,7 @@ export default function Consultation() {
                   </div>
 
                   {/* responsive top layout */}
-                  <div
-                    className=" relative z-10 flex items-center gap-4  lg:flex-col lg:items-center lg:justify-center lg:text-center "
-                  >
+                  <div className=" relative z-10 flex items-center gap-4  lg:flex-col lg:items-center lg:justify-center lg:text-center ">
                     {/* icon */}
                     <div
                       className={` shrink-0 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl sm:rounded-2xl shadow-sm ring-1 ring-black/5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6
@@ -280,24 +271,18 @@ export default function Consultation() {
               ${item.iconTextColor}
             `}
                     >
-                      <IconComponent
-                        className=" h-5 w-5 sm:h-6 sm:w-6 transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-110 "
-                      />
+                      <IconComponent className=" h-5 w-5 sm:h-6 sm:w-6 transition-all duration-500 group-hover:-translate-y-1 group-hover:scale-110 " />
                     </div>
 
                     {/* text section */}
                     <div className="min-w-0 flex-1 lg:flex-none">
                       {/* label */}
-                      <p
-                        className=" text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-bold text-gray-500 mb-1 lg:mb-2 "
-                      >
+                      <p className=" text-[10px] sm:text-[11px] uppercase tracking-[0.18em] font-bold text-gray-500 mb-1 lg:mb-2 ">
                         {item.label}
                       </p>
 
                       {/* content */}
-                      <div
-                        className=" text-sm sm:text-base text-gray-800 wrap-break-word "
-                      >
+                      <div className=" text-sm sm:text-base text-gray-800 wrap-break-word ">
                         {item.renderContent()}
                       </div>
                     </div>
@@ -309,7 +294,6 @@ export default function Consultation() {
               );
             })}
           </div>
-
         </div>
       </div>
     </section>

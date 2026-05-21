@@ -603,7 +603,7 @@ export const NAV: NavItem[] = [
   {label : "Expertise" , mega:EXPERTISE_NAV},
   { label: "Industries", mega: INDUSTRIES_NAV },
   { label: "Technologies", mega: TECHNOLOGIES },
-  { label: "Career", },
+  { label: "Career",href: "/careers", },
   { label: "Blog", href: "/blog", mega: BLOG_NAV },
   { label: "About", href: "/about", mega: ABOUT_NAV },
 ];

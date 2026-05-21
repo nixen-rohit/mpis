@@ -33,3 +33,31 @@ body {
     transform: translateX(0%);
   }
 }
+
+
+/* Custom Dark Scrollbar */
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #111827;
+  border-radius: 999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 999px;
+  border: 2px solid #111827;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+/* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #2563eb #111827;
+}
