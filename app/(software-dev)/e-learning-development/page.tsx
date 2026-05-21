@@ -1,14 +1,29 @@
-import React from 'react'
+import React from "react";
 import Faq from "@/components/Faq";
-import Consultation from '@/components/Consultation';
+import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 
-import ServicePrice from '@/components/ServicePrice';
-
+import ServicePrice from "@/components/ServicePrice";
+import CustomHero from "@/components/CustomHero";
 export default function page() {
   return (
-    <div className='bg-white '>
+    <div className="bg-white ">
+      <CustomHero
+        badgeText="EdTech Solutions"
+        headingText="Transforming Education"
+        headingItalicText="Through Digital Learning"
+        headingEndText=""
+        descriptionText="We create engaging, scalable, and immersive eLearning platforms for schools, universities, and corporate training. Our bespoke EdTech solutions empower educators and learners with interactive, accessible knowledge worldwide."
+        primaryCta={{
+          label: "Free Consultation",
+          link: "/",
+        }}
+        secondaryCta={{
+          label: "Our EdTech Services",
+          link: "/",
+        }}
+      />
       <ServicePrice />
       <Testimonials />
 
@@ -16,5 +31,5 @@ export default function page() {
       <CtaBanner />
       <Faq />
     </div>
-  )
+  );
 }

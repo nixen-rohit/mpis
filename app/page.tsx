@@ -4,7 +4,7 @@ import FeaturesGrid from "@/components/FeaturesGrid";
 import CurvedLoop from "@/components/ui/CurvedLoop";
 import { Testimonials } from "@/components/Testimonials";
 import Faq from "@/components/Faq";
-import Consultation from '@/components/Consultation';
+import Consultation from "@/components/Consultation";
 import HomePricing from "@/components/HomePricing";
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
@@ -23,7 +23,7 @@ export default function Main() {
 
       {/* bio section */}
 
-      <FeaturesGrid />
+      {/* <FeaturesGrid />
       <Industry />
       <Achievement />
       <WhyChoose />
@@ -33,14 +33,13 @@ export default function Main() {
       <Contact />
       <Strategic />
       <Services />
-      <VideoShowcase />
+      <VideoShowcase /> */}
 
       {/* technology section */}
 
-
-      <Testimonials />
+      {/* <Testimonials />
       <Consultation />
-      <Faq />
+      <Faq /> */}
 
       {/* <CurvedLoop
         marqueeText="Be ✦ Creative ✦ With ✦ MPIS ✦"

@@ -1,14 +1,29 @@
-import React from 'react'
+import React from "react";
 import Faq from "@/components/Faq";
-import Consultation from '@/components/Consultation';
+import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 
-import ServicePrice from '@/components/ServicePrice';
-
+import ServicePrice from "@/components/ServicePrice";
+import CustomHero from "@/components/CustomHero";
 export default function page() {
   return (
-    <div className='bg-white '>
+    <div className="bg-white ">
+      <CustomHero
+        badgeText="Mobile Innovation"
+        headingText="Impactful Mobile "
+        headingItalicText="Experiences on iOS"
+        headingEndText="& Android"
+        descriptionText="We design and develop native and cross-platform mobile apps that users love. Whether for the App Store or Google Play, our applications combine stunning UI/UX with flawless performance, engaging your audience wherever they go."
+        primaryCta={{
+          label: "Free Consultation",
+          link: "/",
+        }}
+        secondaryCta={{
+          label: "Why Mobile ?",
+          link: "/",
+        }}
+      />
       <ServicePrice />
       <Testimonials />
 
@@ -16,5 +31,5 @@ export default function page() {
       <CtaBanner />
       <Faq />
     </div>
-  )
+  );
 }
