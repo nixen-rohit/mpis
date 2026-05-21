@@ -412,7 +412,7 @@ export default function Jobs() {
                   <input
                     type="text"
                     placeholder="Your full name"
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-white/4 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
 
@@ -425,7 +425,7 @@ export default function Jobs() {
                   <input
                     type="email"
                     placeholder="you@example.com"
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-white/4 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
 
@@ -438,7 +438,7 @@ export default function Jobs() {
                   <input
                     type="text"
                     placeholder="+91 98765 43210"
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-white/4 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
 
@@ -451,7 +451,7 @@ export default function Jobs() {
                   <input
                     type="text"
                     placeholder="2+ Years"
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full bg-white/4 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
                   />
                 </div>
 
@@ -461,7 +461,7 @@ export default function Jobs() {
                     Resume / CV *
                   </label>
 
-                  <label className="relative flex flex-col items-center justify-center w-full min-h-[180px] border-2 border-dashed border-white/10 rounded-3xl bg-white/[0.03] hover:border-blue-500/40 transition-colors cursor-pointer px-6 text-center">
+                  <label className="relative flex flex-col items-center justify-center w-full min-h-[180px] border-2 border-dashed border-white/10 rounded-3xl bg-white/3 hover:border-blue-500/40 transition-colors cursor-pointer px-6 text-center">
                     <input
                       type="file"
                       className="hidden"
@@ -491,7 +491,7 @@ export default function Jobs() {
                   <textarea
                     rows={5}
                     placeholder="Tell us why you're a great fit for this role..."
-                    className="w-full bg-white/[0.04] border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
+                    className="w-full bg-white/4 border border-white/10 rounded-2xl px-5 py-4 text-white placeholder:text-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
                   />
                 </div>
 
