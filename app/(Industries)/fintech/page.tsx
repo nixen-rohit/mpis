@@ -10,20 +10,18 @@ export default function page() {
   return (
     <div className="bg-white ">
       <CustomHero
-        badgeText="Growth Marketing"
-        headingText="Drive Growth with Data-"
-        headingItalicText="Driven Digital Marketing"
+        badgeText="Fintech Excellence"
+        headingText="Delivering High-Impact"
+        headingItalicText="Fintech Solutions"
         headingEndText=""
-        descriptionText="Our comprehensive digital marketing services empower your brand to reach its target audience efficiently. From SEO and social media campaigns to highly optimized paid advertisements, we build strategies that deliver measurable results and sustainable growth.
-
-
+        descriptionText="We build secure, compliant, and scalable fintech solutions — from digital banking and payment gateways to investment platforms and blockchain-based finance tools. Our expertise spans across lending, insurance, wealth management, and more.
 "
         primaryCta={{
           label: "Free Consultation",
           link: "/",
         }}
         secondaryCta={{
-          label: "Our Web Solutions",
+          label: "Explore Services",
           link: "/",
         }}
       />

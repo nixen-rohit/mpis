@@ -10,12 +10,11 @@ export default function page() {
   return (
     <div className="bg-white ">
       <CustomHero
-        badgeText="Growth Marketing"
-        headingText="Drive Growth with Data-"
-        headingItalicText="Driven Digital Marketing"
+        badgeText="eLearning Excellence"
+        headingText="Delivering High-Impact"
+        headingItalicText="E-Learning Solutions"
         headingEndText=""
-        descriptionText="Our comprehensive digital marketing services empower your brand to reach its target audience efficiently. From SEO and social media campaigns to highly optimized paid advertisements, we build strategies that deliver measurable results and sustainable growth.
-
+        descriptionText="We design and develop scalable eLearning platforms, LMS solutions, and educational apps that engage learners and empower educators. From K-12 to corporate training, our tech-driven education tools deliver measurable outcomes.
 
 "
         primaryCta={{
@@ -23,7 +22,7 @@ export default function page() {
           link: "/",
         }}
         secondaryCta={{
-          label: "Our Web Solutions",
+          label: "Explore Services",
           link: "/",
         }}
       />

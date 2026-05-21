@@ -246,19 +246,19 @@ export const EXPERTISE_NAV: MegaMenuData = {
         {
           label: "SEO (Search Engine Optimization)",
           description: "Our mission, values & vision",
-          href: "/about",
+          href: "/digital-marketing",
           icon: <RiBuildingLine />,
         },
         {
           label: "Social Media Marketing",
           description: "The minds behind MPIS",
-          href: "/leadership-team",
+           href: "/digital-marketing",
           icon: <RiTeamLine />,
         },
         {
           label: "Paid Ads Management",
           description: "Industry accolades we've earned",
-          href: "/awards-recognition",
+           href: "/digital-marketing",
           icon: <RiAwardLine />,
         },
          
@@ -270,37 +270,37 @@ export const EXPERTISE_NAV: MegaMenuData = {
         {
           label: "Learning Management Systems",
           description: "Our mission, values & vision",
-          href: "/about",
+          href: "/e-learning-development",
           icon: <RiBuildingLine />,
         },
         {
           label: "Content Management System",
           description: "The minds behind MPIS",
-          href: "/leadership-team",
+          href: "/e-commerce",
           icon: <RiTeamLine />,
         },
         {
           label: "HRMS",
           description: "Industry accolades we've earned",
-          href: "/awards-recognition",
+          href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
          {
           label: "Healthcare IT",
           description: "Industry accolades we've earned",
-          href: "/awards-recognition",
+          href: "/healthcare",
           icon: <RiAwardLine />,
         },
          {
           label: "CRM",
           description: "Industry accolades we've earned",
-          href: "/awards-recognition",
+          href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
          {
           label: "Service Excellence",
           description: "Industry accolades we've earned",
-          href: "/awards-recognition",
+        href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
 
@@ -384,7 +384,7 @@ export const INDUSTRIES_NAV: MegaMenuData = {
         {
           label: "eLearning",
           description: "Interactive learning ecosystems",
-          href: "/elearning",
+          href: "/e-learning",
           icon: <RiBookOpenLine />,
         },
         {
@@ -408,7 +408,7 @@ export const INDUSTRIES_NAV: MegaMenuData = {
         {
           label: "Ecommerce",
           description: "High-conversion storefronts",
-          href: "/ecommerce",
+          href: "/e-commerce",
           icon: <RiStore2Line />,
         },
       ],

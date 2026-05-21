@@ -140,7 +140,7 @@ export default function Consultation() {
 
               {/* primary button */}
               <button
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 text-white p-3 text-sm sm:text-base font-semibold shadow-lg shadow-blue-200/60 transition-all duration-300 hover:from-blue-700 hover:to-blue-600 hover:shadow-xl hover:shadow-blue-300/40 active:scale-[0.98] "
+                className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-linear-to-r from-blue-600 to-blue-500 text-white p-3 text-sm sm:text-base font-semibold shadow-lg shadow-blue-200/60 transition-all duration-300 hover:from-blue-700 hover:to-blue-600 hover:shadow-xl hover:shadow-blue-300/40 active:scale-[0.98] "
               >
 
                 <span>Free consultation</span>
@@ -177,7 +177,7 @@ export default function Consultation() {
             {statsCards.map((card) => (
               <div
                 key={card.id}
-                className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 to-blue-700 p-6 text-white shadow-[0_20px_60px_rgba(37,99,235,0.25)] flex-1 min-h-[160px] flex flex-col justify-between"
+                className="relative overflow-hidden rounded-3xl bg-linear-to-br from-blue-600 to-blue-700 p-6 text-white shadow-[0_20px_60px_rgba(37,99,235,0.25)] flex-1 min-h-[160px] flex flex-col justify-between"
               >
                 <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-white/10 blur-3xl" />
 
@@ -262,7 +262,7 @@ export default function Consultation() {
               return (
                 <div
                   key={item.id}
-                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-blue-100 bg-gradient-to-br from-white to-gray-50 p-4 sm:p-5 shadow-lg sm:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-gray-300 "
+                  className="group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-blue-100 bg-linear-to-br from-white to-gray-50 p-4 sm:p-5 shadow-lg sm:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-gray-300 "
                 >
                   {/* glow effect */}
                   <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -296,7 +296,7 @@ export default function Consultation() {
 
                       {/* content */}
                       <div
-                        className=" text-sm sm:text-base text-gray-800 break-words "
+                        className=" text-sm sm:text-base text-gray-800 wrap-break-word "
                       >
                         {item.renderContent()}
                       </div>

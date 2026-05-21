@@ -10,12 +10,11 @@ export default function page() {
   return (
     <div className="bg-white ">
       <CustomHero
-        badgeText="Growth Marketing"
-        headingText="Drive Growth with Data-"
-        headingItalicText="Driven Digital Marketing"
+        badgeText="Real Estate Excellence"
+        headingText="Delivering High-Impact"
+        headingItalicText="Real Estate Solutions"
         headingEndText=""
-        descriptionText="Our comprehensive digital marketing services empower your brand to reach its target audience efficiently. From SEO and social media campaigns to highly optimized paid advertisements, we build strategies that deliver measurable results and sustainable growth.
-
+        descriptionText="We develop powerful real estate platforms — property portals, CRM systems, virtual tours, and proptech solutions — that connect buyers, sellers, and agents. Our software streamlines property management and accelerates sales cycles.
 
 "
         primaryCta={{
@@ -23,7 +22,7 @@ export default function page() {
           link: "/",
         }}
         secondaryCta={{
-          label: "Our Web Solutions",
+          label: "Explore Services",
           link: "/",
         }}
       />

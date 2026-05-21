@@ -10,20 +10,18 @@ export default function page() {
   return (
     <div className="bg-white ">
       <CustomHero
-        badgeText="Growth Marketing"
-        headingText="Drive Growth with Data-"
-        headingItalicText="Driven Digital Marketing"
+        badgeText="Tour and Travel Excellence"
+        headingText="Delivering High-Impact"
+        headingItalicText="Tour and Travel Solutions"
         headingEndText=""
-        descriptionText="Our comprehensive digital marketing services empower your brand to reach its target audience efficiently. From SEO and social media campaigns to highly optimized paid advertisements, we build strategies that deliver measurable results and sustainable growth.
-
-
+        descriptionText="We create next-generation travel technology solutions — from booking engines and OTA platforms to itinerary builders and travel CRMs. Our software helps tour operators, travel agencies, and hospitality businesses deliver unforgettable guest experiences.
 "
         primaryCta={{
           label: "Free Consultation",
           link: "/",
         }}
         secondaryCta={{
-          label: "Our Web Solutions",
+          label: "Explore Services",
           link: "/",
         }}
       />

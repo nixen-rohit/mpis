@@ -16,7 +16,7 @@ const getAlign = (
 ): "left" | "right" | "center" => {
   if (index >= total - 2) return "right";
   if (index === 0) return "left";
-  return "center";
+  return "left";
 };
 
 export function DesktopNav({ navItems, className }: DesktopNavProps) {
@@ -52,7 +52,7 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
             {item.mega && (
               <MegaMenuPanel
                 mega={item.mega}
-                align={getAlign(i, navItems.length)}
+                align={isTech ? "center" : getAlign(i, navItems.length)}
                 isTech={isTech}
               />
             )}
