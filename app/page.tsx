@@ -23,7 +23,7 @@ export default function Main() {
 
       {/* bio section */}
 
-      {/* <FeaturesGrid />
+      <FeaturesGrid />
       <Industry />
       <Achievement />
       <WhyChoose />
@@ -33,13 +33,13 @@ export default function Main() {
       <Contact />
       <Strategic />
       <Services />
-      <VideoShowcase /> */}
+      <VideoShowcase />
 
       {/* technology section */}
 
-      {/* <Testimonials />
+      <Testimonials />
       <Consultation />
-      <Faq /> */}
+      <Faq />
 
       {/* <CurvedLoop
         marqueeText="Be ✦ Creative ✦ With ✦ MPIS ✦"
