@@ -5,7 +5,7 @@ import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 
 import ServicePrice from "@/components/ServicePrice";
-import CustomHero from "@/components/CustomHero";
+import CustomHero from "@/components/custom/CustomHero";
 export default function page() {
   return (
     <div className="bg-white ">

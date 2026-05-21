@@ -5,15 +5,15 @@ import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 
 import ServicePrice from "@/components/ServicePrice";
-import CustomHero from "@/components/CustomHero";
+import CustomHero from "@/components/custom/CustomHero";
 export default function page() {
   return (
     <div className="bg-white ">
       <CustomHero
         badgeText="Mobile Innovation"
-        headingText="Impactful Mobile "
-        headingItalicText="Experiences on iOS"
-        headingEndText="& Android"
+        headingText="Impactful Mobile Experiences"
+        headingItalicText="on iOS & Android"
+        headingEndText=""
         descriptionText="We design and develop native and cross-platform mobile apps that users love. Whether for the App Store or Google Play, our applications combine stunning UI/UX with flawless performance, engaging your audience wherever they go."
         primaryCta={{
           label: "Free Consultation",

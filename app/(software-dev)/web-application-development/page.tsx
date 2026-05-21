@@ -5,15 +5,15 @@ import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 
 import ServicePrice from "@/components/ServicePrice";
-import CustomHero from "@/components/CustomHero";
+import CustomHero from "@/components/custom/CustomHero";
 export default function page() {
   return (
     <div className="bg-white ">
       <CustomHero
         badgeText="Web Engineering"
-        headingText="Fast Scalable"
-        headingItalicText="&  Engaging"
-        headingEndText="Web Apps"
+        headingText="Fast Scalable &"
+        headingItalicText="Engaging Web Apps"
+        headingEndText=""
         descriptionText="We build high-performance web applications that offer native-like experiences right in the browser. Using modern JavaScript frameworks and robust backend technologies, our web apps load instantly, scale flawlessly, and drive higher user engagement for startups and enterprises."
         primaryCta={{
           label: "Free Consultation",

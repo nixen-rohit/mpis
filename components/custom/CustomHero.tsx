@@ -94,7 +94,8 @@ export default function CustomHero({
           <br />
           <span className="font-serif italic font-light text-[#1c1c1c]">
             {headingItalicText}
-          </span>{" "}
+          </span>
+          <br />
           {headingEndText}
         </motion.h1>
 
