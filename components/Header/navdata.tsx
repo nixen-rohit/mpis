@@ -528,19 +528,19 @@ export const BLOG_NAV: MegaMenuData = {
         {
           label: "Tech Insights",
           description: "Deep-dives into emerging tech",
-          href: "/",
+          href: "/blog",
           icon: <RiLightbulbFlashLine />,
         },
         {
           label: "Company News",
           description: "Updates from MPIS Revolution",
-          href: "/",
+         href: "/blog",
           icon: <RiNewspaperLine />,
         },
         {
           label: "Case Studies",
           description: "Real results, real clients",
-          href: "/",
+           href: "/blog",
           icon: <RiBookOpenLine />,
         },
       ],
