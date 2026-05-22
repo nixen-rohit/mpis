@@ -2,14 +2,25 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
-const teamMembers = [
+export interface team {
+  id: number;
+  name: string;
+  role: string;
+  description: string;
+  image: string;
+  link?: string;
+  redirectTo?: string;
+}
+const teamMembers: team[] = [
   {
     id: 1,
     name: "Alexander Wright",
     role: "Chief Executive Officer",
     description: "20+ years of enterprise software strategy.",
     image: "/img/team/team1.webp",
+    link: "",
   },
   {
     id: 2,
@@ -17,6 +28,7 @@ const teamMembers = [
     role: "Chief Operating Officer",
     description: "Expert in global scaling and agile delivery.",
     image: "/img/team/team2.webp",
+    link: "",
   },
   {
     id: 3,
@@ -24,6 +36,7 @@ const teamMembers = [
     role: "Chief Technology Officer",
     description: "Pioneer in distributed systems & AI models.",
     image: "/img/team/team3.webp",
+    link: "",
   },
   {
     id: 4,
@@ -31,6 +44,7 @@ const teamMembers = [
     role: "VP of Marketing",
     description: "Driving market growth and global outreach.",
     image: "/img/team/team1.webp",
+    link: "",
   },
 ];
 
@@ -69,6 +83,18 @@ export default function TeamCards() {
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-linear-to-t from-black/50 via-black/10 to-transparent" />
+
+              {/* Top Right Arrow Icon */}
+              <div className="absolute right-4 bottom-4 opacity-0 transition-all duration-500 group-hover:opacity-100">
+                <a
+                  href={member.link}
+                  target={member.redirectTo ? "_blank" : "_top"}
+                  rel="noopener noreferrer"
+                  className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-700 text-white shadow-lg transition-all duration-300 hover:scale-110 "
+                >
+                  <ArrowUpRight className="h-5 w-5" />
+                </a>
+              </div>
 
               {/* Floating Role */}
               <div className="absolute bottom-3 left-3 rounded-full border border-white/10 bg-black/50 px-3 py-1 backdrop-blur-md">
