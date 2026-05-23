@@ -28,7 +28,7 @@ The page layout (`app/page.tsx`) organizes components sequentially to deliver a 
   - ☁️ *Advanced IT & Cloud Tech Solutions for Business*
 - **Aesthetic**: Pulse dots, blurred backdrop cards, floating client avatar stacks, and interactive call-to-action buttons.
 
-### 2. 🧩 Features Grid (`components/FeaturesGrid.tsx`)
+### 2.  Features Grid (`components/FeaturesGrid.tsx`)
 - **Features**: Grid showcase emphasizing core capabilities and consulting competencies with hover micro-animations and custom cards.
 
 ### 3. 🏢 Industry & Verticals (`components/Industry.tsx`)
