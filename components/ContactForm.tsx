@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
 
 type FormData = {
