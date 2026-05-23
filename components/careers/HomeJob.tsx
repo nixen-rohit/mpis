@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
-
+import { motion, Variants } from "framer-motion";
 import { HiMiniUserGroup } from "react-icons/hi2";
 import { FaLocationDot, FaGlobe, FaSuitcase } from "react-icons/fa6";
 
@@ -41,29 +40,68 @@ const features: Feature[] = [
 ];
 
 export default function Homejob() {
+  // Framer Motion Variants for Staggered Hero Text
+  const fadeInUp: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
+  // Smooth layout transition variants
+  const slideVariants: Variants = {
+    initial: { opacity: 0, y: 20 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.1,
+      },
+    },
+    exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
+  };
+
+  const itemVariants: Variants = {
+    initial: { opacity: 0, y: 15 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <section className="bg-white py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        
+      <motion.div
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={slideVariants}
+        className="max-w-6xl mx-auto"
+      >
         {/* Heading */}
         <div className="max-w-4xl mx-auto text-center pb-14">
-          <p className="text-blue-600 font-medium mb-4">
-            Join Our Team
-          </p>
+          <p className="text-blue-600 font-medium mb-4">Join Our Team</p>
 
-          <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-blue-950 leading-[1.1]">
+          <motion.h1
+            variants={itemVariants}
+            className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-blue-950 leading-[1.1]"
+          >
             Build Your{" "}
             <span className="font-serif italic font-light text-blue-600">
               Career
             </span>
             <br />
             At MPIS Revolution
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-blue-400">
+          <motion.p
+            variants={itemVariants}
+            className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-blue-400"
+          >
             Join a team that's building the future of technology — one line of
             code, one pixel, and one smart idea at a time.
-          </p>
+          </motion.p>
         </div>
 
         {/* Feature Cards */}
@@ -72,7 +110,7 @@ export default function Homejob() {
             <FeatureCard key={feature.id} feature={feature} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
