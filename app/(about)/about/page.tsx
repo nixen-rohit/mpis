@@ -69,7 +69,7 @@ const cards = [
 
 const page = () => {
   return (
-    <div className="w-full bg-white">
+    <div className="w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] ">
       <CustomBanner
         badge="Best Business Strategy"
         title="Build for "
@@ -78,7 +78,7 @@ const page = () => {
         description="Position your agency as the bridge between a client’s big-picture vision and achievable action plans. data-driven strategies and your track."
       />
 
-      <section className="w-full bg-white  px-4">
+      <section className="w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]   px-4">
         <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-center gap-3">
           {cards.map((card, index) => {
             const Icon = card.icon;
@@ -98,7 +98,7 @@ const page = () => {
                 }}
                 className="group"
               >
-                <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="flex items-center gap-2 rounded-full border border-gray-200 bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  px-4 py-2 shadow-sm hover:shadow-md transition-all duration-300">
                   {/* Icon */}
                   <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 group-hover:bg-black transition-colors duration-300">
                     <Icon className="h-4 w-4 text-black group-hover:text-white transition-colors duration-300" />
@@ -137,7 +137,7 @@ const page = () => {
       </div>
 
       <Achievement />
-      <section className="h-full w-full bg-white px-4 py-14">
+      <section className="h-full w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  px-4 py-14">
         <div className={`max-w-4xl pb-14 text-center mx-auto`}>
           {/* Badge */}
           <p className="text-blue-600 font-medium mb-4 tracking-wide">
@@ -230,7 +230,7 @@ const page = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-white/10 blur-3xl"
+                className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] /10 blur-3xl"
               />
             </motion.div>
           ))}

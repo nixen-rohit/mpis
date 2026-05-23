@@ -83,10 +83,8 @@ export default function Homejob() {
         <div className="max-w-4xl mx-auto text-center pb-14">
           <p className="text-blue-600 font-medium mb-4">Join Our Team</p>
 
-          <motion.h1
-            variants={itemVariants}
-            className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-blue-950 leading-[1.1]"
-          >
+        <motion.h1
+                  variants={itemVariants} className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-blue-950 leading-[1.1]">
             Build Your{" "}
             <span className="font-serif italic font-light text-blue-600">
               Career
@@ -95,13 +93,10 @@ export default function Homejob() {
             At MPIS Revolution
           </motion.h1>
 
-          <motion.p
-            variants={itemVariants}
-            className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-blue-400"
-          >
+          <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-blue-400">
             Join a team that's building the future of technology — one line of
             code, one pixel, and one smart idea at a time.
-          </motion.p>
+          </p>
         </div>
 
         {/* Feature Cards */}

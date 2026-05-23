@@ -35,7 +35,7 @@ import {
   Wordpress,
   BlockChain,
   AzureDevOps,
-} from "@/components/svg/page";
+} from "@/components/svg/svg";
 
 import {
   RiSettings3Line,
@@ -155,7 +155,7 @@ export const SERVICES_NAV: MegaMenuData = {
           icon: <RiDatabase2Line />,
         },
         {
-         label: "Custom Application",
+          label: "Custom Application",
           description: "Ongoing support & monitoring",
           href: "/custom-application",
           icon: <RiSettings3Line />,
@@ -184,7 +184,7 @@ export const SERVICES_NAV: MegaMenuData = {
           href: "/e-commerce-application",
           icon: <RiSmartphoneLine />,
         },
-         {
+        {
           label: "Mobile App Development",
           description: "Flutter, React Native & more",
           href: "/mobile-app-development",
@@ -234,9 +234,7 @@ export const SERVICES_NAV: MegaMenuData = {
       ],
     },
   ],
- 
 };
-
 
 export const EXPERTISE_NAV: MegaMenuData = {
   columns: [
@@ -252,16 +250,15 @@ export const EXPERTISE_NAV: MegaMenuData = {
         {
           label: "Social Media Marketing",
           description: "The minds behind MPIS",
-           href: "/digital-marketing",
+          href: "/digital-marketing",
           icon: <RiTeamLine />,
         },
         {
           label: "Paid Ads Management",
           description: "Industry accolades we've earned",
-           href: "/digital-marketing",
+          href: "/digital-marketing",
           icon: <RiAwardLine />,
         },
-         
       ],
     },
     {
@@ -285,30 +282,27 @@ export const EXPERTISE_NAV: MegaMenuData = {
           href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
-         {
+        {
           label: "Healthcare IT",
           description: "Industry accolades we've earned",
           href: "/healthcare",
           icon: <RiAwardLine />,
         },
-         {
+        {
           label: "CRM",
           description: "Industry accolades we've earned",
           href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
-         {
+        {
           label: "Service Excellence",
           description: "Industry accolades we've earned",
-        href: "/enterprise-solutions",
+          href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
-
-         
       ],
     },
 
-    
     //  {
     //   heading: "Technologies ",
     //   links: [
@@ -349,26 +343,17 @@ export const EXPERTISE_NAV: MegaMenuData = {
     //       icon: <RiAwardLine />,
     //     },
 
-         
     //   ],
     // },
-
-    
-    
-     
   ],
-   blogCard: {
+  blogCard: {
     tag: "Guide",
     title: "Partner with Experts",
     excerpt:
       "Elevate your business with our tailored digital solutions and industry-leading expertise.",
     href: "/blog",
   },
-  
 };
-
-
- 
 
 export const INDUSTRIES_NAV: MegaMenuData = {
   columns: [
@@ -534,13 +519,13 @@ export const BLOG_NAV: MegaMenuData = {
         {
           label: "Company News",
           description: "Updates from MPIS Revolution",
-         href: "/blog",
+          href: "/blog",
           icon: <RiNewspaperLine />,
         },
         {
           label: "Case Studies",
           description: "Real results, real clients",
-           href: "/blog",
+          href: "/blog",
           icon: <RiBookOpenLine />,
         },
       ],
@@ -600,10 +585,10 @@ export const ABOUT_NAV: MegaMenuData = {
 
 export const NAV: NavItem[] = [
   { label: "Services", mega: SERVICES_NAV },
-  {label : "Expertise" , mega:EXPERTISE_NAV},
+  { label: "Expertise", mega: EXPERTISE_NAV },
   { label: "Industries", mega: INDUSTRIES_NAV },
   { label: "Technologies", mega: TECHNOLOGIES },
-  { label: "Career",href: "/careers", },
+  { label: "Career", href: "/careers" },
   { label: "Blog", href: "/blog", mega: BLOG_NAV },
   { label: "About", href: "/about", mega: ABOUT_NAV },
   { label: "Contact", href: "/contact" },

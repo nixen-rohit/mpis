@@ -2,13 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, Variants } from "framer-motion";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  Clock,
-} from "lucide-react";
+import { Mail, Phone, MapPin, Send, Clock } from "lucide-react";
 
 type FormData = {
   name: string;
@@ -18,7 +12,7 @@ type FormData = {
   message: string;
 };
 
-export default function Contact() {
+export default function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -30,7 +24,7 @@ export default function Contact() {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
 
@@ -115,7 +109,7 @@ export default function Contact() {
               variants={itemVariants}
               className="inline-flex w-fit items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 backdrop-blur-md"
             >
-              <div className="rounded-full bg-white p-1 text-black">
+              <div className="rounded-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  p-1 text-black">
                 <Mail size={14} className="text-neutral-900" />
               </div>
 
@@ -141,8 +135,8 @@ export default function Contact() {
               variants={itemVariants}
               className="max-w-xl text-sm leading-relaxed text-neutral-400 sm:text-base md:text-lg"
             >
-              Read and update the latest news from us. Donec eu magna
-              quis felis facilisis fermentum.
+              Read and update the latest news from us. Donec eu magna quis felis
+              facilisis fermentum.
             </motion.p>
           </div>
 
@@ -182,7 +176,7 @@ export default function Contact() {
                     {item.label}
                   </p>
 
-                  <span className="break-words text-sm font-medium leading-relaxed text-neutral-200 sm:text-base">
+                  <span className="wrap-break-word text-sm font-medium leading-relaxed text-neutral-200 sm:text-base">
                     {item.value}
                   </span>
                 </div>
@@ -285,31 +279,19 @@ export default function Contact() {
                       Select Service
                     </option>
 
-                    <option
-                      className="text-black"
-                      value="business-strategy"
-                    >
+                    <option className="text-black" value="business-strategy">
                       Business Strategy
                     </option>
 
-                    <option
-                      className="text-black"
-                      value="market-analysis"
-                    >
+                    <option className="text-black" value="market-analysis">
                       Market Analysis
                     </option>
 
-                    <option
-                      className="text-black"
-                      value="financial-planning"
-                    >
+                    <option className="text-black" value="financial-planning">
                       Financial Planning
                     </option>
 
-                    <option
-                      className="text-black"
-                      value="risk-management"
-                    >
+                    <option className="text-black" value="risk-management">
                       Risk Management
                     </option>
 
@@ -369,9 +351,7 @@ export default function Contact() {
               className="group mx-auto flex w-full sm:w-fit items-center justify-center gap-3  bg-blue-600  rounded-full  px-6 sm:px-8 py-3 text-[13px] sm:text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-blue-700 active:bg-blue-800 "
             >
               {/* ICON */}
-              <div
-                className="flex items-center justify-center rounded-full bg-white p-2 text-blue-600 rotate-[45deg] transition-all duration-300 ease-out group-hover:rotate-0 group-hover:scale-110"
-              >
+              <div className="flex items-center justify-center rounded-full bg-white p-2 text-blue-600 rotate-45 transition-all duration-300 ease-out group-hover:rotate-0 group-hover:scale-110">
                 <Send size={14} />
               </div>
 

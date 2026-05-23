@@ -1,81 +1,26 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Sparkles,
-  Search,
-  FileText,
-  BarChart2,
-  ArrowUpRight,
-  ArrowLeft,
-  ArrowRight,
-} from "lucide-react";
-
-interface Service {
-  id: string | number;
-  title: string;
-  description: string;
-  icon: React.ComponentType<{ className?: string }>;
-  iconBg: string;
-  tags: string[];
-}
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import { SERVICES, type Service } from "@/components/data/servicesData";
 
 interface CreativeSliderProps {
   services: Service[];
 }
+ 
 
-const SERVICES: Service[] = [
-  {
-    id: 1,
-    title: "Custom Software Development",
-    description:
-      "We build tailored software matching your distinct business workflows to automate tasks and accelerate daily execution speed.",
-    icon: Sparkles,
-    iconBg: "bg-violet-500/15 text-violet-300 border border-violet-500/20",
-    tags: ["Business-fit", "Scalable", "Secure"],
-  },
-  {
-    id: 2,
-    title: "SEO Analyzer Optimizer",
-    description:
-      "Audit your search visibility footprint and automatically implement missing contextual keywords to instantly rank higher.",
-    icon: Search,
-    iconBg: "bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/20",
-    tags: ["SEO Audit", "Keywords", "Ranking"],
-  },
-  {
-    id: 3,
-    title: "Content Optimizer",
-    description:
-      "Repurpose and polish top-performing text into high-converting social copy, email campaigns, and landing page variants.",
-    icon: FileText,
-    iconBg: "bg-cyan-500/15 text-cyan-300 border border-cyan-500/20",
-    tags: ["Copywriting", "Campaigns", "Conversion"],
-  },
-  {
-    id: 4,
-    title: "Predictive Analytics",
-    description:
-      "Leverage advanced behavioral analysis to predict how target demographics will react to your messaging before you publish.",
-    icon: BarChart2,
-    iconBg: "bg-emerald-500/15 text-emerald-300 border border-emerald-500/20",
-    tags: ["Analytics", "Behavioral", "Insights"],
-  },
-];
-
-// Custom Hook to manage responsive card translations safely without layout thrashing
 function useCardOffset() {
   const [offset, setOffset] = useState(280);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
-        setOffset(0); // Stacked or single view on mobile screens
+        setOffset(0);
       } else if (window.innerWidth < 1024) {
-        setOffset(160); // Narrower offset for tablets
+        setOffset(160);
       } else {
-        setOffset(320); // Desktop view layout
+        setOffset(320);
       }
     };
 
@@ -91,25 +36,43 @@ function CreativeSlider({ services }: CreativeSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const cardOffset = useCardOffset();
 
+  // Helper flags to check if we are at the boundaries
+  const isFirstSlide = currentIndex === 0;
+  const isLastSlide = currentIndex === services.length - 1;
+
   const handleNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % services.length);
+    if (!isLastSlide) {
+      setCurrentIndex((prev) => prev + 1);
+    }
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+    if (!isFirstSlide) {
+      setCurrentIndex((prev) => prev - 1);
+    }
   };
 
   const getVisibleCards = () => {
     const total = services.length;
-    const leftIndex = (currentIndex - 1 + total) % total;
     const middleIndex = currentIndex;
-    const rightIndex = (currentIndex + 1) % total;
 
-    return [
-      { service: services[leftIndex], position: "left" },
-      { service: services[middleIndex], position: "middle" },
-      { service: services[rightIndex], position: "right" },
-    ];
+    // Instead of wrapping infinitely, we clamp the index or return null if out of bounds
+    const leftIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : null;
+    const rightIndex = currentIndex + 1 < total ? currentIndex + 1 : null;
+
+    const cards = [];
+
+    if (leftIndex !== null) {
+      cards.push({ service: services[leftIndex], position: "left" });
+    }
+
+    cards.push({ service: services[middleIndex], position: "middle" });
+
+    if (rightIndex !== null) {
+      cards.push({ service: services[rightIndex], position: "right" });
+    }
+
+    return cards;
   };
 
   const visibleCards = getVisibleCards();
@@ -120,16 +83,18 @@ function CreativeSlider({ services }: CreativeSliderProps) {
       <div className="hidden sm:block">
         <button
           onClick={handlePrev}
+          disabled={isFirstSlide}
           aria-label="Previous slide"
-          className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 transition-all duration-200"
+          className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 disabled:opacity-30 disabled:pointer-events-none disabled:scale-100 transition-all duration-200"
         >
           <ArrowLeft className="w-6 h-6 text-white" />
         </button>
 
         <button
           onClick={handleNext}
+          disabled={isLastSlide}
           aria-label="Next slide"
-          className="absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 transition-all duration-200"
+          className="absolute right-2 lg:left-auto lg:right-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 disabled:opacity-30 disabled:pointer-events-none disabled:scale-100 transition-all duration-200"
         >
           <ArrowRight className="w-6 h-6 text-white" />
         </button>
@@ -139,11 +104,9 @@ function CreativeSlider({ services }: CreativeSliderProps) {
       <div className="relative flex items-center justify-center min-h-[480px] sm:min-h-[520px] overflow-hidden">
         <AnimatePresence mode="popLayout" initial={false}>
           {visibleCards.map(({ service, position }) => {
-            const IconComponent = service.icon;
             const isMiddle = position === "middle";
             const isLeft = position === "left";
 
-            // Calculate precise offsets using state variables
             const xTranslation = isMiddle
               ? 0
               : isLeft
@@ -152,19 +115,18 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
             return (
               <motion.div
-                key={`${service.id}-${position}`}
+                key={service.id}
                 initial={{
                   opacity: 0,
                   scale: 0.8,
                   x: isLeft ? -cardOffset - 40 : cardOffset + 40,
                 }}
                 animate={{
-                  opacity: isMiddle ? 1 : 0.9,
+                  opacity: isMiddle ? 1 : 0.4,
                   scale: isMiddle ? 1 : 0.85,
                   x: xTranslation,
                   zIndex: isMiddle ? 20 : 10,
-
-                  filter: isMiddle ? "blur(0px)" : "blur(1.5px)",
+                  filter: isMiddle ? "blur(0px)" : "blur(2px)",
                 }}
                 exit={{
                   opacity: 0,
@@ -173,42 +135,39 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                 }}
                 transition={{
                   type: "spring",
-                  stiffness: 300,
-                  damping: 28,
+                  stiffness: 260,
+                  damping: 26,
                 }}
-                className={` absolute flex flex-col justify-between
-                  rounded-[28px]
-                  backdrop-blur-xl
-                  bg-white/5
-                  border
-                  w-[85%]
-                  xs:w-[75%]
-                  sm:w-[340px]
-                  md:w-[360px]
-                  p-6 sm:p-7
-                 
+                className={`absolute flex flex-col justify-between rounded-[28px] backdrop-blur-xl bg-white/5 border w-[85%] xs:w-[75%] sm:w-[340px] md:w-[360px] p-6 sm:p-7
+                  
                   ${
                     isMiddle
-                      ? "border-white/20 shadow-[0_20px_50px_rgba(255,255,255,0.08)] bg-white/10  min-h-[400px] md:min-h-[450px]"
-                      : "border-white/5 hidden sm:flex pointer-events-none select-none  min-h-[200px] sm:min-h-[250px]"
+                      ? "border-white/20 shadow-[0_20px_50px_rgba(255,255,255,0.08)] bg-white/10 min-h-[400px] md:min-h-[450px]"
+                      : "border-white/5 hidden sm:flex pointer-events-none select-none min-h-[200px] sm:min-h-[250px]"
                   }
                 `}
               >
                 {/* Card Header */}
                 <div className="flex items-center justify-between">
-                  <div className={`p-3 rounded-2xl ${service.iconBg}`}>
-                    <IconComponent className="w-5 h-5" />
-                  </div>
+                  {/* Premium Icon */}
+                  <div className="relative group">
+                    {/* Blue Ambient Glow */}
+                    <div className="absolute inset-0 rounded-2xl bg-blue-500/10 blur-2xl opacity-0 transition-all duration-500 group-hover:opacity-100" />
 
-                  <div
-                    className={`
-                      w-8 h-8 rounded-full
-                      flex items-center justify-center
-                      text-white transition-all duration-300
-                      ${isMiddle ? "opacity-100 scale-100" : "opacity-0 scale-75"}
-                    `}
-                  >
-                    <ArrowUpRight className="w-4 h-4 text-zinc-400" />
+                    {/* Icon Container */}
+                    <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 ease-out group-hover:border-blue-400/20 group-hover:bg-blue-500/6 group-hover:translate-y-[-2px] group-hover:shadow-[0_10px_40px_rgba(59,130,246,0.18)]">
+                      {/* Premium Inner Layer */}
+                      <div className="absolute inset-px rounded-[15px] bg-linear-to-b from-white/5 to-transparent" />
+
+                      {/* Shine Sweep */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        <div className="absolute inset-y-0 -left-full w-1/2 bg-linear-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-premium-shine" />
+                      </div>
+
+                      {service.icon ? (
+                        <service.icon className="relative z-10 w-8 h-8 text-white/70 transition-all duration-500 group-hover:text-blue-400 group-hover:scale-110" />
+                      ) : null}
+                    </div>
                   </div>
                 </div>
 
@@ -226,8 +185,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
                   {/* Tags Array */}
                   <div
-                    className={`
-                     transition-opacity duration-300
+                    className={`mt-4 my-4 transition-opacity duration-300
                       ${isMiddle ? "opacity-100" : "opacity-0"}
                     `}
                   >
@@ -245,9 +203,9 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
                   <motion.a
                     href="#"
-                    whileHover={{ scale: 1.03 }}
+                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={` group flex items-center justify-between w-full rounded-xl bg-blue-600  px-6 py-3 text-white shadow-[0_10px_40px_rgba(37,99,235,0.35)] transition-all duration-300 hover:opacity-90  ${
+                    className={`group flex items-center justify-between w-full rounded-xl bg-blue-600 px-5 py-3 text-white shadow-[0_10px_40px_rgba(37,99,235,0.35)] transition-all duration-300 hover:opacity-90 ${
                       isMiddle
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-4 pointer-events-none absolute"
@@ -257,8 +215,8 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                       Get Started Now
                     </span>
 
-                    <div className="flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45 ">
-                      <ArrowUpRight className="w-5 h-5 stroke-[2.5]" />
+                    <div className="flex items-center justify-center h-9 w-9 sm:h-10 sm:w-10 rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45 ">
+                      <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
                     </div>
                   </motion.a>
                 </div>
@@ -270,71 +228,65 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
       {/* Mobile Bottom Navigation */}
       <div className="flex sm:hidden items-center justify-center gap-4 mt-8">
-        {/* Left */}
         <button
           onClick={handlePrev}
+          disabled={isFirstSlide}
           aria-label="Previous slide"
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 transition-all duration-200 "
+          className="flex items-center justify-center w-15 h-15 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
         >
-          <ArrowLeft className="w-5 h-5 text-white" />
+          <ArrowLeft className="w-7 h-7 text-white" />
         </button>
 
-        {/* Dots */}
-        <div className="flex items-center gap-2">
-          {services.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentIndex(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`
-          h-2 rounded-full transition-all duration-300
-          ${idx === currentIndex ? "w-8 bg-white" : "w-2 bg-white/30"}
-        `}
-            />
-          ))}
-        </div>
-
-        {/* Right */}
         <button
           onClick={handleNext}
+          disabled={isLastSlide}
           aria-label="Next slide"
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 transition-all duration-200 "
+          className="flex items-center justify-center w-15 h-15 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
         >
-          <ArrowRight className="w-5 h-5 text-white" />
+          <ArrowRight className="w-7 h-7 text-white" />
         </button>
-      </div>
-
-      {/* Desktop Dots */}
-      <div className="hidden sm:flex justify-center mt-6 gap-2">
-        {services.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentIndex(idx)}
-            className={`
-        rounded-full transition-all duration-300 h-2
-        ${
-          idx === currentIndex
-            ? "w-8 bg-white"
-            : "w-2 bg-white/30 hover:bg-white/50"
-        }
-      `}
-            aria-label={`Go to slide ${idx + 1}`}
-          />
-        ))}
       </div>
     </div>
   );
 }
 
 export default function FeaturesGrid() {
+
+   const containerVariants: Variants = {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.12 },
+      },
+    };
+  
+    const cardVariants: Variants = {
+      hidden: { opacity: 0, y: 30 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+      },
+    };
+
+
   return (
     <section className="w-full bg-black px-4 sm:px-6 lg:px-8 py-20 select-none overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center mb-12">
+       <motion.div
+             variants={containerVariants}
+             initial="hidden"
+             whileInView="visible"
+             viewport={{ once: true, margin: "-100px" }}
+        className="max-w-4xl mx-auto text-center mb-12"
+      >
         <span className="inline-block mb-3 text-xs font-bold tracking-[0.25em] uppercase text-zinc-500">
           Our Expertise
         </span>
 
-        <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15] w-full wrap-break-word">
+        <h1
+           
+          className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15] w-full wrap-break-word"
+        >
           Expert in{" "}
           <span className="font-serif italic font-light text-zinc-200">
             IT & Digital Marketing
@@ -342,11 +294,14 @@ export default function FeaturesGrid() {
           Solutions
         </h1>
 
-        <p className="mt-5 max-w-xl mx-auto text-sm sm:text-base leading-relaxed text-zinc-400">
+        <p
+        
+          className="mt-5 max-w-xl mx-auto text-sm sm:text-base leading-relaxed text-zinc-400"
+        >
           We deliver integrated systems that streamline your operations, protect
           structural assets, and drive data-informed customer growth.
         </p>
-      </div>
+      </motion.div>
 
       <div className="w-full mx-auto text-center">
         <CreativeSlider services={SERVICES} />

@@ -4,7 +4,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className=" bg-white">
+    <div className=" bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] ">
       <CustomBanner
         badge="Our Latest Blog"
         title="Latest"

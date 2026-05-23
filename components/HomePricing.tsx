@@ -50,9 +50,7 @@ export default function HomePricing() {
 
         <h2 className="max-w-6xl text-center text-4xl leading-[1.02] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
           Plans for every{" "}
-          <span className="block font-light italic font-serif">
-            Business
-          </span>
+          <span className="block font-light italic font-serif">Business</span>
         </h2>
       </div>
 
@@ -142,9 +140,11 @@ export default function HomePricing() {
                   stiffness: 300,
                   damping: 25,
                 }}
-                className="relative flex min-h-[520px] flex-col justify-between rounded-[28px] bg-white p-8 shadow-xl"
+                className="relative flex min-h-[520px] flex-col justify-between rounded-[28px] bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  p-8 shadow-xl"
               >
                 <div>
+                  bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]
+                  bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]
                   {/* Header */}
                   <div className="flex items-center justify-between">
                     <h3 className="text-2xl font-bold tracking-tight text-blue-500">
@@ -157,16 +157,13 @@ export default function HomePricing() {
                       </span>
                     )}
                   </div>
-
                   {/* Price */}
                   <div className="mt-6 flex items-baseline gap-1">
                     <span className="text-4xl font-semibold tracking-tight text-gray-900">
                       {plan.price}
                     </span>
                   </div>
-
                   <hr className="my-8 border-gray-100" />
-
                   {/* Features */}
                   <ul className="flex flex-col gap-3.5">
                     {plan.features.map((feature, idx) => (
@@ -191,7 +188,7 @@ export default function HomePricing() {
                   </button>
                 </div>
               </motion.div>
-            )
+            ),
           )}
         </div>
       </div>

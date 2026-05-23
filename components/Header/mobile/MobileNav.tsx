@@ -40,7 +40,7 @@ export function MobileNav({ open, onClose, navItems }: MobileNavProps) {
       <div
         ref={panelRef}
         className={cn(
-          "absolute right-0 top-0 h-full w-[88vw] max-w-sm bg-white shadow-2xl flex flex-col",
+          "absolute right-0 top-0 h-full w-[88vw] max-w-sm bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  shadow-2xl flex flex-col",
           "transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]",
           open ? "translate-x-0" : "translate-x-full",
         )}

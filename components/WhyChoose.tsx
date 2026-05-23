@@ -2,7 +2,14 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
-import {ArrowUpRight,  TrendingUp ,Cpu , Check, CodeXml,UsersRound  } from "lucide-react";
+import {
+  ArrowUpRight,
+  TrendingUp,
+  Cpu,
+  Check,
+  CodeXml,
+  UsersRound,
+} from "lucide-react";
 import Image from "next/image";
 import { LucideIcon } from "lucide-react";
 
@@ -30,21 +37,21 @@ const SERVICES: Plan[] = [
   {
     id: 2,
     title: "Why Dedicated Developers",
-    badge: UsersRound ,
+    badge: UsersRound,
     description: "Experts ensure project success.",
     features: ["Technical skill", "Project focus", "Cost efficiency", "Speed"],
   },
   {
     id: 3,
     title: "Why Digital Marketing",
-    badge: TrendingUp ,
+    badge: TrendingUp,
     description: "Visibility drives revenue.",
     features: ["Brand reach", "Lead quality", " Online trust", "Growth"],
   },
   {
     id: 4,
     title: "Why Technologies",
-    badge: Cpu ,
+    badge: Cpu,
     description:
       "Technology enables secure operations using managed IT services.",
     features: ["Performance", "Security", "Cloud systems", "Automation"],
@@ -99,67 +106,66 @@ export default function WhyChoose() {
 
         {/* Responsive Grid System */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-  {SERVICES.map((service) => {
-    const IconComponent = service.badge;
+          {SERVICES.map((service) => {
+            const IconComponent = service.badge;
 
-    return (
-      <motion.div
-        key={service.id}
-        variants={cardVariants}
-        whileHover={{
-          y: -6,
-          boxShadow: "0 20px 45px rgba(0,0,0,0.08)",
-        }}
-        transition={{ type: "spring", stiffness: 300, damping: 24 }}
-        className="group relative overflow-hidden bg-white border rounded-[28px] p-6 sm:p-8 flex flex-col justify-between min-h-[320px] transition-all duration-300 border-blue-200 shadow-xl"
-      >
-        {/* Soft Gradient Glow */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-br from-blue-50/60 via-transparent to-transparent pointer-events-none" />
+            return (
+              <motion.div
+                key={service.id}
+                variants={cardVariants}
+                whileHover={{
+                  y: -6,
+                  boxShadow: "0 20px 45px rgba(0,0,0,0.08)",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                className="group relative overflow-hidden bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  border rounded-[28px] p-6 sm:p-8 flex flex-col justify-between min-h-[320px] transition-all duration-300 border-blue-200 shadow-xl"
+              >
+                {/* Soft Gradient Glow */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-br from-blue-50/60 via-transparent to-transparent pointer-events-none" />
 
-        {/* Card Header */}
-        <div className="relative z-10 flex items-center justify-between mb-8">
-          
-          {/* Icon Box */}
-          <div className="flex items-center justify-center w-14 h-14 rounded-2xl   border  transition-all duration-300  bg-blue-600  border-blue-600">
-            <IconComponent className="w-6 h-6 text-white transition-colors duration-300" />
-          </div>
+                {/* Card Header */}
+                <div className="relative z-10 flex items-center justify-between mb-8">
+                  {/* Icon Box */}
+                  <div className="flex items-center justify-center w-14 h-14 rounded-2xl   border  transition-all duration-300  bg-blue-600  border-blue-600">
+                    <IconComponent className="w-6 h-6 text-white transition-colors duration-300" />
+                  </div>
 
-          {/* Arrow Action */}
-          <div className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-700 transition-all duration-300 rotate-45 group-hover:rotate-0 group-hover:bg-gray-900 group-hover:text-white group-hover:border-gray-900">
-            <ArrowUpRight className="w-4 h-4" />
-          </div>
+                  {/* Arrow Action */}
+                  <div className="w-10 h-10 rounded-full border border-gray-200 bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  flex items-center justify-center text-gray-700 transition-all duration-300 rotate-45 group-hover:rotate-0 group-hover:bg-gray-900 group-hover:text-white group-hover:border-gray-900">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex-1">
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 leading-tight">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm sm:text-[15px] text-gray-600 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
+
+                {/* Features */}
+                <ul className="relative z-10 mt-8 flex flex-col gap-3">
+                  {service.features.map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-center gap-3 text-sm font-medium text-gray-700"
+                    >
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600">
+                        <Check className="h-3 w-3 text-white" />
+                      </div>
+
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            );
+          })}
         </div>
-
-        {/* Content */}
-        <div className="relative z-10 flex-1">
-          <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-gray-900 leading-tight">
-            {service.title}
-          </h3>
-
-          <p className="mt-4 text-sm sm:text-[15px] text-gray-600 leading-relaxed">
-            {service.description}
-          </p>
-        </div>
-
-        {/* Features */}
-        <ul className="relative z-10 mt-8 flex flex-col gap-3">
-          {service.features.map((feature, idx) => (
-            <li
-              key={idx}
-              className="flex items-center gap-3 text-sm font-medium text-gray-700"
-            >
-              <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-600">
-                <Check className="h-3 w-3 text-white" />
-              </div>
-
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </motion.div>
-    );
-  })}
-</div>
       </motion.div>
     </section>
   );

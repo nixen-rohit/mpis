@@ -1,14 +1,13 @@
 "use client";
 
 import React from "react";
-import Contact from "@/components/Contact";
+import ContactForm from "@/components/ContactForm";
 import GoogleMapsSection from "@/components/GoogleMapsSection";
- 
 
 const page = () => {
   return (
-    <div className="  bg-white">
-      <Contact />
+    <div className="  bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] ">
+      <ContactForm />
       <GoogleMapsSection />
     </div>
   );

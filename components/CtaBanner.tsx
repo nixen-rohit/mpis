@@ -50,7 +50,7 @@ export default function CtaBanner() {
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="group flex items-center justify-between gap-4 bg-white hover:bg-zinc-100 text-black px-6 py-3 rounded-full transition-all duration-300 shadow-sm min-w-[220px]"
+              className="group flex items-center justify-between gap-4 bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] hover:bg-zinc-100 text-black px-6 py-3 rounded-full transition-all duration-300 shadow-sm min-w-[220px]"
             >
               <span className="text-sm font-semibold tracking-wide">
                 Get Started

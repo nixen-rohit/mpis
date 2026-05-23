@@ -102,7 +102,7 @@ export default function Hero() {
             {/* ── Trending Tag ─────────────────────────────────────── */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full border border-black/10 bg-white/80 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.06)] mb-5 sm:mb-7 md:mb-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300"
+              className="inline-flex flex-wrap items-center justify-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full border border-black/10 bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr r-to-tr /80 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.06)] mb-5 sm:mb-7 md:mb-8 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300"
             >
               {/* Pulse dot */}
               <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5 shrink-0">
@@ -151,7 +151,7 @@ export default function Hero() {
             <span className="text-sm font-medium tracking-wide">
               Get Started
             </span>
-            <div className="bg-white text-black p-2 rounded-full transform group-hover:rotate-45 transition-transform duration-300">
+            <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr  text-black p-2 rounded-full transform group-hover:rotate-45 transition-transform duration-300">
               <ArrowUpRight className="w-4 h-4 text-[#4d3eff]" />
             </div>
           </button>

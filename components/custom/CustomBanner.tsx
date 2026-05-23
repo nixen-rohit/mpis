@@ -38,7 +38,7 @@ const CustomBanner = ({
   description = "",
 }: CustomBannerProps) => {
   return (
-    <section className="relative h-screen md:h-full w-full overflow-hidden bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] flex flex-col justify-between pt-20 md:pt-12 px-4 lg:px-8 select-none">
+    <section className="relative h-full w-full overflow-hidden bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] flex flex-col justify-between pt-20 md:pt-12 px-4 lg:px-8 select-none">
       <motion.div
         initial="initial"
         animate="animate"

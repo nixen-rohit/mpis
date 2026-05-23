@@ -3,7 +3,7 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import {  YearsExperience } from "@/components/svg/page";
+import { YearsExperience } from "@/components/svg/svg";
 import { FaLayerGroup } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi2";
 import { GiPartyPopper } from "react-icons/gi";
@@ -54,7 +54,7 @@ const iconAnimationVariants: Variants = {
     y: -5,
     scale: 1.1,
     rotate: [0, -10, 10, 0],
-    transition: { duration: 0.4, ease: "easeInOut" }
+    transition: { duration: 0.4, ease: "easeInOut" },
   },
 };
 
@@ -92,7 +92,6 @@ export default function Achievement() {
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-
           {/* Left Side CTA Circle */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -186,7 +185,10 @@ export default function Achievement() {
                     initial="rest"
                     className="bg-white text-black rounded-[20px] p-4 sm:p-5 flex flex-col items-center justify-center text-center h-[140px] sm:h-[160px] cursor-default"
                   >
-                    <motion.div variants={iconAnimationVariants} className="text-blue-600 text-xl sm:text-2xl mb-1">
+                    <motion.div
+                      variants={iconAnimationVariants}
+                      className="text-blue-600 text-xl sm:text-2xl mb-1"
+                    >
                       <stat.icon className="h-6 w-6 currentColor" />
                     </motion.div>
                     <span className="text-3xl sm:text-4xl font-black tracking-tight mb-1">
@@ -233,5 +235,3 @@ export default function Achievement() {
     </section>
   );
 }
-
- 

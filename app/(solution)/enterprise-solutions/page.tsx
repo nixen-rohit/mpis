@@ -8,7 +8,7 @@ import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
 export default function page() {
   return (
-    <div className="bg-white ">
+    <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  ">
       <CustomHero
         badgeText="Business operations
 

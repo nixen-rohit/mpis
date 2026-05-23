@@ -121,7 +121,7 @@ export default function Strategic() {
                   </p>
 
                   <motion.a
-                    href="#contact"
+                    href="/contact"
                     whileTap={{ scale: 0.96 }}
                     className="group inline-flex items-center gap-2 w-fit rounded-full bg-white px-5 py-3 text-sm font-semibold text-black transition-all duration-300 hover:bg-blue-50"
                   >

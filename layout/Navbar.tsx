@@ -52,8 +52,8 @@ export default function Navbar() {
         className={cn(
           "  fixed top-0 left-0 right-0 z-60  font-normal transition-all duration-300  ",
           scrolled
-            ? "bg-white/95 backdrop-blur-xl border-b border-gray-200/70 shadow-sm"
-            : "bg-white border-b border-gray-200/60",
+            ? "bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] /95 backdrop-blur-xl border-b border-gray-200/70 shadow-sm"
+            : "bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  border-b border-gray-200/60",
         )}
       >
         <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
@@ -82,7 +82,7 @@ export default function Navbar() {
               {/* Search */}
               <button
                 onClick={() => setSearchOpen(true)}
-                className="hidden sm:flex items-center gap-2 rounded-full border  border-zinc-400 bg-white/80 px-4 py-2 text-sm text-gray-600 shadow-sm transition-all hover:border-gray-300 hover:bg-white"
+                className="hidden sm:flex items-center gap-2 rounded-full border  border-zinc-400 bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] /80 px-4 py-2 text-sm text-gray-600 shadow-sm transition-all hover:border-gray-300 hover:bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] "
                 aria-label="Search"
               >
                 <RiSearchLine className="text-lg" />

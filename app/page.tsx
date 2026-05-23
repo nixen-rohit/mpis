@@ -14,11 +14,16 @@ import Achievement from "@/components/Achievemen";
 import Strategic from "@/components/Strategic";
 import Insight from "@/components/Insight";
 import Industry from "@/components/Industry";
-import Contact from "@/components/Contact";
+import ContactForm from "@/components/ContactForm";
+import TechSection from "@/components/custom/TechSection";
 
 export default function Main() {
   return (
-    <div className="min-h-screen w-full bg-white ">
+    <div className="min-h-screen w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  ">
+
+
+
+      
       <Hero />
 
       {/* bio section */}
@@ -30,12 +35,66 @@ export default function Main() {
       <CtaBanner />
       <HomePricing />
       <Insight />
-      <Contact />
+      <ContactForm />
       <Strategic />
       <Services />
       <VideoShowcase />
 
-      {/* technology section */}
+       
+ <TechSection
+        // FRONTEND
+        showReact
+        showAngular
+        showVue
+        showHtml
+        showCss
+        showJs
+
+        // BACKEND
+        showNode
+        showPython
+        showPhp
+        showJava
+        showRuby
+        showCsharp
+
+        // MOBILE
+        showReactNative
+        showFlutter
+        showSwift
+        showKotlin
+
+        // DATABASE
+        showMysql
+        showPostgresql
+        showMongodb
+        showRedis
+        showOracle
+        
+
+        // FRAMEWORKS
+        showLaravel
+        showDjango
+        showSpring
+        showDotnet
+        showExpress
+
+        // CLOUD
+        showAws
+        showAzure
+        showGooglecloud
+
+        // DEVOPS
+        showDocker
+        showKubernetes
+        showJenkins
+        showGit
+
+        // CMS
+        showWordpress
+        showMagento
+      />
+
 
       <Testimonials />
       <Consultation />

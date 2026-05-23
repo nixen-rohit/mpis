@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, ArrowUpRight } from "lucide-react";
+import { Plus } from "lucide-react";
 import Button from "@/components/ui/Button";
+
 interface ServiceItem {
   id: string;
   title: string;
@@ -22,7 +22,8 @@ const services: ServiceItem[] = [
     description:
       "We architect scalable, secure, and highly customized software solutions crafted specifically to tackle your unique business challenges and drive operational efficiency.",
     tags: ["Click here"],
-    image: "/img/customsoftware.jpg",
+    image:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80",
   },
   {
     id: "02.",
@@ -31,7 +32,8 @@ const services: ServiceItem[] = [
     description:
       "Deliver exceptional digital experiences with responsive, fast, and robust web applications designed to engage users and convert visitors into loyal customers.",
     tags: ["Click here"],
-    image: "/img/webdevelopment.jpg",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=80",
   },
   {
     id: "03.",
@@ -40,171 +42,337 @@ const services: ServiceItem[] = [
     description:
       "From iOS to Android, we engineer intuitive mobile applications that captivate audiences, foster brand loyalty, and leverage cutting-edge device capabilities.",
     tags: ["Click here"],
-    image: "/img/appdevelopment.jpg",
+    image:
+      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80",
   },
   {
     id: "04.",
-    title: "Healthcare Software Development",
+    title: "Healthcare Software",
     subTitle: "Innovating Patient Care",
     description:
       "Empower medical professionals with secure, compliant, and transformative healthcare applications ranging from telehealth platforms to robust hospital management systems.",
     tags: ["Click here"],
-    image: "/img/healthcare.jpg",
+    image:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80",
   },
   {
     id: "05.",
     title: "E-Learning Development",
     subTitle: "Revolutionizing Education",
     description:
-      "Deploy scalable Learning Management Systems (LMS) and interactive educational platforms that make remote learning engaging, trackable, and accessible anywhere..",
+      "Deploy scalable Learning Management Systems (LMS) and interactive educational platforms that make remote learning engaging, trackable, and accessible anywhere.",
     tags: ["Click here"],
-    image: "/img/elearning.jpg",
+    image:
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=80",
   },
   {
     id: "06.",
-    title: ".NET Application Development",
+    title: ".NET Application Dev",
     subTitle: "Enterprise-Grade .NET Solutions",
     description:
       "Leverage the full power of Microsoft's ecosystem to build high-performance, resilient, and enterprise-ready applications using the latest .NET Core technologies.",
     tags: ["Click here"],
-    image: "/img/dotnet.jpg",
+    image:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80",
   },
 ];
 
-export default function Services() {
-  const [activeTab, setActiveTab] = useState<string>(services[0].id);
+// ─── Wave distortion helper ───────────────────────────────────────────────────
+function drawWaveImage(
+  ctx: CanvasRenderingContext2D,
+  img: HTMLImageElement,
+  w: number,
+  h: number,
+  t: number,
+  intensity: number,
+) {
+  const offscreen = document.createElement("canvas");
+  offscreen.width = w;
+  offscreen.height = h;
+  const octx = offscreen.getContext("2d")!;
+  octx.drawImage(img, 0, 0, w, h);
+  const imageData = octx.getImageData(0, 0, w, h);
+  const output = ctx.createImageData(w, h);
+  const src = imageData.data;
+  const dst = output.data;
+  const amp = intensity * 12;
+  const freq = 0.04;
+
+  for (let y = 0; y < h; y++) {
+    for (let x = 0; x < w; x++) {
+      const dx =
+        Math.sin(y * freq + t * 2) * amp +
+        Math.sin(y * freq * 0.5 + t) * amp * 0.5;
+      const dy = Math.sin(x * freq + t * 1.5) * amp * 0.3;
+      const sx = Math.round(x + dx);
+      const sy = Math.round(y + dy);
+      const si =
+        (Math.min(Math.max(sy, 0), h - 1) * w +
+          Math.min(Math.max(sx, 0), w - 1)) *
+        4;
+      const di = (y * w + x) * 4;
+      dst[di] = src[si];
+      dst[di + 1] = src[si + 1];
+      dst[di + 2] = src[si + 2];
+      dst[di + 3] = src[si + 3];
+    }
+  }
+  ctx.putImageData(output, 0, 0);
+}
+
+// ─── Hover Wave Preview (floating cursor follow) ──────────────────────────────
+interface HoverPreviewProps {
+  image: HTMLImageElement | null;
+  mouseX: number;
+  mouseY: number;
+  visible: boolean;
+}
+
+function HoverWavePreview({
+  image,
+  mouseX,
+  mouseY,
+  visible,
+}: HoverPreviewProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!visible || !image) return;
+    const animate = () => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+      drawWaveImage(
+        ctx,
+        image,
+        canvas.width,
+        canvas.height,
+        Date.now() * 0.001,
+        1,
+      );
+      rafRef.current = requestAnimationFrame(animate);
+    };
+    rafRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [visible, image]);
 
   return (
-    <section className="bg-[#F9F9F9] min-h-screen py-20 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Heading Section */}
+    <div
+      style={{
+        position: "fixed",
+        left: mouseX,
+        top: mouseY - 90,
+        transform: "translate(-50%, -50%)",
+        width: 260,
+        height: 160,
+        borderRadius: 10,
+        overflow: "hidden",
+        pointerEvents: "none",
+        zIndex: 9999,
+        opacity: visible ? 1 : 0,
+        transition: "opacity 0.3s ease",
+        boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
+      }}
+    >
+      <canvas
+        ref={canvasRef}
+        width={260}
+        height={160}
+        style={{ display: "block" }}
+      />
+    </div>
+  );
+}
 
-        <div className="flex flex-col justify-center items-center col-span-full mb-12 md:mb-16 max-w-7xl">
-          {/* Section label */}
-          <span className="inline-block  mb-4 text-sm sm:text-base font-medium tracking-[0.2em] uppercase text-gray-400 ">
-            Your Business Our Expertise
-          </span>
+// ─── Expanded Wave Canvas (live animated inside accordion) ────────────────────
+interface ExpandedWaveCanvasProps {
+  image: HTMLImageElement | null;
+}
 
-          {/* Main heading */}
-          <h2 className="text-4xl sm:text-6xl text-center md:text-7xl lg:text-8xl font-normal tracking-tight text-[#111111] leading-[1.02] max-w-6xl">
-            Service For Your{" "}
-            <span className="font-serif italic font-light text-[#1c1c1c]">
-              Development
-            </span>{" "}
-            Solutions
-          </h2>
+// ─── Main Component ───────────────────────────────────────────────────────────
+export default function Service() {
+  const [activeId, setActiveId] = useState<string | null>("");
+  const [hoverState, setHoverState] = useState<{
+    visible: boolean;
+    image: HTMLImageElement | null;
+    x: number;
+    y: number;
+  }>({ visible: false, image: null, x: 0, y: 0 });
 
-          {/* Supporting description */}
-          <p className="mt-6 max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base">
-            We believe that every business is unique. Our approach to your
-            growth is never one-size-fits-all, providing tailored development
-            solutions to meet your exact needs.
-          </p>
-        </div>
+  const imgCache = useRef<Record<string, HTMLImageElement>>({});
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* Left Side: Accordion */}
-          <div className="space-y-4">
-            {services.map((service) => (
+  useEffect(() => {
+    services.forEach((s) => {
+      if (imgCache.current[s.id]) return;
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.src = s.image;
+      img.onload = () => {
+        imgCache.current[s.id] = img;
+      };
+    });
+  }, []);
+
+  const handleMouseEnter = useCallback((id: string, e: React.MouseEvent) => {
+    const img = imgCache.current[id] ?? null;
+    setHoverState({ visible: true, image: img, x: e.clientX, y: e.clientY });
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    setHoverState((prev) => ({ ...prev, x: e.clientX, y: e.clientY }));
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHoverState((prev) => ({ ...prev, visible: false, image: null }));
+  }, []);
+
+  return (
+    <div className="bg-black">
+      {/* ───────────────── Heading ───────────────── */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className=" flex flex-col items-center justify-center px-4 sm:px-6 text-center pt-10"
+      >
+        {/* Label */}
+        <motion.span
+          initial={{ opacity: 0, letterSpacing: "0.5em" }}
+          animate={{ opacity: 1, letterSpacing: "0.2em" }}
+          transition={{ duration: 0.9, delay: 0.1 }}
+          className="mb-3 sm:mb-4 text-[11px] sm:text-sm font-medium uppercase tracking-[0.2em] text-neutral-500 "
+        >
+          Your Business Our Expertise
+        </motion.span>
+
+        {/* Title */}
+        <h2 className="max-w-6xl text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal tracking-tight leading-[1.05] text-white">
+          Service For Your{" "}
+          <span className="font-serif italic font-light text-blue-500">
+            Development
+          </span>{" "}
+          Solutions
+        </h2>
+
+        {/* Description */}
+        <p className="mt-5 sm:mt-6 max-w-3xl text-sm sm:text-base md:text-lg leading-relaxed text-neutral-400 ">
+          We believe that every business is unique. Our approach to your growth
+          is never one-size-fits-all, providing tailored development solutions
+          to meet your exact needs.
+        </p>
+      </motion.div>
+
+      {/* Hover Preview */}
+      <HoverWavePreview
+        image={hoverState.image}
+        mouseX={hoverState.x}
+        mouseY={hoverState.y}
+        visible={hoverState.visible}
+      />
+
+      {/* ───────────────── Services ───────────────── */}
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 select-none font-sans ">
+        <div className="border-t border-white/10">
+          {services.map((service) => {
+            const isActive = activeId === service.id;
+
+            return (
               <div
                 key={service.id}
-                className="border-t border-gray-200 py-6 first:border-t-0"
+                className="border-b border-white/10 transition-colors duration-300 hover:bg-white/[0.02] "
               >
-                <button
-                  onClick={() => setActiveTab(service.id)}
-                  className="w-full flex items-center justify-between text-left group"
+                {/* ───── Header ───── */}
+                <div
+                  onClick={() => setActiveId(isActive ? null : service.id)}
+                  onMouseEnter={(e) => handleMouseEnter(service.id, e)}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  className="grid grid-cols-12 items-start sm:items-center gap-y-4 py-6 sm:py-8 cursor-pointer group"
                 >
-                  <div className="flex items-center gap-8">
-                    <span className="text-sm font-medium text-gray-500">
+                  {/* Left */}
+                  <div className="col-span-10 sm:col-span-11 md:col-span-8 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-5 ">
+                    <span className="text-xs sm:text-sm md:text-base font-mono text-neutral-500">
                       {service.id}
                     </span>
-                    <h2
-                      className={`text-4xl md:text-5xl font-bold transition-colors ${
-                        activeTab === service.id
-                          ? "text-black"
-                          : "text-gray-400 group-hover:text-black"
-                      }`}
-                    >
+
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight leading-tight text-white transition-transform duration-300 group-hover:translate-x-1">
                       {service.title}
                     </h2>
                   </div>
-                  <div className="text-black">
-                    {activeTab === service.id ? (
-                      <Minus size={24} />
-                    ) : (
-                      <Plus size={24} />
-                    )}
-                  </div>
-                </button>
 
-                <AnimatePresence>
-                  {activeTab === service.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                  {/* Right Icon */}
+                  <div className="col-span-2 sm:col-span-1 md:col-span-4 flex justify-end pr-1 sm:pr-4 ">
+                    <motion.span
+                      animate={{ rotate: isActive ? 45 : 180 }}
                       transition={{
-                        duration: 0.4,
-                        ease: [0.04, 0.62, 0.23, 0.98],
+                        duration: 0.3,
+                        ease: "easeInOut",
+                      }}
+                      className="text-neutral-500"
+                    >
+                      <Plus className="w-6 h-6 sm:w-8 sm:h-8" />
+                    </motion.span>
+                  </div>
+                </div>
+
+                {/* ───── Expanded Content ───── */}
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{
+                        duration: 0.45,
+                        ease: [0.25, 1, 0.5, 1],
                       }}
                       className="overflow-hidden"
                     >
-                      <div className="pl-16 pt-6 space-y-6">
-                        <h4 className="text-xl text-blue-400 font-bold">
-                          {" "}
-                          {service.subTitle}{" "}
-                        </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 pb-8 sm:pb-10 ">
+                        {/* Text */}
+                        <div className=" md:col-span-7 px-1 sm:px-4 md:pl-12 flex flex-col justify-center space-y-4">
+                          <h3 className="text-xl sm:text-2xl font-medium text-blue-500 ">
+                            {service.subTitle}
+                          </h3>
 
-                        <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
-                          {service.description}
-                        </p>
+                          <p className="max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-neutral-400">
+                            {service.description}
+                          </p>
 
-                        <div className="flex flex-wrap gap-3">
-                          {service.tags.map((tag) => (
-                            <Button key={tag} title={tag} href={tag} />
-                          ))}
+                          {/* Tags */}
+                          <div className="flex flex-wrap gap-3 pt-2">
+                            {service.tags.map((tag, i) => (
+                              <button
+                                key={i}
+                                className="px-4 py-2 text-[10px] sm:text-xs uppercase font-semibold tracking-wider rounded-full border border-white/10 bg-white/[0.03] text-neutral-300 transition-all duration-300 hover:border-blue-500/30 hover:bg-blue-500/10 hover:text-blue-200 "
+                              >
+                                {tag}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Image */}
+                        <div className=" md:col-span-5 h-[240px] sm:h-[320px] md:h-full overflow-hidden rounded-2xl border border-white/10">
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                          />
                         </div>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </div>
-            ))}
-          </div>
-
-          {/* Right Side: Image Preview */}
-          <div className="sticky top-20 hidden lg:block">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="relative aspect-square w-full rounded-3xl overflow-hidden bg-gray-100"
-            >
-              <Image
-                src={
-                  services.find((s) => s.id === activeTab)?.image ||
-                  "/img/test.jpg"
-                }
-                alt="Service Preview"
-                fill
-                className="object-cover"
-                priority
-              />
-
-              {/* Overlay Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  className="w-20 h-20 rounded-full bg-black/20 backdrop-blur-md border border-white/30 flex items-center justify-center cursor-pointer group"
-                >
-                  <ArrowUpRight className="text-white w-8 h-8 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
+            );
+          })}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
