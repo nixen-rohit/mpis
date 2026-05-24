@@ -591,5 +591,5 @@ export const NAV: NavItem[] = [
   { label: "Career", href: "/careers" },
   { label: "Blog", href: "/blog", mega: BLOG_NAV },
   { label: "About", href: "/about", mega: ABOUT_NAV },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact-us" },
 ];

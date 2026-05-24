@@ -9,17 +9,17 @@ import Image from "next/image";
 
 // Quick links array
 const QUICK_LINKS = [
-  { name: "About MPIS Revolution", href: "#" },
+  { name: "About MPIS Revolution", href: "/about" },
   { name: "Our Services", href: "#" },
   { name: "Our Projects", href: "#" },
   { name: "Expert Teams", href: "#" },
-  { name: "Blog & Insights", href: "#" },
-  { name: "Contact Us", href: "#" },
+  { name: "Blog & Insights", href: "/blog" },
+  { name: "Contact Us", href: "/contact-us" },
 ];
 
 // Legal links array
 const LEGAL_LINKS = [
-  { name: "Terms & Conditions", href: "#" },
+  { name: "Terms & Conditions", href: "/terms-conditions" },
   { name: "Privacy Policy", href: "#" },
   { name: "Refund Policy", href: "#" },
 ];

@@ -86,7 +86,7 @@ export function MobileNav({ open, onClose, navItems }: MobileNavProps) {
         {/* Footer CTA */}
         <div className="p-4 border-t border-gray-100 shrink-0 space-y-3">
           <Link
-            href="/contact"
+            href="/contact-us"
             onClick={onClose}
             className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-blue-600 text-white text-[14px] font-bold hover:bg-blue-700 active:bg-blue-800 transition-colors shadow-sm shadow-blue-200"
           >

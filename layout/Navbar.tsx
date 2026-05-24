@@ -99,7 +99,7 @@ export default function Navbar() {
 
               <Button
                 aria-label="Let's Talk"
-                href="/contact"
+                  href="/contact-us"
                 title="Let's Talk"
               />
 
