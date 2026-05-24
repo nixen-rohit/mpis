@@ -20,10 +20,6 @@ import TechSection from "@/components/custom/TechSection";
 export default function Main() {
   return (
     <div className="min-h-screen w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  ">
-
-
-
-      
       <Hero />
 
       {/* bio section */}
@@ -40,8 +36,7 @@ export default function Main() {
       <Services />
       <VideoShowcase />
 
-       
- <TechSection
+      <TechSection
         // FRONTEND
         showReact
         showAngular
@@ -49,7 +44,6 @@ export default function Main() {
         showHtml
         showCss
         showJs
-
         // BACKEND
         showNode
         showPython
@@ -57,44 +51,36 @@ export default function Main() {
         showJava
         showRuby
         showCsharp
-
         // MOBILE
         showReactNative
         showFlutter
         showSwift
         showKotlin
-
         // DATABASE
         showMysql
         showPostgresql
         showMongodb
         showRedis
         showOracle
-        
-
         // FRAMEWORKS
         showLaravel
         showDjango
         showSpring
         showDotnet
         showExpress
-
         // CLOUD
         showAws
         showAzure
         showGooglecloud
-
         // DEVOPS
         showDocker
         showKubernetes
         showJenkins
         showGit
-
         // CMS
         showWordpress
         showMagento
       />
-
 
       <Testimonials />
       <Consultation />

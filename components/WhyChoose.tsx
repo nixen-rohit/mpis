@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+ 
 import { motion, Variants } from "framer-motion";
 import {
   ArrowUpRight,
@@ -10,7 +10,7 @@ import {
   CodeXml,
   UsersRound,
 } from "lucide-react";
-import Image from "next/image";
+ 
 import { LucideIcon } from "lucide-react";
 
 type Plan = {

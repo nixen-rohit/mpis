@@ -266,13 +266,14 @@ export default function Service() {
         </p>
       </motion.div>
 
-      {/* Hover Preview */}
-      <HoverWavePreview
-        image={hoverState.image}
-        mouseX={hoverState.x}
-        mouseY={hoverState.y}
-        visible={hoverState.visible}
-      />
+      <div className="hidden lg:flex">
+        <HoverWavePreview
+          image={hoverState.image}
+          mouseX={hoverState.x}
+          mouseY={hoverState.y}
+          visible={hoverState.visible}
+        />
+      </div>
 
       {/* ───────────────── Services ───────────────── */}
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 select-none font-sans ">
@@ -283,7 +284,7 @@ export default function Service() {
             return (
               <div
                 key={service.id}
-                className="border-b border-white/10 transition-colors duration-300 hover:bg-white/[0.02] "
+                className="border-b border-white/10 transition-colors duration-300 hover:bg-white/2 "
               >
                 {/* ───── Header ───── */}
                 <div
@@ -348,7 +349,7 @@ export default function Service() {
                             {service.tags.map((tag, i) => (
                               <button
                                 key={i}
-                                className="px-4 py-2 text-[10px] sm:text-xs uppercase font-semibold tracking-wider rounded-full border border-white/10 bg-white/[0.03] text-neutral-300 transition-all duration-300 hover:border-blue-500/30 hover:bg-blue-500/10 hover:text-blue-200 "
+                                className="px-4 py-2 text-[10px] sm:text-xs uppercase font-semibold tracking-wider rounded-full border border-white/10 bg-white/3 text-neutral-300 transition-all duration-300 hover:border-blue-500/30 hover:bg-blue-500/10 hover:text-blue-200 "
                               >
                                 {tag}
                               </button>

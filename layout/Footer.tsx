@@ -24,13 +24,7 @@ const LEGAL_LINKS = [
   { name: "Refund Policy", href: "#" },
 ];
 
-// Services links
-const SERVICES_LINKS = [
-  { name: "Web Development", href: "#" },
-  { name: "Mobile Apps", href: "#" },
-  { name: "Cloud Solutions", href: "#" },
-  { name: "Consulting", href: "#" },
-];
+ 
 
 // info details
 const CONTACT_INFO = [

@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
- import { motion, Variants } from "framer-motion";
+import React from "react";
+import { motion, Variants } from "framer-motion";
 
 // --- Types ---
 interface Testimonial {
@@ -158,27 +158,25 @@ const TestimonialsColumn = (props: {
 };
 
 export const Testimonials = () => {
-
   // Smooth layout transition variants
-const slideVariants: Variants = {
-  initial: { opacity: 0, y: 20 },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.16, 1, 0.3, 1],
-      staggerChildren: 0.1,
+  const slideVariants: Variants = {
+    initial: { opacity: 0, y: 20 },
+    animate: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.1,
+      },
     },
-  },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
-};
+    exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
+  };
 
-const itemVariants: Variants = {
-  initial: { opacity: 0, y: 15 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-};
-
+  const itemVariants: Variants = {
+    initial: { opacity: 0, y: 15 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
 
   return (
     <section
@@ -203,34 +201,30 @@ const itemVariants: Variants = {
             exit="exit"
             variants={slideVariants}
           >
-             
-             
-                {/* Badge */}
-                <p className="text-zinc-500 font-medium mb-4 tracking-wide">
-                  Our Clients Testimonials
-                </p>
+            {/* Badge */}
+            <p className="text-zinc-500 font-medium mb-4 tracking-wide">
+              Our Clients Testimonials
+            </p>
 
-                {/* Title */}
+            {/* Title */}
 
-                <motion.h1
-                  variants={itemVariants}
-                  className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.1]"
-                >
-                  Words from{" "}
-                  <span className="font-serif italic font-light text-blue-600 block">
-                    Our Valued Clients
-                  </span>
-                </motion.h1>
+            <motion.h1
+              variants={itemVariants}
+              className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.1]"
+            >
+              Words from{" "}
+              <span className="font-serif italic font-light text-blue-600 block">
+                Our Valued Clients
+              </span>
+            </motion.h1>
 
-                {/* description */}
-                <motion.p
-                  variants={itemVariants}
-                  className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-gray-500 "
-                >
-                  Trusted by businesses across India, UAE, Africa & Australia.
-                </motion.p>
-              
-            
+            {/* description */}
+            <motion.p
+              variants={itemVariants}
+              className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-gray-500 "
+            >
+              Trusted by businesses across India, UAE, Africa & Australia.
+            </motion.p>
           </motion.div>
         </div>
 

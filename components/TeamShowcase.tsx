@@ -50,7 +50,7 @@ const teamMembers: team[] = [
 
 export default function TeamCards() {
   return (
-    <section className="h-full w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  px-4 py-14">
+    <section className="h-full w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr  px-4 py-14">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {teamMembers.map((member, index) => (
           <motion.div

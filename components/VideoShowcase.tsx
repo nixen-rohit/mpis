@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, Variants, AnimatePresence,   } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Play, X } from "lucide-react";
 
-import { MagneticButton } from "./ui/MagneticButton";
-
-export default function VideoShowcase( ) {
+export default function VideoShowcase() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

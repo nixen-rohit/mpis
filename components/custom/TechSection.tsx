@@ -348,7 +348,7 @@ export default function TechSection({
               {isActive && (
                 <motion.div
                   layoutId="activeTabBackground"
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg shadow-orange-500/20"
+                  className="absolute inset-0 rounded-full bg-linear-to-r from-blue-500 to-blue-600 shadow-lg shadow-orange-500/20"
                   transition={{
                     type: "spring",
                     stiffness: 380,
