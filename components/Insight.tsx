@@ -77,7 +77,7 @@ export default function Insight() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-10 sm:py-14">
+    <div className="w-full max-w-7xl mx-auto px-4 py-10 sm:py-14 ">
       {/* Heading */}
       <div className="mx-auto mb-12 flex max-w-7xl flex-col items-center justify-center md:mb-16">
         <span className="mb-4 inline-block text-sm font-medium uppercase tracking-[0.2em] text-black sm:text-base">
@@ -111,7 +111,7 @@ export default function Insight() {
               className={`cursor-pointer rounded-[1.75rem] p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden
                 ${
                   isActive
-                    ? "bg-[#F3F4F3] shadow-sm min-h-[280px] md:flex-2 md:flex-row md:gap-6"
+                    ? "bg-[#F3F4F3] shadow-xl border-2 border-gray-200 min-h-[280px] md:flex-2 md:flex-row md:gap-6"
                     : "bg-blue-200 min-h-[200px] md:min-h-[320px] md:w-[220px] md:shrink-0"
                 }`}
             >

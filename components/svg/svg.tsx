@@ -1034,7 +1034,11 @@ export const Googlecloud = ({ className }: { className?: string }) => {
 
 export const Azure = ({ className }: { className?: string }) => {
   return (
-    <svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 128 128"
+      className={className}
+    >
       <defs>
         <linearGradient
           id="azure-original-a"

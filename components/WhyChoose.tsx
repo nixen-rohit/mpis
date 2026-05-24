@@ -131,7 +131,7 @@ export default function WhyChoose() {
                   </div>
 
                   {/* Arrow Action */}
-                  <div className="w-10 h-10 rounded-full border border-gray-200 bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  flex items-center justify-center text-gray-700 transition-all duration-300 rotate-45 group-hover:rotate-0 group-hover:bg-gray-900 group-hover:text-white group-hover:border-gray-900">
+                  <div className="w-10 h-10 rounded-full border border-gray-400 bg-white  flex items-center justify-center text-gray-700 transition-all duration-300 rotate-45 group-hover:rotate-0 group-hover:bg-gray-900 group-hover:text-white group-hover:border-gray-900">
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>

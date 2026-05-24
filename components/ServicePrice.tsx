@@ -212,7 +212,7 @@ export const ServicePrice: React.FC = () => {
                   ))}
                 </ul>
               </div>
-https://github.com/nixen-rohit/tesd.git
+             
               {/* Action Button & Footer Info */}
               <Link href="#">
                 <div className="mt-auto text-center">

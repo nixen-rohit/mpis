@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   React,
@@ -215,8 +215,6 @@ export default function TechSection({
   showWordpress = false,
   showMagento = false,
 }: TechSectionProps) {
-  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]>("FRONTEND");
-
   // 1. Memoize visibility map variables properly so reference addresses stay safe across runs
   const visibilityMap = useMemo<Record<string, boolean>>(
     () => ({
@@ -302,10 +300,33 @@ export default function TechSection({
     ],
   );
 
+  const visibleTabs = useMemo(() => {
+    return TABS.filter((tab) =>
+      TECH_DATA[tab].some((tech) => visibilityMap[tech.id]),
+    );
+  }, [visibilityMap]);
+
+  const [activeTab, setActiveTab] = useState<(typeof TABS)[number] | null>(
+    visibleTabs[0] || null,
+  );
+
   // 2. Safe, stable filtering mechanism
   const filteredTech = useMemo(() => {
+    if (!activeTab) return [];
+
     return TECH_DATA[activeTab].filter((tech) => visibilityMap[tech.id]);
   }, [activeTab, visibilityMap]);
+
+  useEffect(() => {
+    if (visibleTabs.length === 0) {
+      setActiveTab(null);
+      return;
+    }
+
+    if (!activeTab || !visibleTabs.includes(activeTab)) {
+      setActiveTab(visibleTabs[0]);
+    }
+  }, [activeTab, visibleTabs]);
 
   return (
     <section className="bg-gray-50 overflow-hidden px-4 py-14 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-10">
@@ -330,7 +351,7 @@ export default function TechSection({
 
       {/* Tabs */}
       <div className="mx-auto mb-10 flex max-w-6xl flex-wrap items-center justify-center gap-2 sm:gap-3 md:mb-14">
-        {TABS.map((tab) => {
+        {visibleTabs.map((tab) => {
           const isActive = activeTab === tab;
 
           return (
@@ -362,50 +383,52 @@ export default function TechSection({
       </div>
 
       {/* Framework Container */}
-      <div className="mx-auto flex min-h-[220px] max-w-6xl items-center justify-center rounded-[28px] border border-gray-100 bg-white p-5 shadow-[0_8px_30px_rgb(0,0,0,0.02)] sm:p-8 md:min-h-[260px] md:p-10 lg:p-12">
-        <motion.div
-          layout
-          className="grid w-full grid-cols-2 gap-5 sm:grid-cols-3 sm:gap-8 md:grid-cols-4 md:gap-10 lg:grid-cols-5 lg:gap-14"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredTech.map((tech) => (
-              <motion.div
-                key={tech.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8, y: 10 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 35,
-                }}
-                className="group flex flex-col items-center"
+      <motion.div
+        layout
+        className="flex flex-wrap justify-center gap-x-6 gap-y-5 sm:gap-x-8 md:gap-x-10 lg:gap-x-14 "
+      >
+        <AnimatePresence mode="popLayout">
+          {filteredTech.map((tech) => (
+            <motion.div
+              key={tech.id}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9, y: 10 }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 30,
+              }}
+              className="group flex w-[120px] flex-col items-center sm:w-[140px] md:w-[160px]"
+            >
+              {/* Icon Box */}
+              <div
+                className="flex h-20 w-20 items-center justify-center rounded-2xl border border-gray-100 bg-gray-50/70 p-4 transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-white group-hover:shadow-md sm:h-24 sm:w-24 md:h-28 md:w-28"
               >
-                {/* Icon Box */}
-                <div className="flex h-20 w-20 items-center justify-center rounded-2xl border border-gray-100 bg-gray-50/70 p-4 transition-all duration-300 group-hover:-translate-y-1 group-hover:bg-white group-hover:shadow-md sm:h-24 sm:w-24 md:h-28 md:w-28">
-                  {typeof tech.logo === "string" ? (
-                    <img
-                      src={tech.logo}
-                      alt={tech.name}
-                      className="max-h-full max-w-full object-contain drop-shadow-sm"
-                    />
-                  ) : (
-                    tech.logo && (
-                      <tech.logo className="h-10 w-10 object-contain sm:h-12 sm:w-12 md:h-14 md:w-14" />
-                    )
-                  )}
-                </div>
+                {typeof tech.logo === "string" ? (
+                  <img
+                    src={tech.logo}
+                    alt={tech.name}
+                    className="max-h-full max-w-full object-contain"
+                  />
+                ) : (
+                  tech.logo && (
+                    <tech.logo className="h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14" />
+                  )
+                )}
+              </div>
 
-                {/* Label */}
-                <span className="mt-3 text-center text-[11px] font-semibold text-gray-500 transition-colors duration-300 group-hover:text-gray-900 sm:text-xs md:text-sm">
-                  {tech.name}
-                </span>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      </div>
+              {/* Label */}
+              <span
+                className="mt-3 text-center text-[11px] font-semibold text-gray-500 transition-colors duration-300 group-hover:text-gray-900 sm:text-xs md:text-sm "
+              >
+                {tech.name}
+              </span>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 }
