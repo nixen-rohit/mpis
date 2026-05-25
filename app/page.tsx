@@ -1,7 +1,7 @@
 "use client";
 import CtaBanner from "@/components/CtaBanner";
 import FeaturesGrid from "@/components/FeaturesGrid";
-import CurvedLoop from "@/components/ui/CurvedLoop";
+ 
 import { Testimonials } from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Consultation from "@/components/Consultation";
@@ -16,14 +16,14 @@ import Insight from "@/components/Insight";
 import Industry from "@/components/Industry";
 import ContactForm from "@/components/ContactForm";
 import TechSection from "@/components/custom/TechSection";
-
+import Detail from '@/components/Detail'
+import Goals from '@/components/Goals'
 export default function Main() {
   return (
     <div className="min-h-screen w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  ">
       <Hero />
-
-      {/* bio section */}
-
+      <Detail/>
+      <Goals/> 
       <FeaturesGrid />
       <Industry />
       <Achievement />
@@ -86,14 +86,7 @@ export default function Main() {
       <Consultation />
       <Faq />
 
-      {/* <CurvedLoop
-        marqueeText="Be ✦ Creative ✦ With ✦ MPIS ✦"
-        speed={2}
-        curveAmount={200}
-        direction="right"
-        interactive
-        className="custom-text-style "
-      /> */}
+      
     </div>
   );
 }

@@ -114,7 +114,7 @@ export default function ProjectsSection({
         {/* Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20  max-w-8xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2   gap-8 mt-20  max-w-6xl mx-auto"
         >
           <AnimatePresence mode="popLayout">
             {projects.map((project) => (

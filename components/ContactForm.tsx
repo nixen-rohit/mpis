@@ -93,7 +93,7 @@ export default function ContactForm() {
   ];
 
   return (
-    <section className="w-full overflow-hidden bg-[#E5E7EB] px-4 py-10 sm:px-6 md:px-8 lg:px-12 lg:py-16">
+    <section className="w-full overflow-hidden bg-white px-4 py-10 sm:px-6 md:px-8 lg:px-12 lg:py-16">
       <motion.div
         className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-10 overflow-hidden rounded-[28px] border border-white/5 bg-[#121212] p-5 shadow-2xl sm:p-7 md:rounded-[36px] md:p-10 lg:grid-cols-2 lg:gap-12 lg:p-12"
         initial="hidden"
