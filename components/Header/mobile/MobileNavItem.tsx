@@ -4,7 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { NavItem } from "@/components/Header/navdata";
+import { NavItem } from "@/components/data/navdata";
 import { RiArrowDownSLine, RiExternalLinkLine } from "react-icons/ri";
 
 interface MobileNavItemProps {

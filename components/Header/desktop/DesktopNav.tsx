@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { RiArrowDownSLine, RiExternalLinkLine } from "react-icons/ri";
-import { NavItem } from "@/components/Header/navdata";
+import { NavItem } from "@/components/data/navdata";
 import { MegaMenuPanel } from "@/components/Header/desktop/MegaMenuPanel";
 
 interface DesktopNavProps {

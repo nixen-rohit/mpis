@@ -7,16 +7,20 @@ import TechSection from "@/components/custom/TechSection";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
 import CustomCards from "@/components/custom/CustomCards";
-import { FaCode } from "react-icons/fa6";
-import { PiBracketsCurlyBold } from "react-icons/pi";
-import { BsTools, BsGraphUpArrow, BsFillShieldLockFill } from "react-icons/bs";
-import { FaGear } from "react-icons/fa6";
-import { TbGitFork } from "react-icons/tb";
+import ProjectsSection from "@/components/custom/Projects";
 import CustomCapsule from "@/components/custom/CustomCapsule";
+
+import { FaCode, FaCloudArrowDown, FaGear } from "react-icons/fa6";
+import { PiBracketsCurlyBold } from "react-icons/pi";
+import {
+  BsTools,
+  BsGraphUpArrow,
+  BsFillShieldLockFill,
+  BsDatabaseFillCheck,
+} from "react-icons/bs";
+import { TbGitFork } from "react-icons/tb";
 import { GrCycle } from "react-icons/gr";
 import { FaPencilRuler } from "react-icons/fa";
-import { FaCloudArrowDown } from "react-icons/fa6";
-import { BsDatabaseFillCheck } from "react-icons/bs";
 import { MdRocketLaunch } from "react-icons/md";
 
 const CustomCapabilities = [
@@ -152,7 +156,6 @@ export default function page() {
           </div>
         </div>
       </section>
-      
 
       {/* custom capsule */}
 
@@ -189,6 +192,8 @@ export default function page() {
           </div>
         </div>
       </section>
+
+      {/* tech stack  */}
 
       <TechSection
         // FRONTEND
@@ -234,6 +239,39 @@ export default function page() {
         // CMS
         showWordpress
         showMagento
+      />
+
+      <ProjectsSection
+        badgeText="Portfolio"
+        headingText="Custom "
+        headingItalicText="Software Projects"
+        headingEndText=""
+        descriptionText="A selection of bespoke software products we've architected from the ground up."
+        buttonText="View All Projects"
+        buttonLink="/projects"
+        projects={[
+          {
+            id: 1,
+            title: "Nexus Global ERP",
+            img: "/img/project01.webp",
+            tag: "ERP System",
+            link: "#",
+          },
+          {
+            id: 2,
+            title: "Supply Chain Pro",
+            img: "/img/project02.webp",
+            tag: "Procurement Software",
+            link: "#",
+          },
+          {
+            id: 3,
+            title: "AnalytiCore Dashboards",
+            img: "/img/project03.webp",
+            tag: "SaaS Platform",
+            link: "#",
+          },
+        ]}
       />
 
       <ServicePrice />

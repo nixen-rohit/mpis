@@ -2,21 +2,19 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { RiExternalLinkLine } from "react-icons/ri";
-import { MegaMenuData } from "../navdata";
+import { MegaMenuData } from "../../data/navdata";
 import { BlogPreviewCard } from "../shared/BlogPreviewCard";
 
 interface MegaMenuPanelProps {
   mega: MegaMenuData;
   align?: "left" | "right" | "center";
   isTech?: boolean;
-  
 }
 
 export function MegaMenuPanel({
   mega,
   align = "left",
   isTech = false,
- 
 }: MegaMenuPanelProps) {
   const colCount = mega.columns.length;
   const hasBlog = !!mega.blogCard;

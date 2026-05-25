@@ -1,7 +1,7 @@
 // components/header/shared/BlogPreviewCard.tsx
 import Link from "next/link";
 import { RiArrowRightLine } from "react-icons/ri";
-import { BlogCard } from "@/components/Header/navdata";
+import { BlogCard } from "@/components/data/navdata";
 import Image from "next/image";
 
 export function BlogPreviewCard({ card }: { card: BlogCard }) {

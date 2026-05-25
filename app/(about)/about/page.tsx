@@ -2,7 +2,7 @@
 import React from "react";
 import CustomBanner from "@/components/custom/CustomBanner";
 import CustomHero from "@/components/custom/CustomHero";
-import TimelineSection from "@/components/about/TimelineSection";
+import TimelineSection from "@/components/TimelineSection";
 import CtaBanner from "@/components/CtaBanner";
 import { BriefcaseBusiness, Globe, Lightbulb, Building2 } from "lucide-react";
 import { motion } from "framer-motion";

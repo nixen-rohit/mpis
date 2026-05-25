@@ -1,4 +1,4 @@
-import BlogLayout from "@/components/Blog/BlogLayout";
+import BlogLayout from "@/layout/BlogLayout";
 import CustomBanner from "@/components/custom/CustomBanner";
 import React from "react";
 

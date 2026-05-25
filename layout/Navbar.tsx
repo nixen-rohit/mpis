@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { RiSearchLine, RiMenuLine, RiArrowRightLine } from "react-icons/ri";
-import { NAV } from "@/components/Header/navdata";
+import { NAV } from "@/components/data/navdata";
 import { DesktopNav } from "@/components/Header/desktop/DesktopNav";
 import { MobileNav } from "@/components/Header/mobile/MobileNav";
 import { SearchOverlay } from "@/components/Header/shared/SearchOverlay";
@@ -99,7 +99,7 @@ export default function Navbar() {
 
               <Button
                 aria-label="Let's Talk"
-                  href="/contact-us"
+                href="/contact-us"
                 title="Let's Talk"
               />
 
