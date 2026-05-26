@@ -109,37 +109,31 @@ export const SERVICES_NAV: MegaMenuData = {
       links: [
         {
           label: "Custom Software",
-          description: "Tailored solutions for your business",
           href: "/custom-software-development",
           icon: <RiSettings3Line />,
         },
         {
           label: "Web Applications",
-          description: "Scalable web platforms & portals",
           href: "/web-application-development",
           icon: <RiGlobalLine />,
         },
         {
           label: "App Development",
-          description: "iOS, Android & cross-platform",
           href: "/app-development",
           icon: <RiSmartphoneLine />,
         },
         {
           label: "Healthcare Software",
-          description: "HIPAA-compliant digital health",
           href: "/healthcare",
           icon: <RiHeartPulseLine />,
         },
         {
           label: "eLearning Platforms",
-          description: "LMS & interactive learning",
           href: "/e-learning-development",
           icon: <RiBookOpenLine />,
         },
         {
           label: ".NET Development",
-          description: "Enterprise-grade .NET solutions",
           href: "/net-application-development",
           icon: <RiCodeSSlashLine />,
         },
@@ -150,43 +144,36 @@ export const SERVICES_NAV: MegaMenuData = {
       links: [
         {
           label: "Web Application",
-          description: "Built from the ground up",
           href: "/web-application",
           icon: <RiDatabase2Line />,
         },
         {
           label: "Custom Application",
-          description: "Ongoing support & monitoring",
           href: "/custom-application",
           icon: <RiSettings3Line />,
         },
         {
           label: "Application Management",
-          description: "Flutter, React Native & more",
           href: "/application-management",
           icon: <RiSmartphoneLine />,
         },
         {
           label: "Application Maintenance",
-          description: "Connect your tech ecosystem",
           href: "/application-maintenance",
           icon: <RiFlashlightLine />,
         },
         {
           label: "Application Integration",
-          description: "Conversion-optimised storefronts",
           href: "/application-integration",
           icon: <RiStore2Line />,
         },
         {
           label: "Ecommerce Application",
-          description: "Flutter, React Native & more",
           href: "/e-commerce-application",
           icon: <RiSmartphoneLine />,
         },
         {
           label: "Mobile App Development",
-          description: "Flutter, React Native & more",
           href: "/mobile-app-development",
           icon: <RiSmartphoneLine />,
         },
@@ -197,37 +184,31 @@ export const SERVICES_NAV: MegaMenuData = {
       links: [
         {
           label: "Full Stack Teams",
-          description: "End-to-end delivery squads",
           href: "/full-stack-development",
           icon: <RiTeamLine />,
         },
         {
           label: "SaaS Product Development",
-          description: "Intelligent system builders",
           href: "/saas-product-development",
           icon: <RiBrainLine />,
         },
         {
           label: "Artificial Intelligence",
-          description: "Intelligent system builders",
           href: "/artificial-intelligence",
           icon: <RiBrainLine />,
         },
         {
           label: "UX/UI Designers",
-          description: "Human-centred design craft",
           href: "/ux-ui-design",
           icon: <RiPaletteLine />,
         },
         {
           label: "DevOps",
-          description: "CI/CD & cloud infrastructure",
           href: "/devops",
           icon: <RiCloudLine />,
         },
         {
           label: "QA & Testing",
-          description: "Bulletproof quality assurance",
           href: "/qa-and-testing",
           icon: <RiShieldCheckLine />,
         },
@@ -243,19 +224,16 @@ export const EXPERTISE_NAV: MegaMenuData = {
       links: [
         {
           label: "SEO (Search Engine Optimization)",
-          description: "Our mission, values & vision",
           href: "/digital-marketing",
           icon: <RiBuildingLine />,
         },
         {
           label: "Social Media Marketing",
-          description: "The minds behind MPIS",
           href: "/digital-marketing",
           icon: <RiTeamLine />,
         },
         {
           label: "Paid Ads Management",
-          description: "Industry accolades we've earned",
           href: "/digital-marketing",
           icon: <RiAwardLine />,
         },
@@ -266,37 +244,35 @@ export const EXPERTISE_NAV: MegaMenuData = {
       links: [
         {
           label: "Learning Management Systems",
-          description: "Our mission, values & vision",
           href: "/e-learning-development",
           icon: <RiBuildingLine />,
         },
         {
           label: "Content Management System",
-          description: "The minds behind MPIS",
           href: "/e-commerce",
           icon: <RiTeamLine />,
         },
         {
           label: "HRMS",
-          description: "Industry accolades we've earned",
+
           href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
         {
           label: "Healthcare IT",
-          description: "Industry accolades we've earned",
+
           href: "/healthcare",
           icon: <RiAwardLine />,
         },
         {
           label: "CRM",
-          description: "Industry accolades we've earned",
+
           href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
         {
           label: "Service Excellence",
-          description: "Industry accolades we've earned",
+
           href: "/enterprise-solutions",
           icon: <RiAwardLine />,
         },
@@ -308,37 +284,35 @@ export const EXPERTISE_NAV: MegaMenuData = {
     //   links: [
     //     {
     //       label: "AWS",
-    //       description: "Our mission, values & vision",
-    //       href: "/about",
+    //        //       href: "/about",
     //       icon: <RiBuildingLine />,
     //     },
     //     {
     //       label: "Azure",
-    //       description: "The minds behind MPIS",
-    //       href: "/leadership-team",
+    //          href: "/leadership-team",
     //       icon: <RiTeamLine />,
     //     },
     //     {
     //       label: "GCP",
-    //       description: "Industry accolades we've earned",
+    //     ,
     //       href: "/awards-recognition",
     //       icon: <RiAwardLine />,
     //     },
     //      {
     //       label: "Utho/IN",
-    //       description: "Industry accolades we've earned",
+    //     ,
     //       href: "/awards-recognition",
     //       icon: <RiAwardLine />,
     //     },
     //      {
     //       label: "ReactJS",
-    //       description: "Industry accolades we've earned",
+    //     ,
     //       href: "/awards-recognition",
     //       icon: <RiAwardLine />,
     //     },
     //      {
     //       label: "NextJs",
-    //       description: "Industry accolades we've earned",
+    //     ,
     //       href: "/awards-recognition",
     //       icon: <RiAwardLine />,
     //     },
@@ -362,37 +336,37 @@ export const INDUSTRIES_NAV: MegaMenuData = {
       links: [
         {
           label: "Healthcare",
-          description: "Digital-first patient experiences",
+
           href: "/healthcare",
           icon: <RiHeartPulseLine />,
         },
         {
           label: "eLearning",
-          description: "Interactive learning ecosystems",
+
           href: "/e-learning",
           icon: <RiBookOpenLine />,
         },
         {
           label: "Fintech",
-          description: "Secure financial platforms",
+
           href: "/fintech",
           icon: <RiMoneyDollarCircleLine />,
         },
         {
           label: "Real Estate",
-          description: "PropTech & listing solutions",
+
           href: "/real-estate",
           icon: <RiBuildingLine />,
         },
         {
           label: "Tour & Travel",
-          description: "Booking & itinerary platforms",
+
           href: "/tour-and-travel",
           icon: <RiFlightTakeoffLine />,
         },
         {
           label: "Ecommerce",
-          description: "High-conversion storefronts",
+
           href: "/e-commerce",
           icon: <RiStore2Line />,
         },
@@ -506,25 +480,25 @@ export const BLOG_NAV: MegaMenuData = {
       links: [
         {
           label: "Latest Articles",
-          description: "Fresh perspectives from our team",
+
           href: "/blog",
           icon: <RiArticleLine />,
         },
         {
           label: "Tech Insights",
-          description: "Deep-dives into emerging tech",
+
           href: "/blog",
           icon: <RiLightbulbFlashLine />,
         },
         {
           label: "Company News",
-          description: "Updates from MPIS Revolution",
+
           href: "/blog",
           icon: <RiNewspaperLine />,
         },
         {
           label: "Case Studies",
-          description: "Real results, real clients",
+
           href: "/blog",
           icon: <RiBookOpenLine />,
         },
@@ -547,25 +521,25 @@ export const ABOUT_NAV: MegaMenuData = {
       links: [
         {
           label: "Our Company",
-          description: "Our mission, values & vision",
+
           href: "/about",
           icon: <RiBuildingLine />,
         },
         {
           label: "Leadership Team",
-          description: "The minds behind MPIS",
+
           href: "/leadership-team",
           icon: <RiTeamLine />,
         },
         {
           label: "Awards & Recognition",
-          description: "Industry accolades we've earned",
+
           href: "/awards-recognition",
           icon: <RiAwardLine />,
         },
         {
           label: "Careers",
-          description: "Join a team that builds the future",
+
           href: "/careers",
           icon: <RiBriefcaseLine />,
         },

@@ -22,7 +22,7 @@ const getAlign = (
 export function DesktopNav({ navItems, className }: DesktopNavProps) {
   return (
     <nav
-      className={cn("items-center gap-0.5 flex-1 justify-center", className)}
+      className={cn("items-center gap-0.5 flex-1 justify-center font-normal", className)}
     >
       {navItems.map((item, i) => {
         const isTech = item.label === "Technologies";
@@ -36,17 +36,17 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
               }
               onClick={(e) => item.mega && e.preventDefault()}
               className={cn(
-                "flex items-center gap-0.5 px-3 py-2 rounded-lg",
-                "text-[13.5px] font-medium text-gray-600",
-                "hover:text-gray-900 hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap",
+                "flex items-center gap-0.5 px-3 py-2 rounded-lg font-normal" ,
+                "text-[13.5px]   text-gray-600 font-normal",
+                "hover:text-gray-900 hover:bg-gray-50 font-normal transition-colors duration-150 whitespace-nowrap",
               )}
             >
               {item.label}
               {item.redirect && !item.mega && (
-                <RiExternalLinkLine className="text-[11px] text-gray-400 ml-0.5" />
+                <RiExternalLinkLine className="text-[11px] text-gray-400 ml-0.5 font-normal" />
               )}
               {item.mega && (
-                <RiArrowDownSLine className="text-gray-400 text-[15px] group-hover:rotate-180 transition-transform duration-200" />
+                <RiArrowDownSLine className="text-gray-400 text-[15px] font-normal group-hover:rotate-180 transition-transform duration-200" />
               )}
             </Link>
             {item.mega && (

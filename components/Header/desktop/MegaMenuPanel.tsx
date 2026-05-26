@@ -33,7 +33,7 @@ export function MegaMenuPanel({
         className={cn(
           "absolute top-full mt-1.5 z-50",
           alignClass,
-          "bg-white rounded-2xl border border-gray-200 shadow-xl shadow-black/8",
+          "bg-white font-normal rounded-2xl border border-gray-200 shadow-xl shadow-black/8",
           "p-5 opacity-0 translate-y-2 scale-[0.98] pointer-events-none",
           "group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto",
           "transition-all duration-200 ease-out origin-top",
@@ -46,7 +46,7 @@ export function MegaMenuPanel({
         <div className="grid grid-cols-5 gap-x-4 gap-y-4">
           {mega.columns.map((col, ci) => (
             <div key={ci}>
-              <p className="text-[9px] font-black uppercase tracking-widest text-gray-400 mb-1.5">
+              <p className="text-[9px]   font-normal uppercase tracking-widest text-gray-400 mb-1.5">
                 {col.heading}
               </p>
               <ul className="flex flex-col gap-0.5">
