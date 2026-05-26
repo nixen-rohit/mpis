@@ -26,6 +26,9 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
     >
       {navItems.map((item, i) => {
         const isTech = item.label === "Technologies";
+        const isServices = item.label === "Services";
+        const isExpertise = item.label === "Expertise";
+
         return (
           <div key={i} className="relative group">
             <Link
@@ -54,6 +57,8 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
                 mega={item.mega}
                 align={isTech ? "center" : getAlign(i, navItems.length)}
                 isTech={isTech}
+                serviceWidth={isServices ? 810 : undefined}
+                expertiseWidth={isExpertise ? 750 : undefined}
               />
             )}
           </div>

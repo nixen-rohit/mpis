@@ -69,12 +69,8 @@ export function MobileNavItem({ item, onClose }: MobileNavItemProps) {
                     onClick={onClose}
                     className="flex items-center gap-2.5 rounded-xl p-2.5 hover:bg-white hover:shadow-sm transition-all"
                   >
-                    {link.icon && (
-                      <span className="shrink-0 flex h-7 w-7 items-center justify-center rounded-lg bg-gray-100 text-gray-500 text-sm">
-                        {link.icon}
-                      </span>
-                    )}
-                    <span className="flex items-center gap-1 text-[12px] font-medium text-gray-700 leading-tight">
+                     
+                    <span className="flex items-center gap-1 text-[12px] font-bold  text-gray-700 leading-tight">
                       {link.label}
                       {link.redirect && (
                         <RiExternalLinkLine className="text-[10px] text-gray-400 shrink-0" />

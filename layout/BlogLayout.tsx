@@ -11,32 +11,28 @@ const latestPosts = [
     title: "Creating an Intuitive User Interface (UI) for Your SaaS Product",
     date: "Aug 10",
     readTime: "10 min read",
-    image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=150&auto=format&fit=crop&q=60",
+    image: "/img/customsoftware.jpg",
   },
   {
     id: 2,
     title: "Tips for designing clear and user-friendly navigation menus.",
     date: "Aug 10",
     readTime: "10 min read",
-    image:
-      "https://images.unsplash.com/photo-1541462608141-ad4979e408c9?w=150&auto=format&fit=crop&q=60",
+    image: "/img/healthcare.jpg",
   },
   {
     id: 3,
     title: "Exploring how to establish a visual hierarchy that guides users.",
     date: "Aug 10",
     readTime: "10 min read",
-    image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=150&auto=format&fit=crop&q=60",
+    image: "/img/webdevelopment.jpg",
   },
   {
     id: 4,
     title: "How to use color to influence user emotions and actions.",
     date: "Aug 10",
     readTime: "10 min read",
-    image:
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=150&auto=format&fit=crop&q=60",
+    image: "/img/why-choose-thumb-01.webp",
   },
 ];
 
@@ -49,8 +45,7 @@ const foundersPosts = [
       "We're an extension of your customer service team, and all of our resources are free. Chat to our friendly team 24/7 when you need help.",
     date: "Aug 10",
     readTime: "10 min read",
-    image:
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=500&auto=format&fit=crop&q=80",
+    image: "/img/healthcare.jpg",
   },
   {
     id: 2,
@@ -60,8 +55,7 @@ const foundersPosts = [
       "We're an extension of your customer service team, and all of our resources are free. Chat to our friendly team 24/7 when you need help.",
     date: "Aug 10",
     readTime: "10 min read",
-    image:
-      "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=500&auto=format&fit=crop&q=80",
+    image: "/img/healthcare.jpg",
   },
   {
     id: 3,
@@ -71,8 +65,7 @@ const foundersPosts = [
       "We're an extension of your customer service team, and all of our resources are free. Chat to our friendly team 24/7 when you need help.",
     date: "Aug 10",
     readTime: "10 min read",
-    image:
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?w=500&auto=format&fit=crop&q=80",
+    image: "/img/healthcare.jpg",
   },
 ];
 
@@ -95,7 +88,7 @@ export default function BlogLayout() {
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&auto=format&fit=crop&q=80')`,
+              backgroundImage: `url('/img/elearning.jpg')`,
             }}
           />
           {/* Frosted / Gradient overlay styled like the design */}
@@ -168,11 +161,11 @@ export default function BlogLayout() {
 
           {/* buttons */}
           <div className="flex items-center gap-3">
-  {/* Previous */}
-  <button
-    onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-    disabled={currentPage === 1}
-    className="
+            {/* Previous */}
+            <button
+              onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className="
       group relative flex h-11 w-11 items-center justify-center
       rounded-full border border-stone-200 bg-white
       text-stone-600 shadow-sm
@@ -180,19 +173,15 @@ export default function BlogLayout() {
       hover:border-stone-400 hover:bg-stone-50 hover:shadow-md
       disabled:pointer-events-none disabled:opacity-40
     "
-  >
-    <ChevronLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
-  </button>
+            >
+              <ChevronLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-0.5" />
+            </button>
 
-   
-
-  {/* Next */}
-  <button
-    onClick={() =>
-      setCurrentPage((p) => Math.min(totalPages, p + 1))
-    }
-    disabled={currentPage === totalPages}
-    className="
+            {/* Next */}
+            <button
+              onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className="
       group relative flex h-11 w-11 items-center justify-center
       rounded-full border border-stone-200 bg-white
       text-stone-600 shadow-sm
@@ -200,12 +189,10 @@ export default function BlogLayout() {
       hover:border-stone-400 hover:bg-stone-50 hover:shadow-md
       disabled:pointer-events-none disabled:opacity-40
     "
-  >
-    <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-  </button>
-</div>
-
-
+            >
+              <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </button>
+          </div>
         </div>
 
         {/* Grid Loop */}

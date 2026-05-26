@@ -141,7 +141,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
 
         {/* Footer */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-gray-100 bg-gray-50/80 px-5 py-3 text-xs text-gray-500 sm:px-6">
-          <span>Powered by MPIS Smart Search</span>
+          <span>Powered by MPIS</span>
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
             <span>↵ Select</span>

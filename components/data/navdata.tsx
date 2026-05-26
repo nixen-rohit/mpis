@@ -52,9 +52,6 @@ import {
   RiPaletteLine,
   RiCloudLine,
   RiShieldCheckLine,
-  RiBarChartBoxLine,
-  RiServerLine,
-  RiRobot2Line,
   RiMoneyDollarCircleLine,
   RiBuildingLine,
   RiFlightTakeoffLine,
@@ -83,6 +80,7 @@ export interface NavColumn {
 export interface BlogCard {
   tag: string;
   title: string;
+  img?: string;
   excerpt: string;
   href: string;
   redirect?: boolean;
@@ -110,7 +108,7 @@ export const SERVICES_NAV: MegaMenuData = {
         {
           label: "Custom Software",
           href: "/custom-software-development",
-          icon: <RiSettings3Line />,
+          icon: <RiSettings3Line  />,
         },
         {
           label: "Web Applications",
@@ -278,51 +276,11 @@ export const EXPERTISE_NAV: MegaMenuData = {
         },
       ],
     },
-
-    //  {
-    //   heading: "Technologies ",
-    //   links: [
-    //     {
-    //       label: "AWS",
-    //        //       href: "/about",
-    //       icon: <RiBuildingLine />,
-    //     },
-    //     {
-    //       label: "Azure",
-    //          href: "/leadership-team",
-    //       icon: <RiTeamLine />,
-    //     },
-    //     {
-    //       label: "GCP",
-    //     ,
-    //       href: "/awards-recognition",
-    //       icon: <RiAwardLine />,
-    //     },
-    //      {
-    //       label: "Utho/IN",
-    //     ,
-    //       href: "/awards-recognition",
-    //       icon: <RiAwardLine />,
-    //     },
-    //      {
-    //       label: "ReactJS",
-    //     ,
-    //       href: "/awards-recognition",
-    //       icon: <RiAwardLine />,
-    //     },
-    //      {
-    //       label: "NextJs",
-    //     ,
-    //       href: "/awards-recognition",
-    //       icon: <RiAwardLine />,
-    //     },
-
-    //   ],
-    // },
   ],
   blogCard: {
     tag: "Guide",
     title: "Partner with Experts",
+    img: "/img/project03.webp",
     excerpt:
       "Elevate your business with our tailored digital solutions and industry-leading expertise.",
     href: "/blog",
@@ -375,9 +333,10 @@ export const INDUSTRIES_NAV: MegaMenuData = {
   ],
   blogCard: {
     tag: "Report",
-    title: "Industry Digitisation Benchmark 2025",
+    title: "A Quick Guide on the Right Software Development",
+    img: "/img/project02.webp",
     excerpt:
-      "How leading enterprises are accelerating with custom software investments.",
+      "A Quick Guide on the Right Software Development Approach for Enterprises in 2024",
     href: "/blog",
   },
 };
@@ -506,10 +465,11 @@ export const BLOG_NAV: MegaMenuData = {
     },
   ],
   blogCard: {
-    tag: "Featured",
-    title: "How AI is Reshaping Custom Software in 2025",
+    tag: "Guide",
+    title: "Partner with Experts",
+    img: "/img/project03.webp",
     excerpt:
-      "We explore the biggest trends transforming how enterprises build and ship software.",
+      "Elevate your business with our tailored digital solutions and industry-leading expertise.",
     href: "/blog",
   },
 };
@@ -547,11 +507,12 @@ export const ABOUT_NAV: MegaMenuData = {
     },
   ],
   blogCard: {
-    tag: "We're Hiring",
-    title: "Join Our Growing Team of Innovators",
+    tag: "Report",
+    title: "A Quick Guide on the Right Software Development",
+    img: "/img/project02.webp",
     excerpt:
-      "Open roles across engineering, design, and product. Remote-first culture.",
-    href: "/careers",
+      "A Quick Guide on the Right Software Development Approach for Enterprises in 2024",
+    href: "/blog",
   },
 };
 

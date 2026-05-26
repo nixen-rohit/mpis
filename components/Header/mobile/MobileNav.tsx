@@ -20,7 +20,7 @@ export function MobileNav({ open, onClose, navItems }: MobileNavProps) {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-50 lg:hidden",
+        "fixed inset-0 z-90 lg:hidden",
         open ? "pointer-events-auto" : "pointer-events-none",
       )}
       aria-modal="true"
@@ -47,14 +47,6 @@ export function MobileNav({ open, onClose, navItems }: MobileNavProps) {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-5 h-[58px] border-b border-gray-100 shrink-0">
-          <Link href="/" onClick={onClose} className="flex items-center gap-2">
-            <div className="h-7 w-7 rounded-lg bg-blue-600 flex items-center justify-center">
-              <span className="text-white font-black text-xs">M</span>
-            </div>
-            <span className="font-black text-[13px] text-gray-900 tracking-tight">
-              MPIS Revolution
-            </span>
-          </Link>
           <button
             onClick={onClose}
             className="h-9 w-9 flex items-center justify-center rounded-xl text-gray-500 hover:bg-gray-100 active:bg-gray-200 transition-colors"

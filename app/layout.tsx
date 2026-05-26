@@ -6,6 +6,7 @@ import Navbar from "@/layout/Navbar";
 import { useState } from "react";
 import Preloader from "@/components/Preloader";
 import Footer from "@/layout/Footer";
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body
+      {/* <body
         className={`h-full flex flex-col ${
           preloaderDone ? "overflow-auto" : "overflow-hidden"
         }`}
@@ -47,13 +48,13 @@ export default function RootLayout({
           {children}
           <Footer />
         </main>
-      </body>
+      </body> */}
 
-      {/* <body>
+      <body>
         <Navbar />
         {children}
         <Footer />
-      </body> */}
+      </body>
     </html>
   );
 }
