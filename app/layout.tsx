@@ -5,7 +5,7 @@ import "./globals.css";
 import Navbar from "@/layout/Navbar";
 import { useState } from "react";
 import Preloader from "@/components/Preloader";
-import Footer from "@/layout/Footer"
+import Footer from "@/layout/Footer";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -29,34 +29,31 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      {/* <body
-  className={`h-full flex flex-col ${
-    preloaderDone ? "overflow-auto" : "overflow-hidden"
-  }`}
->
-  {!preloaderDone && (
-    <Preloader onComplete={() => setPreloaderDone(true)} />
-  )}
+      <body
+        className={`h-full flex flex-col ${
+          preloaderDone ? "overflow-auto" : "overflow-hidden"
+        }`}
+      >
+        {!preloaderDone && (
+          <Preloader onComplete={() => setPreloaderDone(true)} />
+        )}
 
-  <main
-    className={`min-h-screen w-full transition-opacity duration-700 ${
-      preloaderDone ? "opacity-100" : "opacity-0 pointer-events-none"
-    }`}
-  >
-    <Navbar />
-    {children}
-     <Footer />
-  </main>
+        <main
+          className={`min-h-screen w-full transition-opacity duration-700 ${
+            preloaderDone ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <Navbar />
+          {children}
+          <Footer />
+        </main>
+      </body>
 
-
-  
-</body> */}
-
-      <body>
+      {/* <body>
         <Navbar />
         {children}
         <Footer />
-      </body>
+      </body> */}
     </html>
   );
 }
