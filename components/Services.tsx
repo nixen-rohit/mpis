@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
-import Button from "@/components/ui/Button";
 
 interface ServiceItem {
   id: string;
@@ -77,117 +76,6 @@ const services: ServiceItem[] = [
   },
 ];
 
-// ─── Wave distortion helper ───────────────────────────────────────────────────
-function drawWaveImage(
-  ctx: CanvasRenderingContext2D,
-  img: HTMLImageElement,
-  w: number,
-  h: number,
-  t: number,
-  intensity: number,
-) {
-  const offscreen = document.createElement("canvas");
-  offscreen.width = w;
-  offscreen.height = h;
-  const octx = offscreen.getContext("2d")!;
-  octx.drawImage(img, 0, 0, w, h);
-  const imageData = octx.getImageData(0, 0, w, h);
-  const output = ctx.createImageData(w, h);
-  const src = imageData.data;
-  const dst = output.data;
-  const amp = intensity * 12;
-  const freq = 0.04;
-
-  for (let y = 0; y < h; y++) {
-    for (let x = 0; x < w; x++) {
-      const dx =
-        Math.sin(y * freq + t * 2) * amp +
-        Math.sin(y * freq * 0.5 + t) * amp * 0.5;
-      const dy = Math.sin(x * freq + t * 1.5) * amp * 0.3;
-      const sx = Math.round(x + dx);
-      const sy = Math.round(y + dy);
-      const si =
-        (Math.min(Math.max(sy, 0), h - 1) * w +
-          Math.min(Math.max(sx, 0), w - 1)) *
-        4;
-      const di = (y * w + x) * 4;
-      dst[di] = src[si];
-      dst[di + 1] = src[si + 1];
-      dst[di + 2] = src[si + 2];
-      dst[di + 3] = src[si + 3];
-    }
-  }
-  ctx.putImageData(output, 0, 0);
-}
-
-// ─── Hover Wave Preview (floating cursor follow) ──────────────────────────────
-interface HoverPreviewProps {
-  image: HTMLImageElement | null;
-  mouseX: number;
-  mouseY: number;
-  visible: boolean;
-}
-
-function HoverWavePreview({
-  image,
-  mouseX,
-  mouseY,
-  visible,
-}: HoverPreviewProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const rafRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    if (!visible || !image) return;
-    const animate = () => {
-      const canvas = canvasRef.current;
-      if (!canvas) return;
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-      drawWaveImage(
-        ctx,
-        image,
-        canvas.width,
-        canvas.height,
-        Date.now() * 0.001,
-        1,
-      );
-      rafRef.current = requestAnimationFrame(animate);
-    };
-    rafRef.current = requestAnimationFrame(animate);
-    return () => {
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
-    };
-  }, [visible, image]);
-
-  return (
-    <div
-      style={{
-        position: "fixed",
-        left: mouseX,
-        top: mouseY - 90,
-        transform: "translate(-50%, -50%)",
-        width: 260,
-        height: 160,
-        borderRadius: 10,
-        overflow: "hidden",
-        pointerEvents: "none",
-        zIndex: 9999,
-        opacity: visible ? 1 : 0,
-        transition: "opacity 0.3s ease",
-        boxShadow: "0 8px 32px rgba(0,0,0,0.18)",
-      }}
-    >
-      <canvas
-        ref={canvasRef}
-        width={260}
-        height={160}
-        style={{ display: "block" }}
-      />
-    </div>
-  );
-}
-
 // ─── Expanded Wave Canvas (live animated inside accordion) ────────────────────
 interface ExpandedWaveCanvasProps {
   image: HTMLImageElement | null;
@@ -196,39 +84,6 @@ interface ExpandedWaveCanvasProps {
 // ─── Main Component ───────────────────────────────────────────────────────────
 export default function Service() {
   const [activeId, setActiveId] = useState<string | null>("");
-  const [hoverState, setHoverState] = useState<{
-    visible: boolean;
-    image: HTMLImageElement | null;
-    x: number;
-    y: number;
-  }>({ visible: false, image: null, x: 0, y: 0 });
-
-  const imgCache = useRef<Record<string, HTMLImageElement>>({});
-
-  useEffect(() => {
-    services.forEach((s) => {
-      if (imgCache.current[s.id]) return;
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.src = s.image;
-      img.onload = () => {
-        imgCache.current[s.id] = img;
-      };
-    });
-  }, []);
-
-  const handleMouseEnter = useCallback((id: string, e: React.MouseEvent) => {
-    const img = imgCache.current[id] ?? null;
-    setHoverState({ visible: true, image: img, x: e.clientX, y: e.clientY });
-  }, []);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    setHoverState((prev) => ({ ...prev, x: e.clientX, y: e.clientY }));
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setHoverState((prev) => ({ ...prev, visible: false, image: null }));
-  }, []);
 
   return (
     <div className="bg-black">
@@ -266,15 +121,6 @@ export default function Service() {
         </p>
       </motion.div>
 
-      <div className="hidden lg:flex">
-        <HoverWavePreview
-          image={hoverState.image}
-          mouseX={hoverState.x}
-          mouseY={hoverState.y}
-          visible={hoverState.visible}
-        />
-      </div>
-
       {/* ───────────────── Services ───────────────── */}
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 select-none font-sans ">
         <div className="border-t border-white/10">
@@ -289,9 +135,6 @@ export default function Service() {
                 {/* ───── Header ───── */}
                 <div
                   onClick={() => setActiveId(isActive ? null : service.id)}
-                  onMouseEnter={(e) => handleMouseEnter(service.id, e)}
-                  onMouseMove={handleMouseMove}
-                  onMouseLeave={handleMouseLeave}
                   className="grid grid-cols-12 items-start sm:items-center gap-y-4 py-6 sm:py-8 cursor-pointer group"
                 >
                   {/* Left */}

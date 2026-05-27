@@ -143,8 +143,7 @@ export default function HomePricing() {
                 className="relative flex min-h-[520px] flex-col justify-between rounded-[28px] bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  p-8 shadow-xl"
               >
                 <div>
-                  bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]
-                  bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]
+                   
                   {/* Header */}
                   <div className="flex items-center justify-between">
                     <h3 className="text-2xl font-bold tracking-tight text-blue-500">
