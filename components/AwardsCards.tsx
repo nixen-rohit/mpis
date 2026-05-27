@@ -127,26 +127,8 @@ export default function AwardsCards() {
                 }}
                 className={`group relative overflow-hidden rounded-4xl border ${card.border} bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] /80 p-5 sm:p-8 shadow-sm backdrop-blur-xl transition-all duration-500 hover:shadow-2xl`}
               >
-                {/* Hover Glow */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                  transition={{ duration: 0.4 }}
-                  className={`absolute inset-0 bg-linear-to-br ${card.gradient}`}
-                />
-
-                {/* Animated Blur Orb */}
-                <motion.div
-                  animate={{
-                    x: [0, 20, 0],
-                    y: [0, -10, 0],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="absolute -right-10 -top-10 h-32 w-32 sm:h-40 sm:w-40 rounded-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] /40 blur-3xl"
+                <div
+                  className={`absolute inset-0 bg-linear-to-br ${card.gradient}   opacity-0 transition-opacity duration-500   group-hover:opacity-100 pointer-events-none`}
                 />
 
                 {/* Content */}
