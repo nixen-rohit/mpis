@@ -198,51 +198,7 @@ Quality Control"
 
       {/* tech stack  */}
 
-      <TechSection
-        // FRONTEND
-        showReact
-        showAngular
-        showVue
-        showHtml
-        showCss
-        showJs
-        // BACKEND
-        showNode
-        showPython
-        showPhp
-        showJava
-        showRuby
-        showCsharp
-        // MOBILE
-        showReactNative
-        showFlutter
-        showSwift
-        showKotlin
-        // DATABASE
-        showMysql
-        showPostgresql
-        showMongodb
-        showRedis
-        showOracle
-        // FRAMEWORKS
-        showLaravel
-        showDjango
-        showSpring
-        showDotnet
-        showExpress
-        // CLOUD
-        showAws
-        showAzure
-        showGooglecloud
-        // DEVOPS
-        showDocker
-        showKubernetes
-        showJenkins
-        showGit
-        // CMS
-        showWordpress
-        showMagento
-      />
+     <TechSection />
 
       <ServicePrice />
       <Testimonials />

@@ -193,87 +193,40 @@ export default function page() {
 
       {/* tech stack  */}
 
-      <TechSection
-        // FRONTEND
-        showReact
-        showAngular
-        showVue
-        showHtml
-        showCss
-        showJs
-        // BACKEND
-        showNode
-        showPython
-        showPhp
-        showJava
-        showRuby
-        showCsharp
-        // MOBILE
-        showReactNative
-        showFlutter
-        showSwift
-        showKotlin
-        // DATABASE
-        showMysql
-        showPostgresql
-        showMongodb
-        showRedis
-        showOracle
-        // FRAMEWORKS
-        showLaravel
-        showDjango
-        showSpring
-        showDotnet
-        showExpress
-        // CLOUD
-        showAws
-        showAzure
-        showGooglecloud
-        // DEVOPS
-        showDocker
-        showKubernetes
-        showJenkins
-        showGit
-        // CMS
-        showWordpress
-        showMagento
+      <TechSection />
+
+      <ProjectsSection
+        badgeText="Portfolio"
+        headingText="Some of "
+        headingItalicText="Our Works"
+        headingEndText=""
+        descriptionText="A snapshot of real-world projects we have delivered for clients across the globe."
+        buttonText="View All Projects"
+        buttonLink="/contact-us"
+        projects={[
+          {
+            id: 1,
+            tag: "Enterprise Web ",
+            title: "ERP Web System",
+            img: "/img/project01.webp",
+            link: "#",
+          },
+          {
+            id: 2,
+            tag: "SaaS Platform",
+            title: "Analytics Dashboard",
+            img: "/img/project02.webp",
+            link: "#",
+          },
+          {
+            id: 3,
+            tag: "Portal",
+            title: "Customer Self-Service Portal",
+            img: "/img/project03.webp",
+            link: "#",
+          },
+        ]}
       />
-
-
-
-      
-            <ProjectsSection
-              badgeText="Portfolio"
-              headingText="Some of "
-              headingItalicText="Our Works"
-              headingEndText=""
-              descriptionText="A snapshot of real-world projects we have delivered for clients across the globe."
-              buttonText="View All Projects"
-              buttonLink="/contact-us"
-              projects={[
-                {
-                  id: 1,
-                  tag: "Enterprise Web ",
-                  title: "ERP Web System",
-                  img: "/img/project01.webp",
-                  link: "#",
-                },
-                {
-                  id: 2,
-                  tag: "SaaS Platform",
-                  title: "Analytics Dashboard",
-                  img: "/img/project02.webp",
-                  link: "#",
-                },
-                {
-                  id: 3,
-                  tag: "Portal",
-                  title: "Customer Self-Service Portal",
-                  img: "/img/project03.webp",
-                  link: "#",
-                },
-              ]}
-            />
 
       <ServicePrice />
       <Testimonials />

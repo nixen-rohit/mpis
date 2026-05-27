@@ -30,52 +30,7 @@ export function MegaMenuPanel({
         ? "left-1/2 -translate-x-1/2"
         : "left-0";
 
-  // Technologies gets a special wide grid layout
-  if (isTech) {
-    return (
-      <div
-        className={cn(
-          "absolute top-full mt-1.5 z-50",
-          alignClass,
-          "font-inter bg-white rounded-2xl border border-gray-200 shadow-xl",
-          "p-5 opacity-0 translate-y-2 scale-[0.98] pointer-events-none",
-          "group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto",
-          "transition-all duration-200 ease-out origin-top",
-        )}
-        style={{ width: "860px", maxWidth: "calc(100vw - 32px)" }}
-      >
-        <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 pb-2 border-b border-gray-100">
-          All Technologies
-        </p>
-        <div className="grid grid-cols-5 gap-x-4 gap-y-4">
-          {mega.columns.map((col, ci) => (
-            <div key={ci}>
-              <p className="text-[9px] font-black uppercase tracking-widest text-gray-500 mb-1.5">
-                {col.heading}
-              </p>
-              <ul className="flex flex-col gap-0.5">
-                {col.links.map((link, li) => (
-                  <li key={li}>
-                    <Link
-                      href={link.href}
-                      className="group/link flex items-center gap-2 rounded-md px-1.5 py-1.5 hover:bg-gray-50 transition-colors duration-100"
-                    >
-                      <span className="shrink-0 flex h-6 w-6 items-center justify-center rounded-md bg-gray-100 text-gray-600 group-hover/link:bg-blue-50 group-hover/link:text-blue-600 transition-colors overflow-hidden">
-                        {link.icon}
-                      </span>
-                      <span className="text-[12px] font-medium text-gray-700 group-hover/link:text-blue-600 transition-colors leading-tight truncate">
-                        {link.label}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
+  
 
   const totalCols = hasBlog ? colCount + 1 : colCount;
   const minWidth = expertiseWidth || serviceWidth || Math.min(totalCols * 215, 920); // Use customWidth if provided

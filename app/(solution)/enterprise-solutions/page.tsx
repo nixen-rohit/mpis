@@ -10,7 +10,7 @@ import CustomCapsule from "@/components/custom/CustomCapsule";
 import TechSection from "@/components/custom/TechSection";
 import ProjectsSection from "@/components/custom/Projects";
 import { FaCloudArrowDown, FaRegFileCode } from "react-icons/fa6";
-import { BsTools,   } from "react-icons/bs";
+import { BsTools } from "react-icons/bs";
 import { RiWindow2Fill } from "react-icons/ri";
 import { MdOutlineWifiOff } from "react-icons/md";
 import { IoTimer } from "react-icons/io5";
@@ -122,163 +122,115 @@ export default function page() {
         }}
       />
 
+      {/* custom cards */}
 
-       {/* custom cards */}
-      
-            <section className="bg-white py-12 px-6">
-              <div className="max-w-6xl mx-auto">
-                {/* Heading */}
-                <div className="max-w-4xl mx-auto text-center pb-10">
-                  {/* Section label */}
-                  <span className="inline-block mb-3 sm:mb-4 text-xs sm:text-sm md:text-base font-medium tracking-[0.18em] sm:tracking-[0.2em] uppercase text-gray-400">
-                    What We Offer
-                  </span>
-                  <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-black leading-[1.15]">
-                    Web App{" "}
-                    <span className="font-serif italic font-light text-blue-600">
-                      Services
-                    </span>
-                  </h1>
-      
-                  <p className="mx-auto mt-6 max-w-3xlm text-base leading-relaxed text-gray-600 sm:text-lg">
-                    Comprehensive web development services designed to elevate your
-                    brand's digital presence.
-                  </p>
-                </div>
-      
-                {/* Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                  {WebApps.map((benefit) => (
-                    <CustomCards
-                      key={benefit.id}
-                      title={benefit.title}
-                      description={benefit.description}
-                      icon={benefit.icon}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
-      
+      <section className="bg-white py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <div className="max-w-4xl mx-auto text-center pb-10">
+            {/* Section label */}
+            <span className="inline-block mb-3 sm:mb-4 text-xs sm:text-sm md:text-base font-medium tracking-[0.18em] sm:tracking-[0.2em] uppercase text-gray-400">
+              What We Offer
+            </span>
+            <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-black leading-[1.15]">
+              Web App{" "}
+              <span className="font-serif italic font-light text-blue-600">
+                Services
+              </span>
+            </h1>
+
+            <p className="mx-auto mt-6 max-w-3xlm text-base leading-relaxed text-gray-600 sm:text-lg">
+              Comprehensive web development services designed to elevate your
+              brand's digital presence.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {WebApps.map((benefit) => (
+              <CustomCards
+                key={benefit.id}
+                title={benefit.title}
+                description={benefit.description}
+                icon={benefit.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* custom capsule */}
-      
-            <section className=" py-12 px-6 bg-black">
-              <div className="max-w-6xl mx-auto">
-                {/* Heading */}
-                <div className="mx-auto mb-16 max-w-4xl text-center">
-                  <span className="inline-block mb-3 sm:mb-4 text-xs sm:text-sm md:text-base font-medium tracking-[0.18em] sm:tracking-[0.2em] uppercase text-blue-600">
-                    Core Capabilities
-                  </span>
-      
-                  <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15]">
-                    Key{" "}
-                    <span className="font-serif italic font-light text-blue-600">
-                      Elements
-                    </span>
-                  </h1>
-      
-                  <p className="mx-auto mt-6 max-w-3xlm text-base leading-relaxed text-gray-400 sm:text-lg">
-                    Why our web applications stand out in performance, usability, and
-                    scale.
-                  </p>
-                </div>
-      
-                {/* Grid */}
-                <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-                  {features.map((item) => (
-                    <CustomCapsule
-                      key={item.id}
-                      title={item.title}
-                      icon={item.icon}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
 
+      <section className=" py-12 px-6 bg-black">
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <div className="mx-auto mb-16 max-w-4xl text-center">
+            <span className="inline-block mb-3 sm:mb-4 text-xs sm:text-sm md:text-base font-medium tracking-[0.18em] sm:tracking-[0.2em] uppercase text-blue-600">
+              Core Capabilities
+            </span>
 
-  {/* tech stack  */}
+            <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15]">
+              Key{" "}
+              <span className="font-serif italic font-light text-blue-600">
+                Elements
+              </span>
+            </h1>
 
-      <TechSection
-        // FRONTEND
-        showReact
-        showAngular
-        showVue
-        showHtml
-        showCss
-        showJs
-        // BACKEND
-        showNode
-        showPython
-        showPhp
-        showJava
-        showRuby
-        showCsharp
-        // MOBILE
-        showReactNative
-        showFlutter
-        showSwift
-        showKotlin
-        // DATABASE
-        showMysql
-        showPostgresql
-        showMongodb
-        showRedis
-        showOracle
-        // FRAMEWORKS
-        showLaravel
-        showDjango
-        showSpring
-        showDotnet
-        showExpress
-        // CLOUD
-        showAws
-        showAzure
-        showGooglecloud
-        // DEVOPS
-        showDocker
-        showKubernetes
-        showJenkins
-        showGit
-        // CMS
-        showWordpress
-        showMagento
+            <p className="mx-auto mt-6 max-w-3xlm text-base leading-relaxed text-gray-400 sm:text-lg">
+              Why our web applications stand out in performance, usability, and
+              scale.
+            </p>
+          </div>
+
+          {/* Grid */}
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {features.map((item) => (
+              <CustomCapsule
+                key={item.id}
+                title={item.title}
+                icon={item.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* tech stack  */}
+
+      <TechSection />
+
+      <ProjectsSection
+        badgeText="Portfolio"
+        headingText="Web"
+        headingItalicText="App Projects"
+        headingEndText=""
+        descriptionText="A selection of high-traffic web platforms we have deployed."
+        buttonText="View All Projects"
+        buttonLink="/projects"
+        projects={[
+          {
+            id: 1,
+            tag: "B2B Portal",
+            title: "Global Supplier Node",
+            img: "/img/project01.webp",
+            link: "#",
+          },
+          {
+            id: 2,
+            tag: "SaaS Dashboard",
+            title: "AdVision Core Web",
+            img: "/img/project02.webp",
+            link: "#",
+          },
+          {
+            id: 3,
+            tag: "Fintech Dashboard",
+            title: "TradeFast Web Platform",
+            img: "/img/project03.webp",
+            link: "#",
+          },
+        ]}
       />
-
-
-       <ProjectsSection
-              badgeText="Portfolio"
-              headingText="Web"
-              headingItalicText="App Projects"
-              headingEndText=""
-              descriptionText="A selection of high-traffic web platforms we have deployed."
-              buttonText="View All Projects"
-              buttonLink="/projects"
-              projects={[
-                {
-                  id: 1,
-                   tag: "B2B Portal",
-                  title: "Global Supplier Node",
-                  img: "/img/project01.webp",           
-                  link: "#",
-                },
-                {
-                  id: 2,
-                   tag:"SaaS Dashboard",
-                  title: "AdVision Core Web",
-                  img: "/img/project02.webp",           
-                  link: "#",
-                },
-                {
-                  id: 3,
-                    tag: "Fintech Dashboard",
-                  title: "TradeFast Web Platform",
-                  img: "/img/project03.webp",          
-                  link: "#",
-                },
-              ]}
-            />
 
       <ServicePrice />
       <Testimonials />

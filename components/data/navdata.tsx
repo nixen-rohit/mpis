@@ -1,41 +1,5 @@
 // components/header/nav-data.tsx
 "use client";
-import {
-  Magento,
-  React,
-  Angular,
-  Vuejs,
-  Javascript,
-  Tailwind,
-  Typescript,
-  Vite,
-  Net,
-  Laravel,
-  Codeigniter,
-  PHP,
-  Nodejs,
-  NetCore,
-  Python,
-  SQLServer,
-  MySQL,
-  PostgreSQL,
-  MongoDB,
-  DynamoDB,
-  SQLite,
-  Firebase,
-  Woocommerce,
-  Apple,
-  Android,
-  Flutter,
-  ReactNative,
-  AWS,
-  Googlecloud,
-  Azure,
-  Shopify,
-  Wordpress,
-  BlockChain,
-  AzureDevOps,
-} from "@/components/svg/svg";
 
 import {
   RiSettings3Line,
@@ -108,7 +72,7 @@ export const SERVICES_NAV: MegaMenuData = {
         {
           label: "Custom Software",
           href: "/custom-software-development",
-          icon: <RiSettings3Line  />,
+          icon: <RiSettings3Line />,
         },
         {
           label: "Web Applications",
@@ -341,97 +305,6 @@ export const INDUSTRIES_NAV: MegaMenuData = {
   },
 };
 
-export const TECHNOLOGIES: MegaMenuData = {
-  columns: [
-    {
-      heading: "Frontend",
-      links: [
-        { label: "AngularJS", href: "/healthcare", icon: <Angular /> },
-        { label: "ReactJS", href: "/elearning", icon: <React /> },
-        { label: "Vue.js", href: "/fintech", icon: <Vuejs /> },
-        { label: "JavaScript", href: "/fintech", icon: <Javascript /> },
-        { label: "TypeScript", href: "/fintech", icon: <Typescript /> },
-        { label: "Tailwind CSS", href: "/fintech", icon: <Tailwind /> },
-        { label: "ViteJS", href: "/fintech", icon: <Vite /> },
-      ],
-    },
-    {
-      heading: "Backend",
-      links: [
-        { label: ".Net", href: "/healthcare", icon: <Net /> },
-        { label: "PHP", href: "/elearning", icon: <PHP /> },
-        { label: "Node.js", href: "/fintech", icon: <Nodejs /> },
-        { label: ".Net Core", href: "/fintech", icon: <NetCore /> },
-        { label: "Python", href: "/fintech", icon: <Python /> },
-      ],
-    },
-
-    {
-      heading: "Frameworks",
-      links: [
-        { label: "Laravel", href: "/fintech", icon: <Laravel /> },
-        { label: "CodeIgniter", href: "/fintech", icon: <Codeigniter /> },
-      ],
-    },
-    {
-      heading: "Database",
-      links: [
-        { label: "SQL Server", href: "/healthcare", icon: <SQLServer /> },
-        { label: "MySQL", href: "/elearning", icon: <MySQL /> },
-        { label: "PostgreSQL", href: "/fintech", icon: <PostgreSQL /> },
-        { label: "MongoDB", href: "/fintech", icon: <MongoDB /> },
-        { label: "DynamoDB", href: "/fintech", icon: <DynamoDB /> },
-        { label: "SQLite", href: "/fintech", icon: <SQLite /> },
-        { label: "Firebase", href: "/fintech", icon: <Firebase /> },
-      ],
-    },
-    {
-      heading: "Mobile",
-      links: [
-        { label: "iOS", href: "/healthcare", icon: <Apple /> },
-        { label: "Android", href: "/elearning", icon: <Android /> },
-        { label: "Flutter", href: "/fintech", icon: <Flutter /> },
-        { label: "React Native", href: "/fintech", icon: <ReactNative /> },
-      ],
-    },
-    {
-      heading: "Cloud",
-      links: [
-        { label: "AWS", href: "/healthcare", icon: <AWS /> },
-        { label: "Google Cloud", href: "/elearning", icon: <Googlecloud /> },
-        { label: "Azure", href: "/fintech", icon: <Azure /> },
-      ],
-    },
-    {
-      heading: "E Commerce",
-      links: [
-        { label: "Woo Commerce", href: "/healthcare", icon: <Woocommerce /> },
-        { label: "Magneto", href: "/elearning", icon: <Magento /> },
-        { label: "Shopify", href: "/fintech", icon: <Shopify /> },
-      ],
-    },
-
-    {
-      heading: "CMS",
-      links: [{ label: "Wordpress", href: "/healthcare", icon: <Wordpress /> }],
-    },
-
-    {
-      heading: "Emerging ",
-      links: [
-        { label: "Block Chain", href: "/healthcare", icon: <BlockChain /> },
-      ],
-    },
-
-    {
-      heading: "DevOps",
-      links: [
-        { label: "Azure DevOps", href: "/healthcare", icon: <AzureDevOps /> },
-      ],
-    },
-  ],
-};
-
 export const BLOG_NAV: MegaMenuData = {
   columns: [
     {
@@ -522,7 +395,6 @@ export const NAV: NavItem[] = [
   { label: "Services", mega: SERVICES_NAV },
   { label: "Expertise", mega: EXPERTISE_NAV },
   { label: "Industries", mega: INDUSTRIES_NAV },
-  { label: "Technologies", mega: TECHNOLOGIES },
   { label: "Career", href: "/careers" },
   { label: "Blog", href: "/blog", mega: BLOG_NAV },
   { label: "About", href: "/about", mega: ABOUT_NAV },

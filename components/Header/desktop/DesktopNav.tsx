@@ -25,7 +25,7 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
       className={cn("items-center gap-0.5 flex-1 justify-center", className)}
     >
       {navItems.map((item, i) => {
-        const isTech = item.label === "Technologies";
+        
         const isServices = item.label === "Services";
         const isExpertise = item.label === "Expertise";
 
@@ -55,8 +55,8 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
             {item.mega && (
               <MegaMenuPanel
                 mega={item.mega}
-                align={isTech ? "center" : getAlign(i, navItems.length)}
-                isTech={isTech}
+                align={getAlign(i, navItems.length)}
+                
                 serviceWidth={isServices ? 810 : undefined}
                 expertiseWidth={isExpertise ? 750 : undefined}
               />

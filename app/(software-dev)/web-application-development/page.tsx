@@ -188,54 +188,9 @@ export default function page() {
         </div>
       </section>
 
-       {/* tech stack  */}
-      
-            <TechSection
-              // FRONTEND
-              showReact
-              showAngular
-              showVue
-              showHtml
-              showCss
-              showJs
-              // BACKEND
-              showNode
-              showPython
-              showPhp
-              showJava
-              showRuby
-              showCsharp
-              // MOBILE
-              showReactNative
-              showFlutter
-              showSwift
-              showKotlin
-              // DATABASE
-              showMysql
-              showPostgresql
-              showMongodb
-              showRedis
-              showOracle
-              // FRAMEWORKS
-              showLaravel
-              showDjango
-              showSpring
-              showDotnet
-              showExpress
-              // CLOUD
-              showAws
-              showAzure
-              showGooglecloud
-              // DEVOPS
-              showDocker
-              showKubernetes
-              showJenkins
-              showGit
-              // CMS
-              showWordpress
-              showMagento
-            />
-      
+      {/* tech stack  */}
+
+      <TechSection />
 
       <ProjectsSection
         badgeText="Portfolio"
@@ -248,23 +203,23 @@ export default function page() {
         projects={[
           {
             id: 1,
-             tag: "B2B Portal",
+            tag: "B2B Portal",
             title: "Global Supplier Node",
-            img: "/img/project01.webp",           
+            img: "/img/project01.webp",
             link: "#",
           },
           {
             id: 2,
-             tag:"SaaS Dashboard",
+            tag: "SaaS Dashboard",
             title: "AdVision Core Web",
-            img: "/img/project02.webp",           
+            img: "/img/project02.webp",
             link: "#",
           },
           {
             id: 3,
-              tag: "Fintech Dashboard",
+            tag: "Fintech Dashboard",
             title: "TradeFast Web Platform",
-            img: "/img/project03.webp",          
+            img: "/img/project03.webp",
             link: "#",
           },
         ]}
