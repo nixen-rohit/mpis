@@ -8,7 +8,6 @@ import { SERVICES, type Service } from "@/components/data/servicesData";
 interface CreativeSliderProps {
   services: Service[];
 }
- 
 
 function useCardOffset() {
   const [offset, setOffset] = useState(280);
@@ -34,45 +33,56 @@ function useCardOffset() {
 
 function CreativeSlider({ services }: CreativeSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev >= services.length - 1 ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [services.length, isPaused]);
   const cardOffset = useCardOffset();
 
-  // Helper flags to check if we are at the boundaries
-  const isFirstSlide = currentIndex === 0;
-  const isLastSlide = currentIndex === services.length - 1;
-
   const handleNext = () => {
-    if (!isLastSlide) {
-      setCurrentIndex((prev) => prev + 1);
-    }
+    setIsPaused(true);
+
+    setCurrentIndex((prev) => (prev >= services.length - 1 ? 0 : prev + 1));
+
+    setTimeout(() => setIsPaused(false), 5000);
   };
 
   const handlePrev = () => {
-    if (!isFirstSlide) {
-      setCurrentIndex((prev) => prev - 1);
-    }
+    setIsPaused(true);
+
+    setCurrentIndex((prev) => (prev <= 0 ? services.length - 1 : prev - 1));
+
+    setTimeout(() => setIsPaused(false), 5000);
   };
 
   const getVisibleCards = () => {
     const total = services.length;
-    const middleIndex = currentIndex;
 
-    // Instead of wrapping infinitely, we clamp the index or return null if out of bounds
-    const leftIndex = currentIndex - 1 >= 0 ? currentIndex - 1 : null;
-    const rightIndex = currentIndex + 1 < total ? currentIndex + 1 : null;
+    const leftIndex = currentIndex === 0 ? total - 1 : currentIndex - 1;
 
-    const cards = [];
+    const rightIndex = currentIndex === total - 1 ? 0 : currentIndex + 1;
 
-    if (leftIndex !== null) {
-      cards.push({ service: services[leftIndex], position: "left" });
-    }
-
-    cards.push({ service: services[middleIndex], position: "middle" });
-
-    if (rightIndex !== null) {
-      cards.push({ service: services[rightIndex], position: "right" });
-    }
-
-    return cards;
+    return [
+      {
+        service: services[leftIndex],
+        position: "left",
+      },
+      {
+        service: services[currentIndex],
+        position: "middle",
+      },
+      {
+        service: services[rightIndex],
+        position: "right",
+      },
+    ];
   };
 
   const visibleCards = getVisibleCards();
@@ -83,7 +93,6 @@ function CreativeSlider({ services }: CreativeSliderProps) {
       <div className="hidden sm:block">
         <button
           onClick={handlePrev}
-          disabled={isFirstSlide}
           aria-label="Previous slide"
           className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 disabled:opacity-30 disabled:pointer-events-none disabled:scale-100 transition-all duration-200"
         >
@@ -92,7 +101,6 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
         <button
           onClick={handleNext}
-          disabled={isLastSlide}
           aria-label="Next slide"
           className="absolute right-2 lg:left-auto lg:right-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 disabled:opacity-30 disabled:pointer-events-none disabled:scale-100 transition-all duration-200"
         >
@@ -230,7 +238,6 @@ function CreativeSlider({ services }: CreativeSliderProps) {
       <div className="flex sm:hidden items-center justify-center gap-4 mt-8">
         <button
           onClick={handlePrev}
-          disabled={isFirstSlide}
           aria-label="Previous slide"
           className="flex items-center justify-center w-15 h-15 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
         >
@@ -239,7 +246,6 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
         <button
           onClick={handleNext}
-          disabled={isLastSlide}
           aria-label="Next slide"
           className="flex items-center justify-center w-15 h-15 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
         >
@@ -251,42 +257,37 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 }
 
 export default function FeaturesGrid() {
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.12 },
+    },
+  };
 
-   const containerVariants: Variants = {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.12 },
-      },
-    };
-  
-    const cardVariants: Variants = {
-      hidden: { opacity: 0, y: 30 },
-      visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-      },
-    };
-
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
 
   return (
     <section className="w-full bg-black px-4 sm:px-6 lg:px-8 py-20 select-none overflow-hidden">
-       <motion.div
-             variants={containerVariants}
-             initial="hidden"
-             whileInView="visible"
-             viewport={{ once: true, margin: "-100px" }}
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
         className="max-w-4xl mx-auto text-center mb-12"
       >
         <span className="inline-block mb-3 text-xs font-bold tracking-[0.25em] uppercase text-zinc-500">
           Our Expertise
         </span>
 
-        <h1
-           
-          className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15] w-full wrap-break-word"
-        >
+        <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15] w-full wrap-break-word">
           Expert in{" "}
           <span className="font-serif italic font-light text-zinc-200">
             IT & Digital Marketing
@@ -294,10 +295,7 @@ export default function FeaturesGrid() {
           Solutions
         </h1>
 
-        <p
-        
-          className="mt-5 max-w-xl mx-auto text-sm sm:text-base leading-relaxed text-zinc-400"
-        >
+        <p className="mt-5 max-w-xl mx-auto text-sm sm:text-base leading-relaxed text-zinc-400">
           We deliver integrated systems that streamline your operations, protect
           structural assets, and drive data-informed customer growth.
         </p>
