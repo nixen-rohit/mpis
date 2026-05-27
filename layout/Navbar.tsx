@@ -88,7 +88,7 @@ export default function Navbar() {
                 <RiSearchLine className="text-lg" />
                 <span className="hidden md:inline">Search</span>
                 <kbd className="hidden md:inline-flex rounded-md bg-gray-100 px-1.5 py-0.5 text-[11px] text-gray-400">
-                  ⌘K
+                  
                 </kbd>
               </button>
 
