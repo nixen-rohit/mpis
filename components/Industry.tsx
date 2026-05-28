@@ -4,68 +4,83 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Link from "next/link";
 interface IndustryItem {
   id: string;
   name: string;
   imageUrl: string;
+  link?: string;
 }
 
 const allIndustries: IndustryItem[] = [
-  { id: "1", name: "Healthcare", imageUrl: "/img/health.jpg" },
+  {
+    id: "1",
+    name: "Healthcare",
+    imageUrl: "/img/health.jpg",
+    link: "/healthcare",
+  },
   {
     id: "2",
     name: "Education",
     imageUrl:
       "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/e-learning",
   },
   {
     id: "3",
     name: "Retail",
     imageUrl:
       "https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/fintech",
   },
   {
     id: "4",
     name: "Real Estate",
     imageUrl:
       "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/real-estate",
   },
   {
     id: "5",
     name: "Manufacturing",
     imageUrl:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/",
   },
   {
     id: "6",
     name: "Finance",
     imageUrl:
       "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/e-commerce",
   },
   {
     id: "7",
     name: "Logistics",
     imageUrl:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/",
   },
   {
     id: "8",
     name: "E-Commerce",
     imageUrl:
       "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&q=80&w=800&h=500",
+     link: "/e-commerce",
   },
   {
     id: "9",
     name: "Startups",
     imageUrl:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/",
   },
   {
     id: "10",
     name: "Enterprises",
     imageUrl:
       "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800&h=500",
+    link: "/",
   },
 ];
 
@@ -174,27 +189,31 @@ export default function IndustryGrid() {
             {/* Mobile: all 10 items */}
             <div className="lg:hidden">
               {allIndustries.map((item, index) => (
-                <IndustryRow
-                  key={item.id}
-                  item={item}
-                  index={index}
-                  isActive={activeId === item.id}
-                  onHover={setActiveId}
-                  alignRight={false}
-                />
+                <Link key={item.id} href={item.link || "#"}>
+                  <IndustryRow
+                    key={item.id}
+                    item={item}
+                    index={index}
+                    isActive={activeId === item.id}
+                    onHover={setActiveId}
+                    alignRight={false}
+                  />
+                </Link>
               ))}
             </div>
             {/* Desktop: only 1–5 */}
             <div className="hidden lg:block">
               {leftCol.map((item, index) => (
-                <IndustryRow
-                  key={item.id}
-                  item={item}
-                  index={index}
-                  isActive={activeId === item.id}
-                  onHover={setActiveId}
-                  alignRight={false}
-                />
+                <Link key={item.id} href={item.link || "#"}>
+                  <IndustryRow
+                    key={item.id}
+                    item={item}
+                    index={index}
+                    isActive={activeId === item.id}
+                    onHover={setActiveId}
+                    alignRight={false}
+                  />
+                </Link>
               ))}
             </div>
           </div>
@@ -278,14 +297,16 @@ export default function IndustryGrid() {
           {/* Right col: 6–10 — desktop only */}
           <div className="hidden lg:block flex-1 w-full border-t border-gray-200">
             {rightCol.map((item, index) => (
-              <IndustryRow
-                key={item.id}
-                item={item}
-                index={index + 5}
-                isActive={activeId === item.id}
-                onHover={setActiveId}
-                alignRight={true}
-              />
+              <Link key={item.id} href={item.link || "#"}>
+                <IndustryRow
+                  key={item.id}
+                  item={item}
+                  index={index + 5}
+                  isActive={activeId === item.id}
+                  onHover={setActiveId}
+                  alignRight={true}
+                />
+              </Link>
             ))}
           </div>
         </div>
