@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -96,6 +96,16 @@ const AppManagementkey = [
     title: "Dedicated Support Team",
     icon: <MdGroup className="w-7 h-7 text-white" />,
   },
+];
+
+const faqData = [
+  {
+    id: 1,
+    question: "What is included in application management services (AMS) ?",
+    answer:
+      "Our AMS includes 24/7 monitoring, performance optimization, security patching, and release management.",
+  },
+   
 ];
 
 export default function page() {
@@ -233,7 +243,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

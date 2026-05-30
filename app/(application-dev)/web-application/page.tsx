@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -98,6 +98,24 @@ const WebAppKey = [
     icon: <BiSupport className="w-7 h-7 text-white" />,
   },
 ];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "What technologies do you use for web application development ?",
+    answer:
+      "We primarily use modern stacks such as React, Angular, Vue.js, Node.js, PHP, or .NET.",
+  },
+  {
+    id: 2,
+    question: "Will my web application be mobile-friendly ?",
+    answer:
+      "Yes, all our web applications are designed with mobile-first and responsive principles.",
+  },
+  
+];
+
 
 export default function page() {
   return (
@@ -233,7 +251,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

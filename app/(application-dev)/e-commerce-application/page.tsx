@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -98,6 +98,17 @@ const EComKey = [
     title: "Admin Dashboard",
     icon: <RiAdminFill className="w-7 h-7 text-white" />,
   },
+];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "Do you use platforms like Shopify or Magento, or build custom ?",
+    answer:
+      "We do both. We customize open-source platforms and also build fully custom headless e-commerce solutions.",
+  },
+ 
 ];
 
 export default function page() {
@@ -234,7 +245,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+     <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }
