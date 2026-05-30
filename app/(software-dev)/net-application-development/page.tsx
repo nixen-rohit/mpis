@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -100,6 +100,39 @@ const NetDevKey = [
   },
 ];
 
+
+const faqData = [
+  {
+    id: 1,
+    question: "What is the benefit of moving from .NET Framework to .NET Core ?",
+    answer:
+      "Moving to modern .NET (Core / 8) provides massive performance improvements, allows your app to be hosted on Linux servers (saving costs), and provides modern security updates. Regular .NET Framework is being phased out.",
+  },
+  {
+    id: 2,
+    question: "Do you use ASP.NET MVC or Blazor ?",
+    answer:
+      "We utilize the best tool for your requirement. If you need a traditional web app, ASP.NET Core MVC or Razor Pages are great. For highly interactive apps built entirely in C# without JavaScript, we use Blazor.",
+  },
+  {
+    id: 3,
+    question: "Can you connect a .NET app to our existing Oracle/SAP database ?",
+    answer:
+      "Yes. .NET features immense enterprise connectivity. We use Entity Framework Core alongside specialized database drivers to communicate natively with legacy and enterprise ERP databases.",
+  },
+  {
+    id: 4,
+    question: "Do you deploy on Microsoft Azure ?",
+    answer:
+      "Yes, Azure is the native cloud environment for .NET applications. We can architect your app to utilize Azure App Services, Azure SQL, and Azure Key Vault for maximum security and scalability",
+  },
+  {
+    id: 5,
+    question: "Is C# an outdated language ?",
+    answer:
+      "Not at all. C# is constantly updated by Microsoft and remains one of the fastest, safest, and most heavily utilized languages in corporate and enterprise backend engineering worldwide.",
+  },
+];
 export default function page() {
   return (
     <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  ">
@@ -232,7 +265,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+     <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import React from "react";
-import Faq from "@/components/Faq";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -9,7 +7,7 @@ import CustomHero from "@/components/custom/CustomHero";
 import CustomCards from "@/components/custom/CustomCards";
 import ProjectsSection from "@/components/custom/Projects";
 import CustomCapsule from "@/components/custom/CustomCapsule";
-
+import FAQSection from "@/components/custom/FAQSection";
 import { FaCode, FaCloudArrowDown, FaGear } from "react-icons/fa6";
 import { PiBracketsCurlyBold } from "react-icons/pi";
 import {
@@ -98,6 +96,40 @@ const CoreCapabilities = [
     id: 6,
     title: "High Scalability",
     icon: <MdRocketLaunch className="h-7 w-7 text-white" />,
+  },
+];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "Will I own the source code ?",
+    answer:
+      "Yes, once the project is completed and fully paid for, we transfer 100% intellectual property rights and full source code access to you.",
+  },
+  {
+    id: 2,
+    question: "Can you pick up a project started by another team?",
+    answer:
+      "Yes, we offer project rescue services. We first conduct a comprehensive code audit to understand the architecture, then devise a plan to stabilize and complete it.",
+  },
+  {
+    id: 3,
+    question: "How do you ensure data security?",
+    answer:
+      "We implement secure coding standards (OWASP), role-based access controls, data encryption (at rest and in transit), and regular vulnerability testing prior to launch.",
+  },
+  {
+    id: 4,
+    question: "Do you use agile software development ?",
+    answer:
+      "Yes, we follow an Agile/Scrum methodology. We break development into two-week sprints, providing you with regular, functional updates so you have full transparency.",
+  },
+  {
+    id: 5,
+    question: "What happens after the software is launched ?",
+    answer:
+      "We provide a standard warranty period for bug fixes. Beyond that, we offer various support and maintenance agreements to keep the software updated, secure, and compatible.",
   },
 ];
 
@@ -235,7 +267,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+     <FAQSection
+           tag="Have Questions?"
+           firstHeading="Frequently Asked"
+           secondHeading="Questions"
+           description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+           headingTag="h2"
+           faqs={faqData}
+         />
     </div>
   );
 }

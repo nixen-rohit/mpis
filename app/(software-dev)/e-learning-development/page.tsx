@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -97,6 +97,39 @@ const ELearningKey = [
     id: 6,
     title: "Community Forums",
     icon: <RiMessage2Fill className="w-7 h-7 text-white" />,
+  },
+];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "Can you build custom gamification to keep students engaged ? ",
+    answer:
+      "Yes. Gamification is essential in EdTech. We can design systems with experience points (XP), unlocking achievements, daily streaks, and competitive leaderboards.",
+  },
+  {
+    id: 2,
+    question: "Do you support SCORM compliance ? ",
+    answer:      "Yes, if you have existing courses authored in tools like Articulate or Captivate, we can implement SCORM or xAPI engines into the LMS to track that data perfectly.",
+  },
+  {
+    id: 3,
+    question: "Where do you host large video files ? ",
+    answer:
+      "We never host large videos directly on the web server. We typically architect the platform to utilize AWS S3 combined with CloudFront, or integrate with premium APIs like Vimeo or Mux for heavily optimized streaming.",
+  },
+  {
+    id: 4,
+    question: "Can you create an offline mobile app for students ? ",
+    answer:
+      "Yes. Using React Native, we can build companion applications that allow students to download course material and lectures securely to their device for offline learning.",
+  },
+  {
+    id: 5,
+    question: "Is it possible to integrate Zoom into the LMS seamlessly ?",
+    answer:
+      "Absolutely. We frequently use Zoom APIs (or Google Meet) to auto-generate meeting links, handle user access, and sync recorded lectures back to the dashboard.",
   },
 ];
 
@@ -235,7 +268,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

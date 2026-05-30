@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -99,6 +99,42 @@ const HealthcareKey = [
     icon: <BsRobot className="w-7 h-7 text-white-600" />,
   },
 ];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "Is your healthcare software HIPAA compliant ?",
+    answer:
+      "Yes, all our healthcare solutions follow HIPAA, HL7, and FHIR standards with end-to-end encryption and comprehensive audit trails.",
+  },
+  {
+    id: 2,
+    question: "Can you integrate with existing hospital systems ?",
+    answer:
+      "Absolutely. We have experience integrating with major EHR platforms, lab systems, and billing software using standard APIs and HL7 messaging.",
+  },
+  {
+    id: 3,
+    question: "How long does it take to build a telemedicine app?",
+    answer:
+      "A basic telemedicine MVP typically takes 8-12 weeks. A full-featured platform with scheduling, billing, and analytics takes 4-6 months.",
+  },
+  {
+    id: 4,
+    question: "Do you offer post-launch maintenance ?",
+    answer:
+      "Yes, we offer 24/7 monitoring, regular security updates, and dedicated support packages for all healthcare systems we deliver.",
+  },
+  {
+    id: 5,
+    question: "What mobile platforms do you support ?",
+    answer:
+      "We develop cross-platform mobile apps for iOS and Android, as well as responsive web applications for desktop and tablet access.",
+  },
+];
+
+
 
 export default function page() {
   return (
@@ -233,7 +269,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -97,6 +97,39 @@ const AppDevKey = [
     id: 6,
     title: "In-App Payments",
     icon: <IoMdWallet className="w-7 h-7 text-white" />,
+  },
+];
+
+const faqData = [
+  {
+    id: 1,
+    question: "Should I choose Native or Cross-Platform ?",
+    answer:
+      "If you require intensive 3D graphics, heavy animations, or deep hardware access, Native (Swift/Kotlin) is best. If you want faster time-to-market and lower cost, Cross-Platform (React Native/Flutter) is an excellent choice.",
+  },
+  {
+    id: 2,
+    question: "Will you publish our app to the App Store and Google Play ?",
+    answer:
+      "Yes. We manage the entire deployment process, ensuring adherence to Apple's App Store Review Guidelines and Google Play's policies to get your app approved quickly.",
+  },
+  {
+    id: 3,
+    question: "Do you build the backend API for the app?",
+    answer:
+      "Absolutely. Most mobile apps require a backend to process data and authenticate users. We build secure RESTful or GraphQL APIs using Node.js, Python, or Laravel.",
+  },
+  {
+    id: 4,
+    question: "How much does it cost to maintain an app ?",
+    answer:
+      "App maintenance typically costs 15-20% of the original development cost annually. This covers OS updates (like new iOS versions), server hosting, and bug fixes.",
+  },
+  {
+    id: 5,
+    question: "Can you redesign an existing mobile app ? ",
+    answer:
+      "Yes. We frequently revitalize legacy apps by completely redesigning the UX/UI and refactoring the underlying code to modern standards.",
   },
 ];
 
@@ -232,7 +265,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+       <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }
