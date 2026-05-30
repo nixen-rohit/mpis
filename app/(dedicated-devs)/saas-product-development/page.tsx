@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -104,6 +104,37 @@ const SaaSKey = [
   },
 ];
 
+
+const faqData = [
+  {
+    id: 1,
+    question: "What is multi-tenant architecture ?",
+    answer:
+      "Multi-tenancy implies a single instance of the software and its supporting infrastructure serves multiple distinct customers (tenants). Each tenant's data is isolated and invisible to others, maximizing efficiency and minimizing server costs.",
+  },
+  {
+    id: 2,
+    question: "Can you integrate existing webhooks into the SaaS ?",
+    answer:
+      "Yes. SaaS products typically require connecting with Zapier, Slack, or Salesforce. We build secure REST or GraphQL endpoints to let your software communicate perfectly with third-party tools.",
+  },
+  {
+    id: 3,
+    question: "How do you handle subscription billing ?",
+    answer:
+      "We integrate industry-leading payment gateways like Stripe or Paddle. This includes tiered subscription plans, prorated upgrades/downgrades, and automated failed-payment dunning emails.",
+  },
+  {
+    id: 4,
+    question: "Who owns the intellectual property and code ?",
+    answer:
+      "You do. Once the code is delivered and paid for, 100% of the Intellectual Property (IP) belongs to your company. We maintain strict non-closure agreements (NDAs) throughout the process.",
+  },
+  
+];
+
+
+
 export default function page() {
   return (
     <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr ">
@@ -201,7 +232,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

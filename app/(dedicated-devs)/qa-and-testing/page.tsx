@@ -1,5 +1,4 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -101,6 +100,36 @@ const QA = [
     icon: <FaShieldAlt className="w-7 h-7 text-blue-600" />,
   },
 ];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "Is manual testing still necessary ?",
+    answer:
+      "Yes. Automated tests only catch the bugs they are explicitly programmed to find. Manual QA testers replicate spontaneous human behavior and catch UX logic issues machines cannot.",
+  },
+  {
+    id: 2,
+    question: "What is a regression test ?",
+    answer:
+      "A regression test ensures that adding new features to an application did not accidentally break existing old features.",
+  },
+  {
+    id: 3,
+    question: "Do QA teams fix the code themselves ",
+    answer:
+      "No, a QA team identifies, documents, and explicitly categorizes bugs with recording steps in Jira. A developer then receives that ticket to fix the code directly.",
+  },
+  {
+    id: 4,
+    question: "What is load testing ?",
+    answer:
+      "Load testing uses automation to simulate thousands of simultaneous users browsing and transacting on your site to see at what point the servers crash, allowing for preventative architecture upgrades.",
+  }
+];
+
+
 export default function page() {
   return (
     <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr  ">
@@ -204,7 +233,14 @@ Quality Control"
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

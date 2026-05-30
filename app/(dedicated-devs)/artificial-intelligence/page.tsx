@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -99,6 +99,36 @@ const AIKey = [
     icon: <GiLightningBow className="w-7 h-7 text-white" />,
   },
 ];
+
+const faqData = [
+  {
+    id: 1,
+    question: "Do I need my own data to build an AI model ?",
+    answer:
+      "For highly specialized predictive or computer vision models, proprietary historical data is essential. However, for many Generative AI apps (like intelligent search bots), we can utilize existing LLMs without needing massive amounts of your own training data.",
+  },
+  {
+    id: 2,
+    question: "How secure is the data passed to the AI ?",
+    answer:
+      "We prioritize data security. When integrating APIs like OpenAI, we utilize their Enterprise tiers ensuring zero data retention. For strict compliance, we deploy open-source models completely on-premise or within your AWS VPC.",
+  },
+  {
+    id: 3,
+    question: "What is RAG ?",
+    answer:
+      "Retrieval-Augmented Generation (RAG) merges the conversational ability of LLMs with your private database. When a user asks a question, the AI retrieves relevant documents from your proprietary knowledge base and uses them to formulate a factually accurate answer.",
+  },
+  {
+    id: 4,
+    question: "Can you maintain the AI model after deployment ?",
+    answer:
+      "Yes. AI models experience \"data drift\" as real-world trends change over time. We offer MLOps support to continually feed new data, retrain, and optimize the models to ensure they remain highly accurate.",
+  },
+   
+];
+
+
 export default function page() {
   return (
     <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr ">
@@ -194,7 +224,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+     <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

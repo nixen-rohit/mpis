@@ -1,5 +1,5 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -97,6 +97,35 @@ const FullStackKey = [  {
   },
    
 ]
+
+const faqData = [
+  {
+    id: 1,
+    question: "What is Full-Stack Development ?",
+    answer:
+      "Full-stack development involves engineering both the client-side (frontend layout, design, logic) and server-side (backend APIs, database layers, security) of software applications.",
+  },
+  {
+    id: 2,
+    question: "Do you use microservices architectures ?",
+    answer:
+      "Yes, for large applications, we separate monolithic code into domain-specific microservices. This makes applications vastly easier to maintain, deploy, and scale.",
+  },
+  {
+    id: 3,
+    question: "How do you ensure code quality across the entire stack ?",
+    answer:
+      "We use strict linting rules, automated CI/CD pipelines, code reviews, and comprehensive E2E automated test suites to assure stability.",
+  },
+  {
+    id: 4,
+    question: "Can your developers optimize our database ?",
+    answer:
+      "Absolutely. Full-stack engineers understand how frontend queries impact the backend database and will utilize proper indexing, caching (Redis), and denormalization to ensure fast load times.",
+  },
+   
+];
+
 
 export default function page() {
   return (
@@ -198,7 +227,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+       <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

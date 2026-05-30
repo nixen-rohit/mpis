@@ -1,5 +1,4 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -101,6 +100,38 @@ const UIUXKey = [
     icon: <BsGraphUpArrow className="w-7 h-7 text-white" />,
   },
 ];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "What is the difference between UX and UI ?",
+    answer:
+      "UX (User Experience) focuses on the logic, flow, wireframes, and how easy the app is to use. UI (User Interface) focuses on the visual aspects—colors, typography, buttons, and aesthetics.",
+  },
+  {
+    id: 2,
+    question: "What tools do you use for design ?",
+    answer:
+      "We primarily use Figma for collaborative UI design, wireframing, and prototyping, as it seamlessly integrates with modern development workflows.",
+  },
+  {
+    id: 3,
+    question: "Do you provide HTML/CSS code or just designs ?",
+    answer:
+      "While this specific service provides Figma files and interactive prototypes (developer handoff assets), our Full Stack development team can absolutely convert these designs into a fully functional product.",
+  },
+  {
+    id: 4,
+    question: "How long does a typical design phase take ?",
+    answer:
+      "A standard MVP app design takes 3 to 4 weeks depending on the complexity of the user flows and the number of screens required.",
+  },
+  
+];
+
+
+
 export default function page() {
   return (
     <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr   ">
@@ -203,7 +234,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-      <Faq />
+       <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

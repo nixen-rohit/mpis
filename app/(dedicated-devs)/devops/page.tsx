@@ -1,5 +1,6 @@
 import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
+
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -101,6 +102,35 @@ const Devops = [
     icon: <FaShieldVirus className="w-7 h-7 text-blue-600" />,
   },
 ];
+
+const faqData = [
+  {
+    id: 1,
+    question: "What exactly does a DevOps engineer do ?",
+    answer:
+      "A DevOps engineer functions as the bridge between software development code and IT infrastructure. They automate testing, cloud hosting, and deployments so developers can focus only on coding. ",
+  },
+  {
+    id: 2,
+    question: "What is CI/CD ?",
+    answer:
+      "Continuous Integration and Continuous Delivery (CI/CD) is an automated process where new code acts as a trigger to compile, run automated bug tests, and deploy to live servers instantly without manual involvement. ",
+  },
+  {
+    id: 3,
+    question: "Do you provide cloud migration services ?",
+    answer:
+      "Yes. We carefully audit, map out, and execute full transitions of legacy servers into managed cloud hubs (AWS, Azure) securely without compromising your active operations.",
+  },
+  {
+    id: 4,
+    question: "Why is containerization (Docker/Kubernetes) important ?",
+    answer:
+      "Containers bundle code and its dependencies perfectly. This ensures that software runs identically on a developer's local machine as it does on a massive global server. ",
+  },
+   
+];
+
 
 export default function page() {
   return (
@@ -204,7 +234,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+       <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }
