@@ -1,5 +1,4 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -103,6 +102,40 @@ const Fintech = [
     icon: <FaShieldAlt className="w-7 h-7 text-blue-600" />,
   },
 ];
+
+const faqData = [
+  {
+    id: 1,
+    question: "Is your payment gateway PCI-DSS compliant ?",
+    answer:
+      "Yes, all our payment solutions are built to PCI-DSS Level 1 standards with tokenization, 3D Secure, and end-to-end encryption.",
+  },
+  {
+    id: 2,
+    question: "Can you integrate with core banking systems ?",
+    answer:
+      "Yes, we have experience integrating with Temenos, Finacle, Oracle FLEXCUBE, and custom core banking platforms via APIs. ",
+  },
+  {
+    id: 3,
+    question: "Do you support crypto and blockchain features ?",
+    answer:
+      "Yes — we build crypto wallets, DeFi platforms, NFT marketplaces, and smart contracts on Ethereum, Solana, and other major chains. ",
+  },
+  {
+    id: 4,
+    question: "How do you handle KYC/AML compliance ?",
+    answer:
+      "We integrate automated KYC/AML solutions including document verification, liveness checks, and real-time sanctions screening.",
+  },
+  {
+    id: 5,
+    question: "What is the typical development timeline for a fintech MVP ?",
+    answer:
+      "A fintech MVP typically takes 12-16 weeks depending on complexity. We follow agile sprints with weekly demos to keep you in the loop. ",
+  },
+];
+
 
 export default function page() {
   return (
@@ -238,7 +271,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

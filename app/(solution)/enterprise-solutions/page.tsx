@@ -1,5 +1,4 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -96,6 +95,39 @@ const WebApps = [
     description:
       "Continuous performance monitoring, framework upgrades, and feature enhancements.",
     icon: <BsTools className="w-7 h-7 text-blue-600" />,
+  },
+];
+
+const faqData = [
+  {
+    id: 1,
+    question: "What is the difference between a Web App and a Website ?",
+    answer:
+      "A website is primarily informational, while a Web App is highly interactive, allowing users to manipulate data, log in securely, and perform continuous complex functions (like Gmail or Netflix).",
+  },
+  {
+    id: 2,
+    question: "Do you build Progressive Web Apps (PWA) ?",
+    answer:
+      "Yes, we specialize in PWAs. This allows your web application to be installed on a mobile device's home screen, work offline, and send push notifications.",
+  },
+  {
+    id: 3,
+    question: "Which framework do you recommend for Web Apps ?",
+    answer:
+      "It depends on your goals. We often use React (Next.js) or Vue.js for highly interactive, UI-heavy frontends, backed by Node.js or Laravel for secure server logic.",
+  },
+  {
+    id: 4,
+    question: "How do you handle high web traffic ?",
+    answer:
+      "We utilize cloud-native horizontal scaling (Load Balancing on AWS or Azure), caching layers like Redis, and Content Delivery Networks (CDNs) to ensure minimal latency globally.",
+  },
+  {
+    id: 5,
+    question: "Do you optimize web applications for Search Engines (SEO) ?",
+    answer:
+      "Yes. For web apps requiring high SEO visibility, we implement Server-Side Rendering (SSR) using frameworks like Next.js, combined with proper semantic HTML and meta tagging.",
   },
 ];
 
@@ -236,7 +268,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

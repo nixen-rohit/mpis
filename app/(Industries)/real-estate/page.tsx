@@ -1,5 +1,5 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
+
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -101,6 +101,40 @@ const RealEstate = [
     icon: <FaMapMarkedAlt className="w-7 h-7 text-blue-600" />,
   },
 ];
+
+const faqData = [
+  {
+    id: 1,
+    question: "Can you build a portal similar to Zillow or MagicBricks ?",
+    answer:
+      "Yes, we specialize in building comprehensive real estate portals with advanced filtering, map search, listing management, and agent profiles.",
+      },
+  {
+    id: 2,
+    question: "Do you support MLS or property data feed integration ?",
+    answer:
+      "Yes, we integrate with RETS/RESO feeds, major MLS platforms, and third-party property data APIs for automated listings.",
+  },
+  {
+    id: 3,
+    question: "How do you implement the virtual tour feature ?",
+    answer:
+      "We use 360° photography integration, Matterport API, and WebGL-based 3D rendering to deliver immersive virtual property tours. ",
+  },
+  {
+    id: 4,
+    question: "Can the CRM integrate with WhatsApp for lead follow-up ?",
+    answer:
+      "Yes, we integrate WhatsApp Business API, email, and SMS into our real estate CRM for multi-channel automated follow-ups.",
+  },
+  {
+    id: 5,
+    question: "How long does it take to build a real estate portal ?",
+    answer:
+      "A fully featured property portal typically takes 12-20 weeks depending on the scope, integrations, and custom features required.",
+  },
+];
+
 
 export default function page() {
   return (
@@ -233,7 +267,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+       <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

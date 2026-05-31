@@ -1,5 +1,4 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -102,6 +101,43 @@ const EComm = [
     icon: <FaChartPie className="w-7 h-7 text-blue-600" />,
   },
 ];
+
+
+const faqData = [
+  {
+    id: 1,
+    question: "Can you build a multi-vendor marketplace like Amazon or Etsy ?",
+    answer:
+      "Yes, we build fully featured multi-vendor marketplaces with vendor onboarding, product listings, commission rules, payouts, and admin controls.",
+  },
+  {
+    id: 2,
+    question: "Which ecommerce platforms do you work with ?",
+    answer:
+      "We work with WooCommerce, Shopify, Magento, and custom-built headless commerce solutions using Next.js, React, and Node.js backends.",
+  },
+  {
+    id: 3,
+    question: "How do you ensure fast page load speeds ?",
+    answer:
+      "We use image optimization, lazy loading, CDN delivery, server-side rendering (SSR), and caching strategies to achieve sub-2-second load times.",
+  },
+  {
+    id: 4,
+    question: "Can you integrate with our existing ERP or inventory system ?",
+    answer:
+      "Yes, we integrate with SAP, Tally, Zoho Inventory, and custom ERP systems via REST APIs for real-time inventory and order synchronization.",
+  },
+  {
+    id: 5,
+    question: "How long does it take to build a custom ecommerce store ?",
+    answer:
+      "A standard branded store takes 6-10 weeks. A full multi-vendor marketplace with custom logic typically takes 16-24 weeks.",
+  },
+];
+
+
+
 export default function page() {
   return (
     <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  ">
@@ -237,7 +273,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+      <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

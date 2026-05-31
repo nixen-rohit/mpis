@@ -1,5 +1,4 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -101,6 +100,40 @@ const ELearn = [
     icon: <FaChartLine className="w-7 h-7 text-blue-600" />,
   },
 ];
+
+const faqData = [
+  {
+    id: 1,
+    question: "Does your LMS support SCORM content ?",
+    answer:
+      "Yes, we fully support SCORM 1.2, SCORM 2004, and xAPI (Tin Can API) for seamless integration with existing course libraries.",
+  },
+  {
+    id: 2,
+    question: "Can learners access courses offline ?",
+    answer:
+      "Yes, our mobile apps support offline content downloads so learners can continue even without an internet connection.",
+  },
+  {
+    id: 3,
+    question: "How do you handle large numbers of concurrent users ?",
+    answer:
+      "We build on scalable cloud infrastructure (AWS/GCP) with auto-scaling groups and CDN-powered video delivery to handle thousands of concurrent learners.",
+  },
+  {
+    id: 4,
+    question: "Can I migrate content from another LMS ?",
+    answer:
+      "Yes, we provide migration services from platforms like Moodle, Canvas, Blackboard, and others with zero data loss.",
+  },
+  {
+    id: 5,
+    question: "Do you provide white-label solutions ?",
+    answer:
+      "Absolutely — fully branded white-label LMS platforms with your own domain, logo, and color scheme are our specialty.",
+  },
+];
+
 
 export default function page() {
   return (
@@ -236,7 +269,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+     <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

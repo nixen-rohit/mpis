@@ -6,7 +6,7 @@ import Navbar from "@/layout/Navbar";
 import { useState } from "react";
 import Preloader from "@/components/Preloader";
 import Footer from "@/layout/Footer";
-
+import WhatsAppFloatingButton from "@/components/custom/WhatsAppFloatingButton";
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      {/* <body
+      <body
         className={`h-full flex flex-col ${
           preloaderDone ? "overflow-auto" : "overflow-hidden"
         }`}
@@ -45,16 +45,26 @@ export default function RootLayout({
           }`}
         >
           <Navbar />
+           <WhatsAppFloatingButton
+                  //without +91
+                  phoneNumber="8076136446"
+                  message="Hi, I visited your website!"
+                />
           {children}
           <Footer />
         </main>
-      </body> */}
+      </body>
 
-      <body>
+      {/* <body>
         <Navbar />
+         <WhatsAppFloatingButton
+                //without +91
+                phoneNumber="8076136446"
+                message="Hi, I visited your website!"
+              />
         {children}
         <Footer />
-      </body>
+      </body> */}
 
 
     </html>

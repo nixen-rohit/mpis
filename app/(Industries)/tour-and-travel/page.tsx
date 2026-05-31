@@ -1,5 +1,5 @@
-import React from "react";
-import Faq from "@/components/Faq";
+import FAQSection from "@/components/custom/FAQSection";
+
 import Consultation from "@/components/Consultation";
 import { Testimonials } from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
@@ -100,6 +100,39 @@ const TourAndTravel = [
     description:
       "Companion apps with offline maps, e-tickets, destination guides, and real-time alerts.",
     icon: <FaMobileAlt className="w-7 h-7 text-blue-600" />,
+  },
+];
+
+const faqData = [
+  {
+    id: 1,
+    question: "Can you integrate with Amadeus or Sabre GDS ?",
+    answer:
+      "Yes, we have certified expertise integrating with Amadeus Web Services, Sabre APIs, and Travelport for real-time flight and hotel inventory.",
+  },
+  {
+    id: 2,
+    question: "Do you support package tour booking with itinerary management ?",
+    answer:
+      "Yes, we build comprehensive package tour systems with dynamic pricing, day-wise itinerary builders, and multi-passenger booking flows.",
+  },
+  {
+    id: 3,
+    question: "Can travelers access bookings and tickets offline ?",
+    answer:
+      "Yes, our traveler apps support offline access to e-tickets, boarding passes, and itineraries with cached destination guides.",
+  },
+  {
+    id: 4,
+  question: "How do you handle multi-currency and international payments ?",
+    answer:
+      "We integrate with Stripe, PayPal, and regional gateways to support 150+ currencies with live exchange rates and PCI-DSS compliance.",
+  },
+  {
+    id: 5,
+    question: "How long does it take to develop a travel booking platform ?",
+    answer:
+      "A full OTA platform typically takes 16-24 weeks. A focused tour operator website with booking can be done in 8-12 weeks.",
   },
 ];
 
@@ -240,7 +273,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-      <Faq />
+       <FAQSection
+      tag="Have Questions?"
+      firstHeading="Frequently Asked"
+      secondHeading="Questions"
+      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+      headingTag="h2"
+      faqs={faqData}
+    />
     </div>
   );
 }

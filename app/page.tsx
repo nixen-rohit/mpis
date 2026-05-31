@@ -18,7 +18,7 @@ import ContactForm from "@/components/ContactForm";
 import TechSection from "@/components/custom/TechSection";
 import Detail from "@/components/Detail";
 import Goals from "@/components/Goals";
-import WhatsAppFloatingButton from "@/components/custom/WhatsAppFloatingButton";
+
 export default function Main() {
   return (
     <div className="min-h-screen w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2]  ">
@@ -40,11 +40,7 @@ export default function Main() {
       <Testimonials />
       <Consultation />
       <Faq />
-      <WhatsAppFloatingButton
-        //without +91
-        phoneNumber="8076136446"
-        message="Hi, I visited your website!"
-      />
+      
     </div>
   );
 }
