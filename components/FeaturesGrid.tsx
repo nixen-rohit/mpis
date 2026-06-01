@@ -341,7 +341,7 @@ export default function FeaturesGrid() {
 
         <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15] w-full wrap-break-word">
           Expert in{" "}
-          <span className="font-serif italic font-light text-zinc-200">
+          <span className="font-serif italic font-light text-blue-500">
             IT & Digital Marketing
           </span>{" "}
           Solutions

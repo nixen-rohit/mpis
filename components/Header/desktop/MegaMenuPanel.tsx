@@ -83,7 +83,7 @@ export function MegaMenuPanel({
                       </span>
                     )}
                     <span className="flex flex-col gap-0.5 min-w-0 flex-1">
-                      <span className="flex items-center gap-1 text-[13px] font-semibold text-gray-800 group-hover/link:text-blue-600 transition-colors leading-tight">
+                      <span className="flex items-center gap-1 text-[13px] font-medium text-gray-800 group-hover/link:text-blue-600 transition-colors leading-tight">
                         {link.label}
                         {link.redirect && (
                           <RiExternalLinkLine className="text-[11px] text-gray-400 group-hover/link:text-blue-600 transition-colors shrink-0" />

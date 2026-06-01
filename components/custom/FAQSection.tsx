@@ -47,7 +47,7 @@ export default function FAQSection({
         {/* Main heading */}
         <h2 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-[#111111] leading-[1.08] sm:leading-[1.04] md:leading-[1.02] max-w-6xl">
           {firstHeading}{" "}
-          <span className="font-serif italic font-light text-[#1c1c1c] block sm:inline">
+          <span className="font-serif italic font-light text-blue-500 block sm:inline">
            {secondHeading}
           </span>
         </h2>

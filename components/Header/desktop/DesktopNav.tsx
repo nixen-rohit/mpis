@@ -40,7 +40,7 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
               onClick={(e) => item.mega && e.preventDefault()}
               className={cn(
                 "flex items-center gap-0.5 px-3 py-2 rounded-lg",
-                "text-sm font-bold text-black",
+                "text-[15px] font-semibold text-black",
                 "hover:text-gray-500 hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap",
               )}
             >

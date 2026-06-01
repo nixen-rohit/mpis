@@ -85,12 +85,12 @@ export default function Insight() {
         </span>
 
         <h2 className="max-w-6xl text-center text-4xl leading-[1.02] tracking-tight text-black sm:text-6xl md:text-7xl lg:text-8xl">
-          Insight <span className=" font-light italic font-serif">&</span>{" "}
-          Updates
+          Insight <span className=" font-light italic font-serif text-blue-500">& Updates</span> 
+          
         </h2>
 
         {/* Supporting description */}
-        <p className="mt-6 max-w-3xl mx-auto text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base">
+        <p className="mt-6 max-w-5xl mx-auto text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base">
           We believe that every business is unique. Our approach to your growth
           is never one-size-fits-all, providing tailored development solutions
           to meet your exact needs.

@@ -1,6 +1,6 @@
 "use client";
 
-import { Poppins, JetBrains_Mono } from "next/font/google";
+import { Poppins, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/layout/Navbar";
 import { useState } from "react";
@@ -8,14 +8,14 @@ import Preloader from "@/components/Preloader";
 import Footer from "@/layout/Footer";
 import WhatsAppFloatingButton from "@/components/custom/WhatsAppFloatingButton";
 const poppins = Poppins({
-  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
 export default function RootLayout({
@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${poppins.variable} ${playfair.variable} h-full antialiased`}
     >
       <body
-        className={`h-full flex flex-col ${
+        className={`h-full font-poppins flex flex-col ${
           preloaderDone ? "overflow-auto" : "overflow-hidden"
         }`}
       >
@@ -55,7 +55,7 @@ export default function RootLayout({
         </main>
       </body>
 
-      {/* <body>
+      {/* <body className="font-poppins">
         <Navbar />
          
         {children}

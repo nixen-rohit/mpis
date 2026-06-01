@@ -133,7 +133,7 @@ function IndustryRow({
         className={`relative z-10 flex-1 text-xl sm:text-2xl font-bold tracking-tight transition-colors duration-300 ${
           isActive ? "text-white" : "text-gray-900"
         } ${alignRight ? "text-right" : "text-left"}`}
-        style={{ fontFamily: "'Georgia', serif" }}
+       
       >
         {item.name}
       </span>
@@ -163,7 +163,7 @@ export default function IndustryGrid() {
   const rightCol = allIndustries.slice(5, 10);
 
   return (
-    <div className="w-full bg-gradient-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] py-14 overflow-hidden">
+    <div className="w-full bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] py-14 overflow-hidden">
       {/* Heading */}
       <div className="mx-auto mb-12 flex max-w-7xl flex-col items-center justify-center md:mb-16 px-4">
         <span className="mb-4 inline-block text-sm font-medium uppercase tracking-[0.2em] text-black sm:text-base">
@@ -220,7 +220,7 @@ export default function IndustryGrid() {
 
           {/* Center: sticky image panel — desktop only */}
           <div className="hidden lg:block w-[320px] xl:w-[380px] sticky top-24 self-center shrink-0">
-            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-blue-200 shadow-xl">
+            <div className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-gray-100 border border-blue-200 shadow-xl">
               {" "}
               <AnimatePresence mode="wait">
                 {activeItem ? (
@@ -239,11 +239,11 @@ export default function IndustryGrid() {
                       sizes="380px"
                       className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
                     <div className="absolute bottom-5 left-5 right-5">
                       <p
                         className="text-white text-xl font-bold"
-                        style={{ fontFamily: "Georgia, serif" }}
+                     
                       >
                         {activeItem.name}
                       </p>
