@@ -1,7 +1,7 @@
 import React from "react";
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import CustomHero from "@/components/custom/CustomHero";
 import ServicePrice from "@/components/ServicePrice";
@@ -105,7 +105,6 @@ const faqData = [
     answer:
       "Our AMS includes 24/7 monitoring, performance optimization, security patching, and release management.",
   },
-   
 ];
 
 export default function page() {
@@ -202,41 +201,40 @@ export default function page() {
 
       {/* tech stack  */}
 
-     <TechSection />
-
+      <TechSection />
 
       <ProjectsSection
-              badgeText="Portfolio"
-              headingText="Some of"
-              headingItalicText="Our Works"
-              headingEndText=""
-              descriptionText="A snapshot of real-world projects we have delivered for clients across the globe."
-              buttonText="View All Projects"
-              buttonLink="/projects"
-              projects={[
-                {
-                  id: 1,
-                  tag: "Enterprise ERP",
-                  title: "Global ERP Management",
-                  img: "/img/project01.webp",
-                  link: "#",
-                },
-                {
-                  id: 2,
-                  tag: "Cloud Apps",
-                  title: "SaaS Platform Operations",
-                  img: "/img/project02.webp",
-                  link: "#",
-                },
-                {
-                  id: 3,
-                  tag: "Finnacial IT",
-                  title: "Banking App Maintenance",
-                  img: "/img/project03.webp",
-                  link: "#",
-                },
-              ]}
-            />
+        badgeText="Portfolio"
+        headingText="Some of"
+        headingItalicText="Our Works"
+        headingEndText=""
+        descriptionText="A snapshot of real-world projects we have delivered for clients across the globe."
+        buttonText="View All Projects"
+        buttonLink="/projects"
+        projects={[
+          {
+            id: 1,
+            tag: "Enterprise ERP",
+            title: "Global ERP Management",
+            img: "/img/project01.webp",
+            link: "#",
+          },
+          {
+            id: 2,
+            tag: "Cloud Apps",
+            title: "SaaS Platform Operations",
+            img: "/img/project02.webp",
+            link: "#",
+          },
+          {
+            id: 3,
+            tag: "Finnacial IT",
+            title: "Banking App Maintenance",
+            img: "/img/project03.webp",
+            link: "#",
+          },
+        ]}
+      />
 
       <ServicePrice />
       <Testimonials />
@@ -244,13 +242,13 @@ export default function page() {
       <Consultation />
       <CtaBanner />
       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

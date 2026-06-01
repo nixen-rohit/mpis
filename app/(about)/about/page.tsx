@@ -10,8 +10,8 @@ import Achievement from "@/components/Achievemen";
 import IndustryMarquee from "@/components/Industry";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { Testimonials } from "@/components/Testimonials";
-
+import Testimonials from "@/components/Testimonials";
+import Strategic from "@/components/Strategic";
 export interface team {
   id: number;
   name: string;
@@ -114,6 +114,7 @@ const page = () => {
           })}
         </div>
       </section>
+       <Strategic />
 
       <CtaBanner />
       <TimelineSection />

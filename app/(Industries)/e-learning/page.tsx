@@ -1,6 +1,6 @@
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -134,7 +134,6 @@ const faqData = [
   },
 ];
 
-
 export default function page() {
   return (
     <div className="bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] r-to-tr  ">
@@ -231,7 +230,7 @@ export default function page() {
 
       {/* tech stack  */}
 
-     <TechSection />
+      <TechSection />
       <ProjectsSection
         badgeText="Portfolio"
         headingText="Some of"
@@ -269,14 +268,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-     <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

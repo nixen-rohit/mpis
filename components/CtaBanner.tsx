@@ -45,8 +45,8 @@ export default function CtaBanner() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            {/* Primary Button */}
+          {/* <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -61,7 +61,7 @@ export default function CtaBanner() {
               </div>
             </motion.button>
 
-            {/* Secondary Button */}
+             
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -75,7 +75,9 @@ export default function CtaBanner() {
                 <ArrowUpRight className="w-4 h-4" />
               </div>
             </motion.button>
-          </div>
+          </div> */}
+
+
         </div>
       </motion.div>
     </section>

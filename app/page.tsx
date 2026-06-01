@@ -1,20 +1,16 @@
 "use client";
 import CtaBanner from "@/components/CtaBanner";
 import FeaturesGrid from "@/components/FeaturesGrid";
-
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import Faq from "@/components/Faq";
 import Consultation from "@/components/Consultation";
-import HomePricing from "@/components/HomePricing";
+
 import Services from "@/components/Services";
 import Hero from "@/components/Hero";
-import VideoShowcase from "@/components/VideoShowcase";
 import WhyChoose from "@/components/WhyChoose";
 import Achievement from "@/components/Achievemen";
-import Strategic from "@/components/Strategic";
 import Insight from "@/components/Insight";
 import Industry from "@/components/Industry";
-import ContactForm from "@/components/ContactForm";
 import TechSection from "@/components/custom/TechSection";
 import Detail from "@/components/Detail";
 import Goals from "@/components/Goals";
@@ -30,17 +26,12 @@ export default function Main() {
       <Achievement />
       <WhyChoose />
       <CtaBanner />
-      <HomePricing />
-      <Insight />
-      <ContactForm />
-      <Strategic />
-      <Services />
-      <VideoShowcase />
       <TechSection />
+      <Services />
+      <Insight />
       <Testimonials />
-      <Consultation />
       <Faq />
-      
+      <Consultation />
     </div>
   );
 }

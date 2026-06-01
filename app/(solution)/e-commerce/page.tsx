@@ -1,6 +1,6 @@
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -102,7 +102,6 @@ const EComm = [
   },
 ];
 
-
 const faqData = [
   {
     id: 1,
@@ -135,8 +134,6 @@ const faqData = [
       "A standard branded store takes 6-10 weeks. A full multi-vendor marketplace with custom logic typically takes 16-24 weeks.",
   },
 ];
-
-
 
 export default function page() {
   return (
@@ -234,7 +231,7 @@ export default function page() {
 
       {/* tech stack  */}
 
-     <TechSection />
+      <TechSection />
 
       <ProjectsSection
         badgeText="Portfolio"
@@ -274,13 +271,13 @@ export default function page() {
       <Consultation />
       <CtaBanner />
       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

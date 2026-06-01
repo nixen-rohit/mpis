@@ -1,251 +1,187 @@
 "use client";
-import React from "react";
-import { motion, Variants } from "framer-motion";
 
-// --- Types ---
-interface Testimonial {
-  text: string;
-  image: string;
-  name: string;
-  role: string;
+import React, { useState, useEffect } from "react";
+import {  ArrowLeft, ArrowRight } from "lucide-react";
+import { FaQuoteLeft } from "react-icons/fa";
+import {
+  testimonialsData,
+  type Testimonial,
+} from "@/components/data/testimonialsData";
+
+interface TestimonialCardProps {
+  item: Testimonial;
 }
 
-// --- Data ---
-const testimonials: Testimonial[] = [
-  {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Briana Patton",
-    role: "Operations Manager",
-  },
-  {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Bilal Ahmed",
-    role: "IT Manager",
-  },
-  {
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Saman Malik",
-    role: "Customer Support Lead",
-  },
-  {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Omar Raza",
-    role: "CEO",
-  },
-  {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    image:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Zainab Hussain",
-    role: "Project Manager",
-  },
-  {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Aliza Khan",
-    role: "Business Analyst",
-  },
-  {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Farhan Siddiqui",
-    role: "Marketing Director",
-  },
-  {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Sana Sheikh",
-    role: "Sales Manager",
-  },
-  {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Hassan Ali",
-    role: "E-commerce Manager",
-  },
-];
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
+export default function Testimonials() {
+  const isMobile = useIsMobile();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-// --- Sub-Components ---
-const TestimonialsColumn = (props: {
-  className?: string;
-  testimonials: Testimonial[];
-  duration?: number;
-}) => {
-  return (
-    <div className={props.className}>
-      <motion.ul
-        animate={{
-          translateY: "-50%",
-        }}
-        transition={{
-          duration: props.duration || 10,
-          repeat: Infinity,
-          ease: "linear",
-          repeatType: "loop",
-        }}
-        className="flex flex-col gap-6 pb-6 bg-transparent transition-colors duration-300 list-none m-0 p-0"
-      >
-        {[
-          ...new Array(2).fill(0).map((_, index) => (
-            <React.Fragment key={index}>
-              {props.testimonials.map(({ text, image, name, role }, i) => (
-                <motion.li
-                  key={`${index}-${i}`}
-                  aria-hidden={index === 1 ? "true" : "false"}
-                  tabIndex={index === 1 ? -1 : 0}
-                  whileHover={{
-                    scale: 1.03,
-                    y: -8,
-                    boxShadow:
-                      "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
-                    transition: { type: "spring", stiffness: 400, damping: 17 },
-                  }}
-                  whileFocus={{
-                    scale: 1.03,
-                    y: -8,
-                    boxShadow:
-                      "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
-                    transition: { type: "spring", stiffness: 400, damping: 17 },
-                  }}
-                  className="p-10 rounded-3xl border border-neutral-200 dark:border-neutral-800 shadow-lg shadow-black/5 max-w-xs w-full bg-white dark:bg-neutral-900 transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30"
-                >
-                  <blockquote className="m-0 p-0">
-                    <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed font-normal m-0 transition-colors duration-300">
-                      {text}
-                    </p>
-                    <footer className="flex items-center gap-3 mt-6">
-                      <img
-                        width={40}
-                        height={40}
-                        src={image}
-                        alt={`Avatar of ${name}`}
-                        className="h-10 w-10 rounded-full object-cover ring-2 ring-neutral-100 dark:ring-neutral-800 group-hover:ring-primary/30 transition-all duration-300 ease-in-out"
-                      />
-                      <div className="flex flex-col">
-                        <cite className="font-semibold not-italic tracking-tight leading-5 text-neutral-900 dark:text-white transition-colors duration-300">
-                          {name}
-                        </cite>
-                        <span className="text-sm leading-5 tracking-tight text-neutral-500 dark:text-neutral-500 mt-0.5 transition-colors duration-300">
-                          {role}
-                        </span>
-                      </div>
-                    </footer>
-                  </blockquote>
-                </motion.li>
-              ))}
-            </React.Fragment>
-          )),
-        ]}
-      </motion.ul>
-    </div>
-  );
-};
+  // Total items and max limits depending on layout
+  const totalItems = testimonialsData.length;
+  const maxIndex = isMobile ? totalItems - 1 : totalItems - 3;
 
-export const Testimonials = () => {
-  // Smooth layout transition variants
-  const slideVariants: Variants = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.16, 1, 0.3, 1],
-        staggerChildren: 0.1,
-      },
-    },
-    exit: { opacity: 0, y: -20, transition: { duration: 0.4, ease: "easeIn" } },
+  // Reset index safely on screen resize
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [isMobile]);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => Math.max(0, prev - 1));
   };
 
-  const itemVariants: Variants = {
-    initial: { opacity: 0, y: 15 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  const handleNext = () => {
+    setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
   };
 
+  // Dynamic style translating percentage base:
+  // Mobile = 100% per card step. Desktop = 33.333% per card step.
+  const translatePercent = isMobile
+    ? currentIndex * 100
+    : currentIndex * (100 / 3);
+
   return (
-    <section
-      aria-labelledby="testimonials-heading"
-      className="py-24 relative overflow-hidden bg-black"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 50, rotate: -2 }}
-        whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{
-          duration: 1.2,
-          ease: [0.16, 1, 0.3, 1],
-          opacity: { duration: 0.8 },
-        }}
-        className="container px-4 z-10 mx-auto"
-      >
-        <div className="flex flex-col items-center justify-center max-w-5xl pb-14 text-center   mx-auto mb-16">
-          <motion.div
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={slideVariants}
+    <section className="bg-black py-16 px-4 min-h-screen flex flex-col justify-center items-center overflow-x-hidden">
+      <div className="max-w-7xl w-full">
+        {/* Header */}
+        <div className="flex flex-col items-center justify-center max-w-5xl pb-14 text-center mx-auto mb-8">
+          <p className="text-zinc-400 font-medium mb-4 tracking-wide">
+           Client Reviews
+          </p>
+          <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-zinc-100 leading-[1.1]">
+            Words from{" "}
+            <span className="font-serif italic font-light text-blue-500 block mt-2">
+              Our Valued Clients
+            </span>
+          </h1>
+          <p className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-zinc-400">
+            Trusted by businesses across India, UAE, Africa & Australia.
+          </p>
+        </div>
+
+        {/* Slider Window Container */}
+        <div className="overflow-hidden w-full   px-1">
+          <div
+            className="flex transition-transform duration-500 ease-out "
+            style={{
+              transform: `translateX(-${translatePercent}%)`,
+            }}
           >
-            {/* Badge */}
-            <p className="text-zinc-500 font-medium mb-4 tracking-wide">
-              Our Clients Testimonials
-            </p>
-
-            {/* Title */}
-
-            <motion.h1
-              variants={itemVariants}
-              className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.1]"
-            >
-              Words from{" "}
-              <span className="font-serif italic font-light text-blue-600 block">
-                Our Valued Clients
-              </span>
-            </motion.h1>
-
-            {/* description */}
-            <motion.p
-              variants={itemVariants}
-              className="mt-6 max-w-2xl mx-auto text-base leading-relaxed text-gray-500 "
-            >
-              Trusted by businesses across India, UAE, Africa & Australia.
-            </motion.p>
-          </motion.div>
+            {testimonialsData.map((item) => (
+              <div key={item.id} className="w-full md:w-1/3 shrink-0 p-3">
+                <TestimonialCard item={item} />
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div
-          className="flex justify-center gap-6 mt-10 mask-[linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[740px] overflow-hidden"
-          role="region"
-          aria-label="Scrolling Testimonials"
-        >
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn
-            testimonials={secondColumn}
-            className="hidden md:block"
-            duration={19}
-          />
-          <TestimonialsColumn
-            testimonials={thirdColumn}
-            className="hidden lg:block"
-            duration={17}
-          />
+        {/* Controls */}
+        <div className="flex flex-col items-center gap-6 mt-8">
+          <div className="flex gap-4">
+            <SliderButton
+              direction="left"
+              onClick={handlePrev}
+              disabled={currentIndex === 0}
+            />
+            <SliderButton
+              direction="right"
+              onClick={handleNext}
+              disabled={currentIndex >= maxIndex}
+            />
+          </div>
+ 
         </div>
-      </motion.div>
+      </div>
     </section>
   );
-};
+}
+
+// --- SUB-COMPONENTS ---
+
+interface SliderButtonProps {
+  direction: "left" | "right";
+  onClick: () => void;
+  disabled: boolean;
+}
+
+function SliderButton({ direction, onClick, disabled }: SliderButtonProps) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={disabled}
+      className="group p-3.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 disabled:opacity-30 disabled:pointer-events-none disabled:scale-100 transition-all duration-200"
+      aria-label={
+        direction === "left" ? "Previous testimonial" : "Next testimonial"
+      }
+    >
+      {direction === "left" ? (
+        <ArrowLeft
+          size={22}
+          className="group-hover:-translate-x-0.5 transition-transform"
+        />
+      ) : (
+        <ArrowRight
+          size={22}
+          className="group-hover:translate-x-0.5 transition-transform"
+        />
+      )}
+    </button>
+  );
+}
+
+function TestimonialCard({ item }: TestimonialCardProps) {
+  return (
+    <div className="bg-[#18181b] rounded-3xl p-8 shadow-[0_4px_30px_rgba(0,0,0,0.3)] border border-zinc-800/80 flex flex-col justify-between h-full min-h-[340px] transition-all hover:border-zinc-700">
+      <div>
+        <div className="text-white/20 text-4xl font-serif leading-none select-none mb-4">
+          <FaQuoteLeft />
+        </div>
+        <div className="flex gap-1 mb-6">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <svg
+              key={i}
+              className="w-5 h-5 text-amber-500 fill-current"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
+        </div>
+        <p className="text-zinc-300 text-[15px] leading-relaxed italic font-normal">
+          &ldquo;{item.content}&rdquo;
+        </p>
+      </div>
+      <div className="mt-8 pt-6 border-t border-zinc-800/80 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-full bg-linear-to-tr from-[#5b31a6] via-[#713fc2] to-[#c14b84] flex items-center justify-center text-white font-bold text-lg shadow-sm">
+            {item.initials}
+          </div>
+          <div>
+            <h4 className="font-bold text-zinc-100 text-[15px] leading-tight">
+              {item.name}
+            </h4>
+            <p className="text-xs text-zinc-400 font-medium mt-0.5">
+              {item.role}
+              {item.company && (
+                <span className="block md:inline">{`, ${item.company}`}</span>
+              )}
+            </p>
+          </div>
+        </div>
+        <span className="text-xs font-bold text-zinc-500 tracking-wider">
+          {item.countryCode}
+        </span>
+      </div>
+    </div>
+  );
+}

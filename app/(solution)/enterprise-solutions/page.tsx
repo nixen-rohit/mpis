@@ -1,6 +1,6 @@
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";

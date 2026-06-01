@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { RiExternalLinkLine } from "react-icons/ri";
 import { MegaMenuData } from "../../data/navdata";
-import { BlogPreviewCard } from "../shared/BlogPreviewCard";
+
 
 interface MegaMenuPanelProps {
   mega: MegaMenuData;
@@ -21,7 +21,7 @@ export function MegaMenuPanel({
   expertiseWidth,
 }: MegaMenuPanelProps) {
   const colCount = mega.columns.length;
-  const hasBlog = !!mega.blogCard;
+  
 
   const alignClass =
     align === "right"
@@ -32,7 +32,7 @@ export function MegaMenuPanel({
 
   
 
-  const totalCols = hasBlog ? colCount + 1 : colCount;
+  const totalCols =  colCount;
   const minWidth = expertiseWidth || serviceWidth || Math.min(totalCols * 215, 920); // Use customWidth if provided
 
   return (
@@ -53,9 +53,7 @@ export function MegaMenuPanel({
       <div
         className="grid gap-0"
         style={{
-          gridTemplateColumns: hasBlog
-            ? `repeat(${colCount}, 1fr) 200px`
-            : `repeat(${colCount}, 1fr)`,
+          gridTemplateColumns: `repeat(${colCount}, 1fr)`,
         }}
       >
         {mega.columns.map((col, ci) => (
@@ -64,7 +62,7 @@ export function MegaMenuPanel({
             className={cn(
               "pr-5",
               ci > 0 && "border-l border-gray-100 pl-5",
-              ci === mega.columns.length - 1 && !hasBlog && "pr-0",
+              ci === mega.columns.length - 1 && "pr-0",
             )}
           >
             <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2.5 pb-2 border-b border-gray-100">
@@ -103,11 +101,7 @@ export function MegaMenuPanel({
             </ul>
           </div>
         ))}
-        {hasBlog && (
-          <div className="border-l border-gray-100 ">
-            <BlogPreviewCard card={mega.blogCard!} />
-          </div>
-        )}
+        
       </div>
     </div>
   );

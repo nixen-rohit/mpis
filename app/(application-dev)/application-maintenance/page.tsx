@@ -1,7 +1,7 @@
 import React from "react";
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import CustomHero from "@/components/custom/CustomHero";
 import CustomCapsule from "@/components/custom/CustomCapsule";
@@ -99,7 +99,6 @@ const AppMaintenanceKey = [
   },
 ];
 
-
 const faqData = [
   {
     id: 1,
@@ -107,9 +106,7 @@ const faqData = [
     answer:
       "Maintenance technically focuses on code updates, bug fixes, and environmental adaptations. Management is broader, including overall operations.",
   },
-  
 ];
-
 
 export default function page() {
   return (
@@ -245,14 +242,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

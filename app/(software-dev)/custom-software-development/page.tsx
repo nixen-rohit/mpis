@@ -1,5 +1,5 @@
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import TechSection from "@/components/custom/TechSection";
 import ServicePrice from "@/components/ServicePrice";
@@ -98,7 +98,6 @@ const CoreCapabilities = [
     icon: <MdRocketLaunch className="h-7 w-7 text-white" />,
   },
 ];
-
 
 const faqData = [
   {
@@ -227,7 +226,7 @@ export default function page() {
 
       {/* tech stack  */}
 
-     <TechSection />
+      <TechSection />
 
       <ProjectsSection
         badgeText="Portfolio"
@@ -267,14 +266,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-     <FAQSection
-           tag="Have Questions?"
-           firstHeading="Frequently Asked"
-           secondHeading="Questions"
-           description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-           headingTag="h2"
-           faqs={faqData}
-         />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

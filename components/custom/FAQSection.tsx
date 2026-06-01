@@ -134,7 +134,7 @@ export default function FAQSection({
         })}
       </div>
 
-      <div className="mt-8 flex flex-col justify-center items-center text-center ">
+      {/* <div className="mt-8 flex flex-col justify-center items-center text-center ">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -149,8 +149,7 @@ export default function FAQSection({
             get back to you as soon as possible!
           </p>
 
-          {/* Center Button */}
-
+        
           <MagneticButton>
             <div className="flex justify-center  ">
               <motion.button
@@ -164,7 +163,7 @@ export default function FAQSection({
             </div>
           </MagneticButton>
         </motion.div>
-      </div>
+      </div> */}
     </section>
   );
 }

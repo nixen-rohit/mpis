@@ -1,6 +1,6 @@
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -101,7 +101,6 @@ const QA = [
   },
 ];
 
-
 const faqData = [
   {
     id: 1,
@@ -126,9 +125,8 @@ const faqData = [
     question: "What is load testing ?",
     answer:
       "Load testing uses automation to simulate thousands of simultaneous users browsing and transacting on your site to see at what point the servers crash, allowing for preventative architecture upgrades.",
-  }
+  },
 ];
-
 
 export default function page() {
   return (
@@ -201,7 +199,7 @@ Quality Control"
             </span>
 
             <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15]">
-              The QA {" "}
+              The QA{" "}
               <span className="font-serif italic font-light text-blue-600">
                 Advantage
               </span>
@@ -227,20 +225,20 @@ Quality Control"
 
       {/* tech stack  */}
 
-     <TechSection />
+      <TechSection />
 
       <ServicePrice />
       <Testimonials />
       <Consultation />
       <CtaBanner />
       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

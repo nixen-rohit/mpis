@@ -1,7 +1,7 @@
 import React from "react";
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import CustomHero from "@/components/custom/CustomHero";
 import ServicePrice from "@/components/ServicePrice";
@@ -106,10 +106,7 @@ const faqData = [
     answer:
       "Native apps offer peak performance, while cross-platform apps save time and budget. We recommend based on your specific use case.",
   },
-   
 ];
-
-
 
 export default function page() {
   return (
@@ -244,14 +241,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-        <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

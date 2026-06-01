@@ -1,7 +1,7 @@
 import React from "react";
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -100,7 +100,6 @@ const SEO = [
   },
 ];
 
-
 const faqData = [
   {
     id: 1,
@@ -132,7 +131,6 @@ const faqData = [
     answer:
       "Yes. For web apps requiring high SEO visibility, we implement Server-Side Rendering (SSR) using frameworks like Next.js, combined with proper semantic HTML and meta tagging.",
   },
-  
 ];
 
 export default function page() {
@@ -230,24 +228,22 @@ export default function page() {
         </div>
       </section>
 
+      {/* tech stack  */}
 
- {/* tech stack  */}
-
-     <TechSection />
-
+      <TechSection />
 
       <ServicePrice />
       <Testimonials />
       <Consultation />
       <CtaBanner />
-       <FAQSection
-            tag="Have Questions?"
-            firstHeading="Frequently Asked"
-            secondHeading="Questions"
-            description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-            headingTag="h2"
-            faqs={faqData}
-          />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

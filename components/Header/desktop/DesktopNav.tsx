@@ -40,8 +40,8 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
               onClick={(e) => item.mega && e.preventDefault()}
               className={cn(
                 "flex items-center gap-0.5 px-3 py-2 rounded-lg",
-                "text-[13.5px] font-medium text-gray-600",
-                "hover:text-gray-900 hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap",
+                "text-sm font-bold text-black",
+                "hover:text-gray-500 hover:bg-gray-50 transition-colors duration-150 whitespace-nowrap",
               )}
             >
               {item.label}
@@ -58,7 +58,7 @@ export function DesktopNav({ navItems, className }: DesktopNavProps) {
                 align={getAlign(i, navItems.length)}
                 
                 serviceWidth={isServices ? 810 : undefined}
-                expertiseWidth={isExpertise ? 750 : undefined}
+                expertiseWidth={isExpertise ? 250 : undefined}
               />
             )}
           </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -96,7 +96,6 @@ const WebAppsKey = [
   },
 ];
 
-
 const faqData = [
   {
     id: 1,
@@ -129,7 +128,6 @@ const faqData = [
       "We utilize cloud-native horizontal scaling (Load Balancing on AWS or Azure), caching layers like Redis, and Content Delivery Networks (CDNs) to ensure minimal latency globally.",
   },
 ];
-
 
 export default function page() {
   return (
@@ -266,13 +264,13 @@ export default function page() {
       <Consultation />
       <CtaBanner />
       <FAQSection
-           tag="Have Questions?"
-           firstHeading="Frequently Asked"
-           secondHeading="Questions"
-           description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-           headingTag="h2"
-           faqs={faqData}
-         />
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

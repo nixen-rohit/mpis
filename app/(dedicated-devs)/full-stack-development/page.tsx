@@ -1,7 +1,7 @@
 import React from "react";
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import CustomCards from "@/components/custom/CustomCards";
 import ServicePrice from "@/components/ServicePrice";
@@ -65,7 +65,8 @@ const FullStack = [
   },
 ];
 
-const FullStackKey = [  {
+const FullStackKey = [
+  {
     id: 1,
     title: "Agile Iteration",
     icon: <BsArrowRepeat className="w-7 h-7 text-white" />,
@@ -95,8 +96,7 @@ const FullStackKey = [  {
     title: "Maintainable Codebases",
     icon: <FaCode className="w-7 h-7 text-white" />,
   },
-   
-]
+];
 
 const faqData = [
   {
@@ -123,9 +123,7 @@ const faqData = [
     answer:
       "Absolutely. Full-stack engineers understand how frontend queries impact the backend database and will utilize proper indexing, caching (Redis), and denormalization to ensure fast load times.",
   },
-   
 ];
-
 
 export default function page() {
   return (
@@ -183,58 +181,54 @@ export default function page() {
         </div>
       </section>
 
-
       {/* custom capsule */}
-      
-            <section className=" py-12 px-6 bg-black">
-              <div className="max-w-6xl mx-auto">
-                {/* Heading */}
-                <div className="mx-auto mb-16 max-w-4xl text-center">
-                  <span className="inline-block mb-3 sm:mb-4 text-xs sm:text-sm md:text-base font-medium tracking-[0.18em] sm:tracking-[0.2em] uppercase text-blue-600">
-                   Core Elements
 
-                  </span>
-      
-                  <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15]">
-                   The Full{" "}
-                    <span className="font-serif italic font-light text-blue-600">
-                    Stack Advantage
-                    </span>
-                  </h1>
-      
-                  <p className="mx-auto mt-6 max-w-3xlm text-base leading-relaxed text-gray-400 sm:text-lg">
-                    Why hiring unified full-stack coders is crucial.
+      <section className=" py-12 px-6 bg-black">
+        <div className="max-w-6xl mx-auto">
+          {/* Heading */}
+          <div className="mx-auto mb-16 max-w-4xl text-center">
+            <span className="inline-block mb-3 sm:mb-4 text-xs sm:text-sm md:text-base font-medium tracking-[0.18em] sm:tracking-[0.2em] uppercase text-blue-600">
+              Core Elements
+            </span>
 
+            <h1 className="text-[clamp(2.25rem,6vw,4.5rem)] font-normal tracking-tight text-white leading-[1.15]">
+              The Full{" "}
+              <span className="font-serif italic font-light text-blue-600">
+                Stack Advantage
+              </span>
+            </h1>
 
-                  </p>
-                </div>
-      
-                {/* Grid */}
-                <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-                  {FullStackKey.map((item) => (
-                    <CustomCapsule
-                      key={item.id}
-                      title={item.title}
-                      icon={item.icon}
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
+            <p className="mx-auto mt-6 max-w-3xlm text-base leading-relaxed text-gray-400 sm:text-lg">
+              Why hiring unified full-stack coders is crucial.
+            </p>
+          </div>
+
+          {/* Grid */}
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {FullStackKey.map((item) => (
+              <CustomCapsule
+                key={item.id}
+                title={item.title}
+                icon={item.icon}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <ServicePrice />
       <Testimonials />
 
       <Consultation />
       <CtaBanner />
-       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

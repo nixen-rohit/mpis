@@ -53,18 +53,11 @@ export interface NavColumn {
   links: NavLink[];
 }
 
-export interface BlogCard {
-  tag: string;
-  title: string;
-  img?: string;
-  excerpt: string;
-  href: string;
-  redirect?: boolean;
-}
+ 
 
 export interface MegaMenuData {
   columns: NavColumn[];
-  blogCard?: BlogCard;
+   
 }
 
 export interface NavItem {
@@ -193,26 +186,7 @@ export const SERVICES_NAV: MegaMenuData = {
 
 export const EXPERTISE_NAV: MegaMenuData = {
   columns: [
-    {
-      heading: "Focus ",
-      links: [
-        {
-          label: "SEO (Search Engine Optimization)",
-          href: "/digital-marketing",
-          icon: <FaSearch />,
-        },
-        {
-          label: "Social Media Marketing",
-          href: "/digital-marketing",
-          icon: <IoPeople />,
-        },
-        {
-          label: "Paid Ads Management",
-          href: "/digital-marketing",
-          icon: <MdLiveTv />,
-        },
-      ],
-    },
+   
     {
       heading: "Solutions ",
       links: [
@@ -247,20 +221,13 @@ export const EXPERTISE_NAV: MegaMenuData = {
         {
           label: "Service Excellence",
 
-          href: "/enterprise-solutions",
+          href: "/digital-marketing",
           icon: <BsFillTrophyFill />,
         },
       ],
     },
   ],
-  blogCard: {
-    tag: "Guide",
-    title: "Partner with Experts",
-    img: "/img/project03.webp",
-    excerpt:
-      "Elevate your business with our tailored digital solutions and industry-leading expertise.",
-    href: "/blog",
-  },
+  
 };
 
 export const INDUSTRIES_NAV: MegaMenuData = {
@@ -307,14 +274,7 @@ export const INDUSTRIES_NAV: MegaMenuData = {
       ],
     },
   ],
-  blogCard: {
-    tag: "Report",
-    title: "A Quick Guide on the Right Software Development",
-    img: "/img/project02.webp",
-    excerpt:
-      "A Quick Guide on the Right Software Development Approach for Enterprises in 2024",
-    href: "/blog",
-  },
+   
 };
 
 export const BLOG_NAV: MegaMenuData = {
@@ -349,14 +309,7 @@ export const BLOG_NAV: MegaMenuData = {
       ],
     },
   ],
-  blogCard: {
-    tag: "Guide",
-    title: "Partner with Experts",
-    img: "/img/project03.webp",
-    excerpt:
-      "Elevate your business with our tailored digital solutions and industry-leading expertise.",
-    href: "/blog",
-  },
+   
 };
 
 export const ABOUT_NAV: MegaMenuData = {
@@ -391,14 +344,7 @@ export const ABOUT_NAV: MegaMenuData = {
       ],
     },
   ],
-  blogCard: {
-    tag: "Report",
-    title: "A Quick Guide on the Right Software Development",
-    img: "/img/project02.webp",
-    excerpt:
-      "A Quick Guide on the Right Software Development Approach for Enterprises in 2024",
-    href: "/blog",
-  },
+  
 };
 
 // ─── Combined Export ───────────────────────────────────────────────────────

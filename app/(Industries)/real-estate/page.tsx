@@ -1,7 +1,7 @@
 import FAQSection from "@/components/custom/FAQSection";
 
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -17,7 +17,7 @@ import {
   FaFileContract,
   FaMapMarkedAlt,
 } from "react-icons/fa";
- 
+
 import { MdOutlineViewInAr } from "react-icons/md";
 import { RiAiGenerate } from "react-icons/ri";
 import { FaFileSignature } from "react-icons/fa6";
@@ -108,7 +108,7 @@ const faqData = [
     question: "Can you build a portal similar to Zillow or MagicBricks ?",
     answer:
       "Yes, we specialize in building comprehensive real estate portals with advanced filtering, map search, listing management, and agent profiles.",
-      },
+  },
   {
     id: 2,
     question: "Do you support MLS or property data feed integration ?",
@@ -134,7 +134,6 @@ const faqData = [
       "A fully featured property portal typically takes 12-20 weeks depending on the scope, integrations, and custom features required.",
   },
 ];
-
 
 export default function page() {
   return (
@@ -267,14 +266,14 @@ export default function page() {
       <Testimonials />
       <Consultation />
       <CtaBanner />
-       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

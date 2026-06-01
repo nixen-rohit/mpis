@@ -1,7 +1,7 @@
 import React from "react";
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -100,7 +100,6 @@ const ELearningKey = [
   },
 ];
 
-
 const faqData = [
   {
     id: 1,
@@ -111,7 +110,8 @@ const faqData = [
   {
     id: 2,
     question: "Do you support SCORM compliance ? ",
-    answer:      "Yes, if you have existing courses authored in tools like Articulate or Captivate, we can implement SCORM or xAPI engines into the LMS to track that data perfectly.",
+    answer:
+      "Yes, if you have existing courses authored in tools like Articulate or Captivate, we can implement SCORM or xAPI engines into the LMS to track that data perfectly.",
   },
   {
     id: 3,
@@ -226,42 +226,40 @@ export default function page() {
 
       {/* tech stack  */}
 
-    <TechSection />
-
-
+      <TechSection />
 
       <ProjectsSection
-              badgeText="Portfolio"
-              headingText="E Learning "
-              headingItalicText="Platforms"
-              headingEndText=""
-              descriptionText="A selection of featured apps we have successfully published on App Stores."
-              buttonText="View All Projects"
-              buttonLink="/projects"
-              projects={[
-                {
-                  id: 1,
-                  tag: "LMS Portal",
-                  title: "SkillSphere HR Portal",
-                  img: "/img/project01.webp",
-                  link: "#",
-                },
-                {
-                  id: 2,
-                  tag: "Course Platform",
-                  title: "CodeAcademy Web",
-                  img: "/img/project02.webp",
-                  link: "#",
-                },
-                {
-                  id: 3,
-                  tag: "K-12 App",
-                  title: "SmartKids iOS/Android",
-                  img: "/img/project03.webp",
-                  link: "#",
-                },
-              ]}
-            />
+        badgeText="Portfolio"
+        headingText="E Learning "
+        headingItalicText="Platforms"
+        headingEndText=""
+        descriptionText="A selection of featured apps we have successfully published on App Stores."
+        buttonText="View All Projects"
+        buttonLink="/projects"
+        projects={[
+          {
+            id: 1,
+            tag: "LMS Portal",
+            title: "SkillSphere HR Portal",
+            img: "/img/project01.webp",
+            link: "#",
+          },
+          {
+            id: 2,
+            tag: "Course Platform",
+            title: "CodeAcademy Web",
+            img: "/img/project02.webp",
+            link: "#",
+          },
+          {
+            id: 3,
+            tag: "K-12 App",
+            title: "SmartKids iOS/Android",
+            img: "/img/project03.webp",
+            link: "#",
+          },
+        ]}
+      />
 
       <ServicePrice />
       <Testimonials />
@@ -269,13 +267,13 @@ export default function page() {
       <Consultation />
       <CtaBanner />
       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }

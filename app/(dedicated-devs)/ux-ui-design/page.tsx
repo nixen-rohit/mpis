@@ -1,6 +1,6 @@
 import FAQSection from "@/components/custom/FAQSection";
 import Consultation from "@/components/Consultation";
-import { Testimonials } from "@/components/Testimonials";
+import Testimonials from "@/components/Testimonials";
 import CtaBanner from "@/components/CtaBanner";
 import ServicePrice from "@/components/ServicePrice";
 import CustomHero from "@/components/custom/CustomHero";
@@ -101,7 +101,6 @@ const UIUXKey = [
   },
 ];
 
-
 const faqData = [
   {
     id: 1,
@@ -127,10 +126,7 @@ const faqData = [
     answer:
       "A standard MVP app design takes 3 to 4 weeks depending on the complexity of the user flows and the number of screens required.",
   },
-  
 ];
-
-
 
 export default function page() {
   return (
@@ -234,14 +230,14 @@ export default function page() {
 
       <Consultation />
       <CtaBanner />
-       <FAQSection
-      tag="Have Questions?"
-      firstHeading="Frequently Asked"
-      secondHeading="Questions"
-      description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
-      headingTag="h2"
-      faqs={faqData}
-    />
+      <FAQSection
+        tag="Have Questions?"
+        firstHeading="Frequently Asked"
+        secondHeading="Questions"
+        description="Everything you need to know about us and our services. Can’t find an answer? Feel free to contact us."
+        headingTag="h2"
+        faqs={faqData}
+      />
     </div>
   );
 }
