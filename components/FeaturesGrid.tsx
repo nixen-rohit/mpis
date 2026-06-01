@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import { ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence, Variants, PanInfo, useMotionValue } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { SERVICES, type Service } from "@/components/data/servicesData";
 
 interface CreativeSliderProps {
@@ -34,39 +34,120 @@ function useCardOffset() {
 function CreativeSlider({ services }: CreativeSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [isHoveringPreview, setIsHoveringPreview] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const dragX = useMotionValue(0);
+  
+  const cardOffset = useCardOffset();
 
+  // Autoplay effect - pauses when any explicit interaction state is true
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || isDragging || isHoveringPreview) return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev >= services.length - 1 ? 0 : prev + 1));
     }, 4000);
 
     return () => clearInterval(interval);
-  }, [services.length, isPaused]);
-  const cardOffset = useCardOffset();
+  }, [services.length, isPaused, isDragging, isHoveringPreview]);
 
-  const handleNext = () => {
-    setIsPaused(true);
-
+  const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev >= services.length - 1 ? 0 : prev + 1));
+  }, [services.length]);
 
-    setTimeout(() => setIsPaused(false), 5000);
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev <= 0 ? services.length - 1 : prev - 1));
+  }, [services.length]);
+
+  // Drag handlers for Swipe navigation
+  const handleDragStart = () => {
+    setIsDragging(true);
+    setIsPaused(true);
+    dragX.set(0);
   };
 
-  const handlePrev = () => {
+  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    setIsDragging(false);
+    setIsPaused(false);
+    
+    // Explicit 50px drag threshold to filter out accidental micro-gestures
+    const threshold = 50;
+    
+    if (info.offset.x > threshold) {
+      handlePrev();
+    } else if (info.offset.x < -threshold) {
+      handleNext();
+    }
+    
+    dragX.set(0);
+  };
+
+  // Hover handlers for the primary viewport container
+  const handleMouseEnter = () => {
     setIsPaused(true);
+  };
 
-    setCurrentIndex((prev) => (prev <= 0 ? services.length - 1 : prev - 1));
+  const handleMouseLeave = () => {
+    if (!isDragging && !isHoveringPreview) {
+      setIsPaused(false);
+    }
+  };
 
-    setTimeout(() => setIsPaused(false), 5000);
+  // Unified hover navigation for Left side preview cards
+  const handleLeftPreviewHover = () => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    
+    setIsHoveringPreview(true);
+    setIsPaused(true);
+    
+    const timeout = setTimeout(() => {
+      handlePrev();
+      // Grace period to let transitions finish smoothly before unpausing
+      setTimeout(() => {
+        setIsHoveringPreview(false);
+        setIsPaused(false);
+      }, 1000);
+    }, 1400); // Premium 400ms confirmation window
+    
+    setHoverTimeout(timeout);
+  };
+
+  // Unified hover navigation for Right side preview cards
+  const handleRightPreviewHover = () => {
+    if (hoverTimeout) clearTimeout(hoverTimeout);
+    
+    setIsHoveringPreview(true);
+    setIsPaused(true);
+    
+    const timeout = setTimeout(() => {
+      handleNext();
+      setTimeout(() => {
+        setIsHoveringPreview(false);
+        setIsPaused(false);
+      }, 1000);
+    }, 1400); // Standardized to 400ms to match the left card behavior
+    
+    setHoverTimeout(timeout);
+  };
+
+  const handlePreviewHoverEnd = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+    
+    setIsHoveringPreview(false);
+    if (!isDragging) {
+      setIsPaused(false);
+    }
   };
 
   const getVisibleCards = () => {
     const total = services.length;
 
     const leftIndex = currentIndex === 0 ? total - 1 : currentIndex - 1;
-
     const rightIndex = currentIndex === total - 1 ? 0 : currentIndex + 1;
 
     return [
@@ -87,39 +168,33 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
   const visibleCards = getVisibleCards();
 
+  const dragConstraints = {
+    left: -100,
+    right: 100,
+  };
+
   return (
-    <div className="relative w-full max-w-7xl mx-auto py-10 px-4 sm:px-6">
-      {/* Desktop Arrows */}
-      <div className="hidden sm:block">
-        <button
-          onClick={handlePrev}
-          aria-label="Previous slide"
-          className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 disabled:opacity-30 disabled:pointer-events-none disabled:scale-100 transition-all duration-200"
-        >
-          <ArrowLeft className="w-6 h-6 text-white" />
-        </button>
-
-        <button
-          onClick={handleNext}
-          aria-label="Next slide"
-          className="absolute right-2 lg:left-auto lg:right-4 top-1/2 -translate-y-1/2 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl hover:bg-white/20 active:scale-95 disabled:opacity-30 disabled:pointer-events-none disabled:scale-100 transition-all duration-200"
-        >
-          <ArrowRight className="w-6 h-6 text-white" />
-        </button>
-      </div>
-
-      {/* Slider viewport container */}
-      <div className="relative flex items-center justify-center min-h-[480px] sm:min-h-[520px] overflow-hidden">
+    <div className="relative w-full max-w-7xl mx-auto py-5 px-4 sm:px-6">
+      {/* Main interaction canvas container */}
+      <div 
+        ref={sliderRef}
+        className="relative flex items-center justify-center min-h-[480px] overflow-hidden"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <AnimatePresence mode="popLayout" initial={false}>
           {visibleCards.map(({ service, position }) => {
             const isMiddle = position === "middle";
             const isLeft = position === "left";
+            const isRight = position === "right";
 
             const xTranslation = isMiddle
               ? 0
               : isLeft
                 ? -cardOffset
                 : cardOffset;
+
+            const isInteractivePreview = !isMiddle && !isDragging;
 
             return (
               <motion.div
@@ -147,27 +222,31 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                   damping: 26,
                 }}
                 className={`absolute flex flex-col justify-between rounded-[28px] backdrop-blur-xl bg-white/5 border w-[85%] xs:w-[75%] sm:w-[340px] md:w-[360px] p-6 sm:p-7
-                  
-                  ${
-                    isMiddle
-                      ? "border-white/20 shadow-[0_20px_50px_rgba(255,255,255,0.08)] bg-white/10 min-h-[400px] md:min-h-[450px]"
-                      : "border-white/5 hidden sm:flex pointer-events-none select-none min-h-[200px] sm:min-h-[250px]"
-                  }
+                  ${isMiddle ? "border-white/20 shadow-[0_20px_50px_rgba(255,255,255,0.08)] bg-white/10 min-h-[400px] md:min-h-[450px]" : "border-white/5 hidden sm:flex min-h-[200px] sm:min-h-[250px]"}
+                  ${isInteractivePreview ? "cursor-pointer hover:scale-90 transition-transform duration-300" : ""}
                 `}
+                onHoverStart={isLeft && isInteractivePreview ? handleLeftPreviewHover : isRight && isInteractivePreview ? handleRightPreviewHover : undefined}
+                onHoverEnd={isInteractivePreview ? handlePreviewHoverEnd : undefined}
+                style={isMiddle && !isDragging ? { x: dragX } : {}}
+                drag={isMiddle ? "x" : false}
+                dragConstraints={dragConstraints}
+                dragElastic={0.2}
+                dragTransition={{ bounceStiffness: 300, bounceDamping: 30 }}
+                onDragStart={isMiddle ? handleDragStart : undefined}
+                onDragEnd={isMiddle ? handleDragEnd : undefined}
+                whileDrag={isMiddle ? { cursor: "grabbing" } : {}}
               >
                 {/* Card Header */}
                 <div className="flex items-center justify-between">
-                  {/* Premium Icon */}
                   <div className="relative group">
-                    {/* Blue Ambient Glow */}
+                    {/* Ambient Glow */}
                     <div className="absolute inset-0 rounded-2xl bg-blue-500/10 blur-2xl opacity-0 transition-all duration-500 group-hover:opacity-100" />
 
-                    {/* Icon Container */}
+                    {/* Icon Base Wrap */}
                     <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl border border-white/8 bg-white/3 backdrop-blur-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.25)] transition-all duration-500 ease-out group-hover:border-blue-400/20 group-hover:bg-blue-500/6 group-hover:translate-y-[-2px] group-hover:shadow-[0_10px_40px_rgba(59,130,246,0.18)]">
-                      {/* Premium Inner Layer */}
                       <div className="absolute inset-px rounded-[15px] bg-linear-to-b from-white/5 to-transparent" />
 
-                      {/* Shine Sweep */}
+                      {/* Animated Shimmer Overlays */}
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div className="absolute inset-y-0 -left-full w-1/2 bg-linear-to-r from-transparent via-white/10 to-transparent skew-x-[-20deg] animate-premium-shine" />
                       </div>
@@ -191,7 +270,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                     </p>
                   </div>
 
-                  {/* Tags Array */}
+                  {/* Categories / Tags Array */}
                   <div
                     className={`mt-4 my-4 transition-opacity duration-300
                       ${isMiddle ? "opacity-100" : "opacity-0"}
@@ -209,6 +288,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                     </div>
                   </div>
 
+                  {/* Primary CTA Action Button */}
                   <motion.a
                     href="#"
                     whileHover={{ scale: 1.02 }}
@@ -233,25 +313,6 @@ function CreativeSlider({ services }: CreativeSliderProps) {
           })}
         </AnimatePresence>
       </div>
-
-      {/* Mobile Bottom Navigation */}
-      <div className="flex sm:hidden items-center justify-center gap-4 mt-8">
-        <button
-          onClick={handlePrev}
-          aria-label="Previous slide"
-          className="flex items-center justify-center w-15 h-15 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
-        >
-          <ArrowLeft className="w-7 h-7 text-white" />
-        </button>
-
-        <button
-          onClick={handleNext}
-          aria-label="Next slide"
-          className="flex items-center justify-center w-15 h-15 rounded-full bg-white/10 border border-white/20 backdrop-blur-xl active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all duration-200"
-        >
-          <ArrowRight className="w-7 h-7 text-white" />
-        </button>
-      </div>
     </div>
   );
 }
@@ -262,15 +323,6 @@ export default function FeaturesGrid() {
     visible: {
       opacity: 1,
       transition: { staggerChildren: 0.12 },
-    },
-  };
-
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
