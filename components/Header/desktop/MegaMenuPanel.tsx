@@ -67,7 +67,7 @@ export function MegaMenuPanel({
               ci === mega.columns.length - 1 && !hasBlog && "pr-0",
             )}
           >
-            <p className="text-[10px] font-black uppercase tracking-widest text-gray-400 mb-2.5 pb-2 border-b border-gray-100">
+            <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2.5 pb-2 border-b border-gray-100">
               {col.heading}
             </p>
             <ul className="flex flex-col gap-0.5">

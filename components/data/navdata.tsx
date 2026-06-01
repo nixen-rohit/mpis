@@ -1,30 +1,42 @@
 // components/header/nav-data.tsx
 "use client";
 
-import {
-  RiSettings3Line,
-  RiGlobalLine,
-  RiSmartphoneLine,
-  RiHeartPulseLine,
-  RiBookOpenLine,
-  RiCodeSSlashLine,
-  RiDatabase2Line,
-  RiFlashlightLine,
-  RiStore2Line,
-  RiTeamLine,
-  RiBrainLine,
-  RiPaletteLine,
-  RiCloudLine,
-  RiShieldCheckLine,
-  RiMoneyDollarCircleLine,
-  RiBuildingLine,
-  RiFlightTakeoffLine,
-  RiArticleLine,
-  RiLightbulbFlashLine,
-  RiNewspaperLine,
-  RiAwardLine,
-  RiBriefcaseLine,
-} from "react-icons/ri";
+ 
+import { IoNewspaperSharp } from "react-icons/io5";
+import { RiLightbulbFlashFill } from "react-icons/ri";
+import { BiSolidNews } from "react-icons/bi";
+import { FaBook } from "react-icons/fa6";
+import { HiBuildingOffice2 } from "react-icons/hi2";
+import { FaGear } from "react-icons/fa6";
+import { TbWorld } from "react-icons/tb";
+import { FaMobileScreenButton } from "react-icons/fa6";;
+import { FaHeartbeat } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
+import { FaTools } from "react-icons/fa";
+import { FaArrowRightArrowLeft } from "react-icons/fa6";
+import { FaShoppingCart } from "react-icons/fa";
+import { FaBusinessTime } from "react-icons/fa";
+import { MdGroups } from "react-icons/md";
+import { RiRobot3Fill } from "react-icons/ri";
+import { IoIosColorPalette } from "react-icons/io";
+import { FaCloudArrowDown } from "react-icons/fa6";
+import { MdDashboardCustomize } from "react-icons/md";
+import { RiTestTubeFill } from "react-icons/ri";
+import { FaSearch } from "react-icons/fa";
+import { IoPeople } from "react-icons/io5";
+import { MdLiveTv } from "react-icons/md";
+import { FaBuildingColumns } from "react-icons/fa6";
+import { FaHospital } from "react-icons/fa";
+import { FaPhotoVideo } from "react-icons/fa";
+import { AiFillControl } from "react-icons/ai";
+import { FaRegWindowRestore } from "react-icons/fa";
+import { BsFillTrophyFill } from "react-icons/bs";
+import { BsPersonVideo } from "react-icons/bs";
+import { RiMoneyRupeeCircleFill } from "react-icons/ri";
+import { BsBuildingsFill } from "react-icons/bs";
+import { FaPlaneDeparture } from "react-icons/fa";
+import { FaSuitcase } from "react-icons/fa";
+
 
 // ─── Types ──────────────────────────────────────────────────────────────────
 
@@ -72,32 +84,32 @@ export const SERVICES_NAV: MegaMenuData = {
         {
           label: "Custom Software",
           href: "/custom-software-development",
-          icon: <RiSettings3Line />,
+          icon: <FaGear />,
         },
         {
           label: "Web Applications",
           href: "/web-application-development",
-          icon: <RiGlobalLine />,
+          icon: <TbWorld />,
         },
         {
           label: "App Development",
           href: "/app-development",
-          icon: <RiSmartphoneLine />,
+          icon: <FaMobileScreenButton />,
         },
         {
           label: "Healthcare Software",
           href: "/healthcare",
-          icon: <RiHeartPulseLine />,
+          icon: <FaHeartbeat />,
         },
         {
           label: "eLearning Platforms",
           href: "/e-learning-development",
-          icon: <RiBookOpenLine />,
+          icon: <BsPersonVideo />,
         },
         {
           label: ".NET Development",
           href: "/net-application-development",
-          icon: <RiCodeSSlashLine />,
+          icon: <FaCode />,
         },
       ],
     },
@@ -107,37 +119,37 @@ export const SERVICES_NAV: MegaMenuData = {
         {
           label: "Web Application",
           href: "/web-application",
-          icon: <RiDatabase2Line />,
+          icon: <TbWorld />,
         },
         {
           label: "Custom Application",
           href: "/custom-application",
-          icon: <RiSettings3Line />,
+          icon: <FaGear />,
         },
         {
           label: "Application Management",
           href: "/application-management",
-          icon: <RiSmartphoneLine />,
+          icon: <FaBusinessTime />,
         },
         {
           label: "Application Maintenance",
           href: "/application-maintenance",
-          icon: <RiFlashlightLine />,
+          icon: <FaTools />,
         },
         {
           label: "Application Integration",
           href: "/application-integration",
-          icon: <RiStore2Line />,
+          icon: <FaArrowRightArrowLeft />,
         },
         {
           label: "Ecommerce Application",
           href: "/e-commerce-application",
-          icon: <RiSmartphoneLine />,
+          icon: <FaShoppingCart />,
         },
         {
           label: "Mobile App Development",
           href: "/mobile-app-development",
-          icon: <RiSmartphoneLine />,
+          icon: <FaMobileScreenButton />,
         },
       ],
     },
@@ -147,32 +159,32 @@ export const SERVICES_NAV: MegaMenuData = {
         {
           label: "Full Stack Teams",
           href: "/full-stack-development",
-          icon: <RiTeamLine />,
+          icon: <MdGroups />,
         },
         {
           label: "SaaS Product Development",
           href: "/saas-product-development",
-          icon: <RiBrainLine />,
+          icon: <MdDashboardCustomize />,
         },
         {
           label: "Artificial Intelligence",
           href: "/artificial-intelligence",
-          icon: <RiBrainLine />,
+          icon: <RiRobot3Fill />,
         },
         {
           label: "UX/UI Designers",
           href: "/ux-ui-design",
-          icon: <RiPaletteLine />,
+          icon: <IoIosColorPalette />,
         },
         {
           label: "DevOps",
           href: "/devops",
-          icon: <RiCloudLine />,
+          icon: <FaCloudArrowDown />,
         },
         {
           label: "QA & Testing",
           href: "/qa-and-testing",
-          icon: <RiShieldCheckLine />,
+          icon: <RiTestTubeFill />,
         },
       ],
     },
@@ -187,17 +199,17 @@ export const EXPERTISE_NAV: MegaMenuData = {
         {
           label: "SEO (Search Engine Optimization)",
           href: "/digital-marketing",
-          icon: <RiBuildingLine />,
+          icon: <FaSearch />,
         },
         {
           label: "Social Media Marketing",
           href: "/digital-marketing",
-          icon: <RiTeamLine />,
+          icon: <IoPeople />,
         },
         {
           label: "Paid Ads Management",
           href: "/digital-marketing",
-          icon: <RiAwardLine />,
+          icon: <MdLiveTv />,
         },
       ],
     },
@@ -207,36 +219,36 @@ export const EXPERTISE_NAV: MegaMenuData = {
         {
           label: "Learning Management Systems",
           href: "/e-learning-development",
-          icon: <RiBuildingLine />,
+          icon: <FaBuildingColumns />,
         },
         {
           label: "Content Management System",
           href: "/e-commerce",
-          icon: <RiTeamLine />,
+          icon: <FaPhotoVideo />,
         },
         {
           label: "HRMS",
 
           href: "/enterprise-solutions",
-          icon: <RiAwardLine />,
+          icon: <FaRegWindowRestore />,
         },
         {
           label: "Healthcare IT",
 
           href: "/healthcare",
-          icon: <RiAwardLine />,
+          icon: <FaHospital />,
         },
         {
           label: "CRM",
 
           href: "/enterprise-solutions",
-          icon: <RiAwardLine />,
+          icon: <AiFillControl />,
         },
         {
           label: "Service Excellence",
 
           href: "/enterprise-solutions",
-          icon: <RiAwardLine />,
+          icon: <BsFillTrophyFill />,
         },
       ],
     },
@@ -260,37 +272,37 @@ export const INDUSTRIES_NAV: MegaMenuData = {
           label: "Healthcare",
 
           href: "/healthcare",
-          icon: <RiHeartPulseLine />,
+          icon: <FaHeartbeat />,
         },
         {
           label: "eLearning",
 
           href: "/e-learning",
-          icon: <RiBookOpenLine />,
+          icon: <BsPersonVideo />,
         },
         {
           label: "Fintech",
 
           href: "/fintech",
-          icon: <RiMoneyDollarCircleLine />,
+          icon: <RiMoneyRupeeCircleFill />,
         },
         {
           label: "Real Estate",
 
           href: "/real-estate",
-          icon: <RiBuildingLine />,
+          icon: <BsBuildingsFill />,
         },
         {
           label: "Tour & Travel",
 
           href: "/tour-and-travel",
-          icon: <RiFlightTakeoffLine />,
+          icon: <FaPlaneDeparture />,
         },
         {
           label: "Ecommerce",
 
           href: "/e-commerce",
-          icon: <RiStore2Line />,
+          icon: <FaShoppingCart />,
         },
       ],
     },
@@ -314,25 +326,25 @@ export const BLOG_NAV: MegaMenuData = {
           label: "Latest Articles",
 
           href: "/blog",
-          icon: <RiArticleLine />,
+          icon: <IoNewspaperSharp />,
         },
         {
           label: "Tech Insights",
 
           href: "/blog",
-          icon: <RiLightbulbFlashLine />,
+          icon: <RiLightbulbFlashFill />,
         },
         {
           label: "Company News",
 
           href: "/blog",
-          icon: <RiNewspaperLine />,
+          icon: <BiSolidNews />,
         },
         {
           label: "Case Studies",
 
           href: "/blog",
-          icon: <RiBookOpenLine />,
+          icon: <FaBook />,
         },
       ],
     },
@@ -356,25 +368,25 @@ export const ABOUT_NAV: MegaMenuData = {
           label: "Our Company",
 
           href: "/about",
-          icon: <RiBuildingLine />,
+          icon: <HiBuildingOffice2 />,
         },
         {
           label: "Leadership Team",
 
           href: "/leadership-team",
-          icon: <RiTeamLine />,
+          icon: <IoPeople />,
         },
         {
           label: "Awards & Recognition",
 
           href: "/awards-recognition",
-          icon: <RiAwardLine />,
+          icon: <BsFillTrophyFill />,
         },
         {
           label: "Careers",
 
           href: "/careers",
-          icon: <RiBriefcaseLine />,
+          icon: <FaSuitcase />,
         },
       ],
     },
