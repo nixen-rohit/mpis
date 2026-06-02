@@ -40,14 +40,12 @@ export default function InfiniteLogo() {
   }, []);
 
   return (
-    <section className="relative h-full w-full overflow-hidden bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] flex flex-col justify-between  select-none">
+    <section className="relative h-full w-full overflow-hidden bg-white  flex flex-col justify-between  select-none">
       {/* Infinite Logo Ticker Section */}
       <div className="w-full max-w-7xl mx-auto mt-20">
         <div className="relative flex items-center justify-center mb-6">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-200/60"></div>
-          </div>
-          <span className="relative bg-transparent px-4   font-base text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base uppercase bg-linear-to-r from-[#fffdf9] via-[#fffdf9] to-[#fffdf9]">
+          
+          <span className="relative bg-transparent px-4   font-semibold text-center  text-base md:text-lg lg:text-xl leading-relaxed   text-gray-800 font-base uppercase ">
             Loved by 1000+ big and small brands around the world
           </span>
         </div>
@@ -66,7 +64,7 @@ export default function InfiniteLogo() {
                 <img
                   src={logo.img}
                   alt={logo.name || "brand logo"}
-                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                  className="w-20 h-20 object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
                 />
               </div>
             ))}
@@ -76,6 +74,3 @@ export default function InfiniteLogo() {
     </section>
   );
 }
-
-
- 

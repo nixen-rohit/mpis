@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import { motion, AnimatePresence, Variants, PanInfo, useMotionValue } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  Variants,
+  PanInfo,
+  useMotionValue,
+} from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { SERVICES, type Service } from "@/components/data/servicesData";
 
@@ -39,7 +45,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
   const [isHoveringPreview, setIsHoveringPreview] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
   const dragX = useMotionValue(0);
-  
+
   const cardOffset = useCardOffset();
 
   // Autoplay effect - pauses when any explicit interaction state is true
@@ -68,19 +74,22 @@ function CreativeSlider({ services }: CreativeSliderProps) {
     dragX.set(0);
   };
 
-  const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+  const handleDragEnd = (
+    event: MouseEvent | TouchEvent | PointerEvent,
+    info: PanInfo,
+  ) => {
     setIsDragging(false);
     setIsPaused(false);
-    
+
     // Explicit 50px drag threshold to filter out accidental micro-gestures
     const threshold = 50;
-    
+
     if (info.offset.x > threshold) {
       handlePrev();
     } else if (info.offset.x < -threshold) {
       handleNext();
     }
-    
+
     dragX.set(0);
   };
 
@@ -98,10 +107,10 @@ function CreativeSlider({ services }: CreativeSliderProps) {
   // Unified hover navigation for Left side preview cards
   const handleLeftPreviewHover = () => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
-    
+
     setIsHoveringPreview(true);
     setIsPaused(true);
-    
+
     const timeout = setTimeout(() => {
       handlePrev();
       // Grace period to let transitions finish smoothly before unpausing
@@ -110,17 +119,17 @@ function CreativeSlider({ services }: CreativeSliderProps) {
         setIsPaused(false);
       }, 1000);
     }, 1400); // Premium 400ms confirmation window
-    
+
     setHoverTimeout(timeout);
   };
 
   // Unified hover navigation for Right side preview cards
   const handleRightPreviewHover = () => {
     if (hoverTimeout) clearTimeout(hoverTimeout);
-    
+
     setIsHoveringPreview(true);
     setIsPaused(true);
-    
+
     const timeout = setTimeout(() => {
       handleNext();
       setTimeout(() => {
@@ -128,7 +137,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
         setIsPaused(false);
       }, 1000);
     }, 1400); // Standardized to 400ms to match the left card behavior
-    
+
     setHoverTimeout(timeout);
   };
 
@@ -137,7 +146,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
       clearTimeout(hoverTimeout);
       setHoverTimeout(null);
     }
-    
+
     setIsHoveringPreview(false);
     if (!isDragging) {
       setIsPaused(false);
@@ -176,7 +185,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
   return (
     <div className="relative w-full max-w-7xl mx-auto py-5 px-4 sm:px-6">
       {/* Main interaction canvas container */}
-      <div 
+      <div
         ref={sliderRef}
         className="relative flex items-center justify-center min-h-[480px] overflow-hidden"
         onMouseEnter={handleMouseEnter}
@@ -205,11 +214,11 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                   x: isLeft ? -cardOffset - 40 : cardOffset + 40,
                 }}
                 animate={{
-                  opacity: isMiddle ? 1 : 0.4,
-                  scale: isMiddle ? 1 : 0.85,
+                  opacity: 1,
+                  scale: 1,
                   x: xTranslation,
                   zIndex: isMiddle ? 20 : 10,
-                  filter: isMiddle ? "blur(0px)" : "blur(2px)",
+                  
                 }}
                 exit={{
                   opacity: 0,
@@ -222,11 +231,21 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                   damping: 26,
                 }}
                 className={`absolute flex flex-col justify-between rounded-[28px] backdrop-blur-xl bg-white/5 border w-[85%] xs:w-[75%] sm:w-[340px] md:w-[360px] p-6 sm:p-7
-                  ${isMiddle ? "border-white/20 shadow-[0_20px_50px_rgba(255,255,255,0.08)] bg-white/10 min-h-[400px] md:min-h-[450px]" : "border-white/5 hidden sm:flex min-h-[200px] sm:min-h-[250px]"}
-                  ${isInteractivePreview ? "cursor-pointer hover:scale-90 transition-transform duration-300" : ""}
+                ${isMiddle
+  ? "border-white/20 shadow-[0_20px_50px_rgba(255,255,255,0.08)] bg-white/10 min-h-[400px] md:min-h-[450px]"
+  : "border-white/10 hidden lg:flex bg-white/10 min-h-[400px] md:min-h-[450px]"
+}
                 `}
-                onHoverStart={isLeft && isInteractivePreview ? handleLeftPreviewHover : isRight && isInteractivePreview ? handleRightPreviewHover : undefined}
-                onHoverEnd={isInteractivePreview ? handlePreviewHoverEnd : undefined}
+                onHoverStart={
+                  isLeft && isInteractivePreview
+                    ? handleLeftPreviewHover
+                    : isRight && isInteractivePreview
+                      ? handleRightPreviewHover
+                      : undefined
+                }
+                onHoverEnd={
+                  isInteractivePreview ? handlePreviewHoverEnd : undefined
+                }
                 style={isMiddle && !isDragging ? { x: dragX } : {}}
                 drag={isMiddle ? "x" : false}
                 dragConstraints={dragConstraints}
@@ -272,9 +291,8 @@ function CreativeSlider({ services }: CreativeSliderProps) {
 
                   {/* Categories / Tags Array */}
                   <div
-                    className={`mt-4 my-4 transition-opacity duration-300
-                      ${isMiddle ? "opacity-100" : "opacity-0"}
-                    `}
+                    className="mt-4 my-4 transition-opacity duration-300"
+                      
                   >
                     <div className="flex flex-wrap gap-2">
                       {service.tags.map((tag) => (

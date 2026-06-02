@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${poppins.variable} ${playfair.variable} h-full antialiased`}
+      className={`${poppins.variable} ${playfair.variable}   antialiased`}
     >
       <body
-        className={`h-full font-poppins flex flex-col ${
+        className={` font-poppins flex flex-col ${
           preloaderDone ? "overflow-auto" : "overflow-hidden"
         }`}
       >
@@ -45,11 +45,11 @@ export default function RootLayout({
           }`}
         >
           <Navbar />
-           <WhatsAppFloatingButton
-                  //without +91
-                  phoneNumber="8076136446"
-                  message="Hi, I visited your website!"
-                />
+          <WhatsAppFloatingButton
+            //without +91
+            phoneNumber="8076136446"
+            message="Hi, I visited your website!"
+          />
           {children}
           <Footer />
         </main>
@@ -61,8 +61,6 @@ export default function RootLayout({
         {children}
         <Footer />
       </body> */}
-
-
     </html>
   );
 }

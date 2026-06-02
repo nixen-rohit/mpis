@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, Variants, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Star } from "lucide-react";
-import InfiniteLogo from "@/components/InfiniteLogo";
+
 
 // Mock data for client logos (using placeholders as seen in the image)
 
@@ -80,7 +80,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden bg-linear-to-tr from-[#f3f8fa] via-[#fffdf9] to-[#fffbf2] flex flex-col justify-between pt-10 md:pt-12 not-last: px-4 sm:px-6 lg:px-8 select-none">
+    <section className="relative h-full w-full overflow-hidden bg-white flex flex-col justify-between pt-10 md:pt-12   px-4 sm:px-6 lg:px-8 select-none">
       {/* Main Hero Content */}
       <motion.div
         initial="hidden"
@@ -97,7 +97,7 @@ export default function Hero() {
             animate="animate"
             exit="exit"
             variants={slideVariants}
-            className="flex flex-col items-center justify-center text-center w-full max-w-[92vw] sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto px-3 sm:px-6 md:px-10 lg:px-12"
+            className="flex flex-col items-center justify-center text-center w-full max-w-3xl md:max-w-4xl lg:max-w-6xl mx-auto px-3 sm:px-6 md:px-10 lg:px-12"
           >
             {/* ── Trending Tag ─────────────────────────────────────── */}
             <motion.div
@@ -122,7 +122,7 @@ export default function Hero() {
             {/* ── Main Heading ─────────────────────────────────────── */}
             <motion.h1
               variants={itemVariants}
-              className=" text-[clamp(2rem,8vw,5.5rem)]  font-normal tracking-tight text-[#111111] leading-[1.3] w-full wrap-break-word hyphens-auto   "
+              className=" text-5xl md:text-6xl lg:text-7xl  font-normal tracking-tight text-[#111111] leading-[1.3] w-full wrap-break-word hyphens-auto   "
             >
               {activeSlide.headingNormal}
               <br />
@@ -190,8 +190,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Endless Scroller Container */}
-      <InfiniteLogo />
+     
     </section>
   );
 }
