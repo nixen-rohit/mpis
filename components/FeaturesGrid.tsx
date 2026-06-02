@@ -25,7 +25,7 @@ function useCardOffset() {
       } else if (window.innerWidth < 1024) {
         setOffset(160);
       } else {
-        setOffset(320);
+        setOffset(400);
       }
     };
 
@@ -311,11 +311,7 @@ function CreativeSlider({ services }: CreativeSliderProps) {
                     href="#"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`group flex items-center justify-between w-full rounded-xl bg-blue-600 px-5 py-3 text-white shadow-[0_10px_40px_rgba(37,99,235,0.35)] transition-all duration-300 hover:opacity-90 ${
-                      isMiddle
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-4 pointer-events-none absolute"
-                    } `}
+                    className="group opacity-100 translate-y-0 flex items-center justify-between w-full rounded-xl bg-blue-600 px-5 py-3 text-white shadow-[0_10px_40px_rgba(37,99,235,0.35)] transition-all duration-300 hover:opacity-90  "
                   >
                     <span className="text-sm sm:text-base font-semibold">
                       Get Started Now
