@@ -45,10 +45,7 @@ export default function RootLayout({
           }`}
         >
           <Navbar />
-          <WhatsAppFloatingButton
-            //without +91
-            phoneNumber="8076136446"
-            message="Hi, I visited your website!"
+          <WhatsAppFloatingButton        
           />
           {children}
           <Footer />

@@ -4,18 +4,22 @@
 
 import Link from "next/link";
 
-type WhatsAppFloatingButtonProps = {
-  phoneNumber: string;
-  message?: string;
-};
 
-export default function WhatsAppFloatingButton({
-  phoneNumber,
-  message = "Hello! I want to know more.",
-}: WhatsAppFloatingButtonProps) {
-  const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${encodeURIComponent(
-    message,
-  )}`;
+
+export default function WhatsAppFloatingButton() {
+  const phoneNumber =
+    process.env.NEXT_PUBLIC_WHATSAPP_PHONE_NUMBER?.trim() || "";
+  const message =
+    process.env.NEXT_PUBLIC_WHATSAPP_MESSAGE?.trim() ||
+    "Hello! I want to know more.";
+
+  const normalizedPhone = phoneNumber.replace(/\D/g, "");
+
+  if (!normalizedPhone) {
+    return null;
+  }
+
+  const whatsappUrl = `https://wa.me/${normalizedPhone.startsWith("91") ? normalizedPhone : `91${normalizedPhone}`}?text=${encodeURIComponent(message)}`;
 
   return (
     <Link
